@@ -1,0 +1,49 @@
+class IMU:
+    def _init_(self):
+        self.AccXcal = 0
+        self.AccYcal = 0
+        self.AccZcal = 0
+
+def readSerialData20():
+    global SerialData
+    serialWorks = False
+    while runApp:
+        ser = []
+        time.sleep(3)
+        try:
+            print("Opening port:", SERIAL_PORT)
+            ser = serial.Serial(SERIAL_PORT, SERIAL_RATE)
+            serialWorks = True
+
+        except serial.SerialException:
+            print("Could not open serial port!")
+            serialWorks = False
+
+        while serialWorks:
+            try:
+                data = ser.read(20)
+                #print(data)
+                if data is not None:
+                    IMU.head = int.from_bytes(data[0:2],"little")
+                    IMU.AccX = int.from_bytes(data[2:4],"little", signed=True) #+-4g obcutljivost 2/(2^16/4)
+                    IMU.AccY = int.from_bytes(data[4:6],"little", signed=True) #stevila so v enotah 1G
+                    IMU.AccZ = int.from_bytes(data[6:8],"little", signed=True)
+                    IMU.GyroX = int.from_bytes(data[8:10],"little", signed=True)
+                    IMU.GyroY = int.from_bytes(data[10:12],"little", signed=True)
+                    IMU.GyroZ = int.from_bytes(data[12:14],"little", signed=True)
+                    IMU.MagX = int.from_bytes(data[14:16],"little", signed=True)
+                    IMU.MagY = int.from_bytes(data[16:18],"little", signed=True)
+                    IMU.MagZ = int.from_bytes(data[18:20],"little", signed=True)
+                    #print(IMU.AccX,IMU.AccY,IMU.AccZ)
+                    SerialData[0] = IMU.AccX
+                    SerialData[1] = IMU.AccY
+                    SerialData[2] = IMU.AccZ
+
+            except serial.SerialException:
+                serialWorks = False
+                print("Closing serial")
+                ser.close()
+
+    if serialWorks == True: #ko serial dela ampak ustavljamo aplikacijo runApp je False
+        print("Closing serial")
+        ser.close()
