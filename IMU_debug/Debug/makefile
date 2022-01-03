@@ -68,8 +68,8 @@ all: main-build
 main-build: IMU_debug.elf secondary-outputs
 
 # Tool invocations
-IMU_debug.elf: $(OBJS) $(USER_OBJS) G:\Microcontrolers\cubeIDE\IMU_debug\STM32F411VETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "IMU_debug.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"G:\Microcontrolers\cubeIDE\IMU_debug\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMU_debug.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+IMU_debug.elf: $(OBJS) $(USER_OBJS) G:\ROBORACER\RoboRacerCode\IMU_debug\STM32F411VETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "IMU_debug.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"G:\ROBORACER\RoboRacerCode\IMU_debug\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMU_debug.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -12,6 +12,7 @@ var debugText = document.getElementById("info");
 var controls = new OrbitControls(camera,renderer.domElement);
 const loader = new GLTFLoader();
 
+var pi = 3.14159265358979323846
 
 const Ambientlight = new THREE.AmbientLight( 0x202020 ); // soft white light
 scene.add( Ambientlight );
@@ -96,9 +97,12 @@ function update_values() {
     var dir = new THREE.Quaternion(res.q2[0],res.q3[0],res.q1[0],res.q0[0]); //zamenjal sem y in z da model narisem pokoncno
     robot0.setRotationFromQuaternion(dir);
     arrowHelperW.setRotationFromQuaternion(dir);
-    arrowHelperMag.setDirection(new THREE.Vector3( res.magx, res.magy, res.magz))
-    debugText.innerHTML = "pitch " + String(res.pitch) + "<br> roll " + String(res.roll) + "<br> yaw " + String(res.yaw)
-    + "<br> poz(ni pravilno racunan)" + String(res.pozX) +","+ String(res.pozY);
+
+    arrowHelperMag.setDirection(new THREE.Vector3( res.magx, res.magz, res.magy))
+
+    debugText.innerHTML = "pitch " + String(res.pitch*(180/pi)) + "<br> roll " + String(res.roll*(180/pi)) + "<br> yaw " + String(res.yaw*(180/pi))
+    + "<br> poz(ni pravilno racunan)" + String(res.pozX) +","+ String(res.pozY)
+    + "<br> X " + String(res.magx) + "<br>Y "  + String(res.magy) + "<br>Z "  + String(res.magz);
 } 
 
 var update = function(){
