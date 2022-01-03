@@ -28,10 +28,12 @@ const arrowHelperX = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new TH
 const arrowHelperY = new THREE.ArrowHelper( new THREE.Vector3( 0, 1, 0) , new THREE.Vector3( 0, 0, 0), 1, 0x00ff00 );
 const arrowHelperZ = new THREE.ArrowHelper( new THREE.Vector3( 0, 0, 1) , new THREE.Vector3( 0, 0, 0), 1, 0x0000ff );
 const arrowHelperW = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xffff00 );
+const arrowHelperMag = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xff00f0 );
 scene.add( arrowHelperX );
 scene.add( arrowHelperY );
 scene.add( arrowHelperZ );
 scene.add( arrowHelperW );
+scene.add( arrowHelperMag );
 
 const geometry = new THREE.BoxGeometry(0.3,0.05,0.5);
 const robot0 = new THREE.Mesh( geometry, new THREE.MeshStandardMaterial( { color: 0x00ff0f } ));
@@ -62,6 +64,11 @@ var res ={
     pitch: 0,
     yaw: 0,
     roll: 0,
+    pozX: 0,
+    pozY: 0,
+    magx: 0,
+    magy: 0,
+    magz: 0,
 }
 
 var JSdata
@@ -79,13 +86,20 @@ function update_values() {
                 res.q1 = data.q1;
                 res.q2 = data.q2;
                 res.q3 = data.q3;
+                res.pozX = data.pozX;
+                res.pozY = data.pozY;
+                res.magx = data.magX;
+                res.magy = data.magY;
+                res.magz = data.magZ;
             }
     );
     var dir = new THREE.Quaternion(res.q2[0],res.q3[0],res.q1[0],res.q0[0]); //zamenjal sem y in z da model narisem pokoncno
     robot0.setRotationFromQuaternion(dir);
     arrowHelperW.setRotationFromQuaternion(dir);
-    debugText.innerHTML = "pitch " + String(res.pitch) + "<br> roll " + String(res.roll) + "<br> yaw " + String(res.yaw);
-}
+    arrowHelperMag.setDirection(new THREE.Vector3( res.magx, res.magy, res.magz))
+    debugText.innerHTML = "pitch " + String(res.pitch) + "<br> roll " + String(res.roll) + "<br> yaw " + String(res.yaw)
+    + "<br> poz(ni pravilno racunan)" + String(res.pozX) +","+ String(res.pozY);
+} 
 
 var update = function(){
     //izracunja orentacijo
