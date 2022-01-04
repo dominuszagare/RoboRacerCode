@@ -400,7 +400,7 @@ int main(void)
 		  else{
 			  ax = ((float)AccF.x) *0.0006103515f;
 			  ay = ((float)AccF.y) *0.0006103515f;
-			  az = ((float)AccF.z) *0.0006103515f;//+-2g  2/(2^16/2)
+			  az = ((float)AccF.z) *0.0006103515f; //+-2g  2/(2^16/2)
 			  normalize_v3f(&ax,&ay,&az);
 		  }
 

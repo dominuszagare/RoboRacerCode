@@ -33,3 +33,27 @@ org.eclipse.core.runtime.CoreException: Target not available.
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
 !SUBENTRY 1 org.eclipse.cdt.dsf 4 10001 2022-01-03 22:24:37.103
 !MESSAGE Target not available.
+!SESSION 2022-01-04 07:36:34.912 -----------------------------------------------
+eclipse.buildId=Version 1.7.0
+java.version=11.0.10
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-01-04 07:36:55.033
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-01-04 07:36:55.233
+!MESSAGE Log4j initialized with config file G:\ROBORACER\RoboRacerCode\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-01-04 07:37:11.604
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-01-04 07:37:58.151
+!MESSAGE Indexed 'RobotFreeRTOS' (52 sources, 149 headers) in 5,75 sec: 16.105 declarations; 89.372 references; 2 unresolved inclusions; 152 syntax errors; 148 unresolved names (0,14%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2022-01-04 11:34:09.976
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-01-04 14:27:16.392
+!MESSAGE Indexed 'Robot' (49 sources, 124 headers) in 5.08 sec: 11,742 declarations; 79,128 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0022%)

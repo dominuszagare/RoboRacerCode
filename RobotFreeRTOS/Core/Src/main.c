@@ -69,13 +69,6 @@ struct robotPayload{
 	uint8_t speed;
 	uint8_t crc; //sestej vse podatke v 16 bitno stevilo in vzami prvih 8 LSB
 } robotPay;
-struct recivedRasberyPiPayload{
-	uint8_t command;
-	uint8_t dummy1;
-	uint8_t dummy2;
-	uint8_t dummy3;
-	uint8_t dummy4;
-}rasberyReq;
 struct SendIMU{
 	uint16_t head;
 	//uint16_t num;
@@ -98,6 +91,11 @@ volatile struct CalculatePoz{
 	float Q1;
 	float Q2;
 	float Q3;
+	float pozX;
+	float pozY;
+	float magX;
+	float magY;
+	float magZ;
 }P;
 volatile struct IMUError{
 	int16_t Gyrox; //drift from 0
@@ -134,12 +132,14 @@ void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi);
 
 #define PI 3.14159265358979323846f
 #define DEG_TO_RAD 0.01745329252f
+
+#define SPI_BUFFER_SIZE 32
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 #define scalePwm(p) ((int16_t)(p*1000))
-#define SPI_BUFFER_SIZE 32
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -162,7 +162,7 @@ osThreadId_t CalculatePozHandle;
 const osThreadAttr_t CalculatePoz_attributes = {
   .name = "CalculatePoz",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityBelowNormal7,
 };
 /* Definitions for ReciveCommandsN */
 osThreadId_t ReciveCommandsNHandle;
@@ -178,9 +178,16 @@ const osThreadAttr_t MotorControl_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for calculatePath */
+osThreadId_t calculatePathHandle;
+const osThreadAttr_t calculatePath_attributes = {
+  .name = "calculatePath",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityBelowNormal6,
+};
 /* USER CODE BEGIN PV */
 nRF24_RXResult pipe;
-volatile uint8_t nRF24_interupt = 0;
+volatile uint8_t nRF24_dataReady = 0;
 volatile uint8_t nRF24_status = 0;
 volatile int payload_length = 6;
 
@@ -189,7 +196,14 @@ volatile uint8_t AccReady = 0;
 volatile uint8_t MagReady = 0;
 volatile uint8_t sendData = 0;
 
-uint32_t rasberyReqSize = 4;
+volatile float Xold = 0.0f;
+volatile float Yold = 0.0f;
+
+volatile int32_t motorRFprevPoz=0;
+volatile int32_t motorLFprevPoz=0;
+volatile int32_t motorRBprevPoz=0;
+volatile int32_t motorLBprevPoz=0;
+
 volatile uint8_t SPIcommandRecived = 0;
 
 volatile uint8_t SpiTxData[SPI_BUFFER_SIZE];
@@ -214,6 +228,7 @@ static void MX_DMA_Init(void);
 void StartCalculatingPoz(void *argument);
 void StartRecivingCommandsNRF24(void *argument);
 void StartMotorControl(void *argument);
+void StartCalculatingPath(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -342,44 +357,7 @@ void speedControl(struct motorData* m, float deltaT){
 //	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
 //}
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-	//kateri pin je poklical EXIT event
-	if(GPIO_Pin == GPIO_PIN_14){
-		nRF24_interupt = 1; //spremenil se je status register pejt pogledat kaj se je zgodilo
-	}
-	else if(GPIO_Pin == GPIO_PIN_15){
-		if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_2)){motorLF.poz--;}
-		else{motorLF.poz++;}
-	}
-	else if(GPIO_Pin == GPIO_PIN_7){
-		if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_5)){motorRF.poz--;}
-		else{motorRF.poz++;}
-	}
-	else if(GPIO_Pin == GPIO_PIN_3){
-		if(HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_11)){motorRB.poz--;}
-		else{motorRB.poz++;}
-	}
-	else if(GPIO_Pin == GPIO_PIN_8){
-		if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_6)){motorLB.poz--;}
-		else{motorLB.poz++;}
-	}
-	else if(GPIO_Pin == GPIO_PIN_1){ //vsakic ko dobis interupt posodobi podatke
-		spi1_beriRegistre(0x28, (uint8_t*)&Gyro, 6);
-		GyroReady = 1; //zastavica da so na voljo novi podatki 200Hz
-	}
-	else if(GPIO_Pin == GPIO_PIN_4){
-		//data ready pospeskometer
-		i2c1_beriRegistre(0x19, 0x28,(uint8_t*)&Acc, 6);
-		AccReady = 1; //200Hz
-	}
-	else if(GPIO_Pin == GPIO_PIN_2){
-		//data ready megnetometer
-		i2c1_beriRegistre(0x1e, 0x68,(uint8_t*)&Mag, 6);
-		MagReady = 1; //100Hz
-	}
 
-}
 void getDrift(){
 	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, 1);
 	int32_t sumGyrox = 0;
@@ -501,6 +479,9 @@ int main(void)
   E.SoftIronMagy = 1;
   E.SoftIronMagz = 1;
 
+  P.pozX = 0;
+  P.pozY = 0;
+
   getDrift();
 
   //HAL_SPI_Receive_DMA(&hspi5, (uint8_t*)&rasberyReq, rasberyReqSize);
@@ -536,6 +517,9 @@ int main(void)
 
   /* creation of MotorControl */
   MotorControlHandle = osThreadNew(StartMotorControl, NULL, &MotorControl_attributes);
+
+  /* creation of calculatePath */
+  calculatePathHandle = osThreadNew(StartCalculatingPath, NULL, &calculatePath_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1134,6 +1118,46 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	//kateri pin je poklical EXIT event
+	if(GPIO_Pin == GPIO_PIN_14){
+		nRF24_dataReady = 1; //spremenil se je status register pejt pogledat kaj se je zgodilo
+	}
+	else if(GPIO_Pin == GPIO_PIN_15){
+		if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_2)){motorLF.poz--;}
+		else{motorLF.poz++;}
+	}
+	else if(GPIO_Pin == GPIO_PIN_7){
+		if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_5)){motorRF.poz--;}
+		else{motorRF.poz++;}
+	}
+	else if(GPIO_Pin == GPIO_PIN_3){
+		if(HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_11)){motorRB.poz--;}
+		else{motorRB.poz++;}
+	}
+	else if(GPIO_Pin == GPIO_PIN_8){
+		if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_6)){motorLB.poz--;}
+		else{motorLB.poz++;}
+	}
+	else if(GPIO_Pin == GPIO_PIN_1){ //vsakic ko dobis interupt posodobi podatke
+		spi1_beriRegistre(0x28, (uint8_t*)&Gyro, 6);
+		GyroReady = 1; //zastavica da so na voljo novi podatki 200Hz
+	}
+	else if(GPIO_Pin == GPIO_PIN_4){
+		//data ready pospeskometer
+		i2c1_beriRegistre(0x19, 0x28,(uint8_t*)&Acc, 6);
+		AccReady = 1; //200Hz
+	}
+	else if(GPIO_Pin == GPIO_PIN_2){
+		//data ready megnetometer
+		i2c1_beriRegistre(0x1e, 0x68,(uint8_t*)&Mag, 6);
+		MagReady = 1; //100Hz
+	}
+
+}
+
+
 void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
 	SPIcommandRecived = 1;
 	//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, 1);
@@ -1161,13 +1185,6 @@ void StartCalculatingPoz(void *argument)
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
   for(;;){
-	  //if(SPIcommandRecived){
-		  //HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13); //oranzna
-		  //SPIcommandRecived=0;
-		  //HAL_SPI_Transmit_DMA(&hspi5, (uint8_t*)&P, 28);
-		  //HAL_SPI_Transmit(&hspi5, (uint8_t*)&P, 28, 1000);
-	  //}
-
 	  if(MagReady){
 		  MagF.x = izracunajPovprecjeInt16(&MagX,Mag.x,10);
 		  MagF.y = izracunajPovprecjeInt16(&MagY,Mag.y,10);
@@ -1175,8 +1192,7 @@ void StartCalculatingPoz(void *argument)
 		  MagReady = 0;
 
 		  P.head = 0xAAAB;
-		  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, 1);
-		  CDC_Transmit_FS((uint8_t*)&P,(sizeof(float)*7)+4);
+		  CDC_Transmit_FS((uint8_t*)&P,(sizeof(float)*12)+4);
 	  }
 	  if(AccReady){
 		  Acc.x -= E.Accx;
@@ -1194,6 +1210,7 @@ void StartCalculatingPoz(void *argument)
 		  GyroF.y = izracunajPovprecjeInt16(&GyroY,Gyro.y,50);
 		  GyroF.z = izracunajPovprecjeInt16(&GyroZ,Gyro.z,50);
 		  GyroReady = 0;
+
 		  //poracunamo podatke
 		  float gx,gy,gz,ax,ay,az,mx,my,mz;
 
@@ -1205,9 +1222,9 @@ void StartCalculatingPoz(void *argument)
 			  normalize_v3f(&ax,&ay,&az);
 		  }
 
-		  gx = ((float)GyroF.x) * 0.0175f * DEG_TO_RAD; //deg/s obcutljivost 500dps
-		  gy = ((float)GyroF.y) * -0.0175f * DEG_TO_RAD;
-		  gz = ((float)GyroF.z) * 0.0175f * DEG_TO_RAD;
+		  gx = ((float)GyroF.x) * 0.0175f * DEG_TO_RAD*2; //deg/s obcutljivost 500dps
+		  gy = ((float)GyroF.y) * -0.0175f * DEG_TO_RAD*2;
+		  gz = ((float)GyroF.z) * 0.0175f * DEG_TO_RAD*2;
 
 		  if(MagF.x == 0 && MagF.y == 0 && MagF.z==0){mx = 0.2f; my = 0.2f; mz = 0.1f;}
 		  else{
@@ -1217,23 +1234,38 @@ void StartCalculatingPoz(void *argument)
 		  }
 		  normalize_v3f(&mx,&my,&mz);
 
-		  MadgwickAHRSupdate(gx,gy,gz,ax,ay,az,mx,my,mz);
-		  P.heading = atan2(2*(q0*q3+q1*q2),1-2*(q2*q2+q3*q3))*(180/PI);
-		  P.roll = atan2(2*(q0*q1+q2*q3),1-2*(q1*q1+q2*q2))*(180/PI);
-		  P.pitch = asin(2*(q0*q2 - q3*q1))*(180/PI);
+		  MadgwickAHRSupdate(gx,gy,gz,ax,ay,az,0,0,0);
+		  P.heading = atan2(2*(q0*q3+q1*q2),1-2*(q2*q2+q3*q3));
+		  P.roll = atan2(2*(q0*q1+q2*q3),1-2*(q1*q1+q2*q2));
+		  P.pitch = asin(2*(q0*q2 - q3*q1));
 		  P.Q0 = q0; P.Q1 = q1; P.Q2 = q2; P.Q3 = q3;
+
+		  //rotiraj po X za roll
+		  ay = ay*cos(-P.roll)-az*sin(P.roll);
+		  az = ay*sin(-P.roll)+az*cos(P.roll);
+		  //rotiraj vektor okoli Y za pitch
+		  ax = ax*cos(-P.pitch)-az*sin(-P.pitch);
+		  az = -ax*sin(-P.pitch)+az*cos(-P.pitch);
+
+		  //pretvorimo v globalni kordinatni sistem
+		  /*
+		  if(ax > 0.0005 || ay > 0.0005){
+			  P.pozX = Xold + 0.5*ax*0.025;
+			  P.pozY = Yold + 0.5*ay*0.025;
+			  Xold = P.pozX;
+			  Yold = P.pozY;
+		  }
+		  */
+
+
+		  P.magX = ax;
+		  P.magY = ay;
+		  P.magZ = az;
 
 		  for(int n=4; n<30; n++){ //pripravi podatke za spi
 			  SpiTxData[n-4] = ((uint8_t*)&P)[n];
 		  }
-		  HAL_SPI_TransmitReceive_DMA(&hspi5, SpiTxData, SpiRxData, 2); //beremo po dva
-		  if(SPIcommandRecived){
-			  SPIcommandRecived = 0;
-			  uint8_t nbytes = SpiRxData[0];
-			  if(nbytes){
-				  HAL_SPI_TransmitReceive_DMA(&hspi5, SpiTxData, SpiRxData, nbytes);
-			  }
-		  }
+
 	  }
 
 	  osDelay(1);
@@ -1254,10 +1286,10 @@ void StartRecivingCommandsNRF24(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  if(nRF24_interupt && nRF24_status){
+	  if(nRF24_dataReady && nRF24_status){
 		  uint8_t status = nRF24_GetStatus();
 		  nRF24_ClearIRQFlags();
-		  nRF24_interupt = 0;
+		  nRF24_dataReady = 0;
 		  if (status != nRF24_STATUS_RXFIFO_EMPTY) {
 			  //HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
 
@@ -1316,6 +1348,30 @@ void StartMotorControl(void *argument)
 	  osDelay(10);
   }
   /* USER CODE END StartMotorControl */
+}
+
+/* USER CODE BEGIN Header_StartCalculatingPath */
+/**
+* @brief Function implementing the calculatePath thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartCalculatingPath */
+void StartCalculatingPath(void *argument)
+{
+  /* USER CODE BEGIN StartCalculatingPath */
+  /* Infinite loop */
+  for(;;)
+  {
+
+	  float pot = (float)(motorRF.poz - motorRFprevPoz);
+	  pot *= PI*0.003f;
+	  motorRFprevPoz = motorRF.poz;
+	  P.pozX += sin(P.heading) * pot;
+	  P.pozY += cos(P.heading) * pot;
+	  osDelay(100);
+  }
+  /* USER CODE END StartCalculatingPath */
 }
 
 /**

@@ -96,12 +96,14 @@ function update_values() {
     );
     var dir = new THREE.Quaternion(res.q2[0],res.q3[0],res.q1[0],res.q0[0]); //zamenjal sem y in z da model narisem pokoncno
     robot0.setRotationFromQuaternion(dir);
+    robot0.position.copy( new THREE.Vector3( res.pozX, 0, res.pozY));
+    robot0.updateMatrix ();
     arrowHelperW.setRotationFromQuaternion(dir);
 
     arrowHelperMag.setDirection(new THREE.Vector3( res.magx, res.magz, res.magy))
 
     debugText.innerHTML = "pitch " + String(res.pitch*(180/pi)) + "<br> roll " + String(res.roll*(180/pi)) + "<br> yaw " + String(res.yaw*(180/pi))
-    + "<br> poz(ni pravilno racunan)" + String(res.pozX) +","+ String(res.pozY)
+    + "<br> pozX" + String(res.pozX) +"<br> pozY"+ String(res.pozY)
     + "<br> X " + String(res.magx) + "<br>Y "  + String(res.magy) + "<br>Z "  + String(res.magz);
 } 
 
