@@ -1140,3 +1140,1474 @@
 2022-01-04 14:29:47,501 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
 2022-01-04 14:29:47,506 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
 2022-01-04 14:29:47,506 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-04 14:53:33,924 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 759453408 Bytes (1027604480)
+2022-01-04 14:53:36,273 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 653241832 Bytes (1027604480)
+2022-01-04 14:55:31,217 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 668996320 Bytes (1027604480)
+2022-01-04 14:55:31,753 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-04 14:55:31,754 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-04 14:55:31,754 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_OTG_FS
+2022-01-04 14:55:31,754 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-04 14:55:31,754 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-04 14:55:31,754 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: DMA
+2022-01-04 14:55:31,754 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-04 14:55:31,754 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-04 14:55:31,754 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_DEVICE
+2022-01-04 14:55:31,754 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2S
+2022-01-04 14:55:31,754 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-04 14:55:31,755 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-04 14:55:31,755 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-04 14:55:31,755 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-04 14:55:31,756 [INFO] CodeGenerator:663 - code generatio: config db path: D:\WindowsPrograms\STM32CUBE\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2022-01-04 14:55:31,784 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-04 14:55:31,784 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-04 14:55:31,806 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-04 14:55:31,806 [INFO] Argument:296 - 	 sub Args: 
+2022-01-04 14:55:31,806 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream3
+2022-01-04 14:55:31,806 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream3
+2022-01-04 14:55:31,806 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-04 14:55:31,806 [INFO] Argument:296 - 	 sub Args: 
+2022-01-04 14:55:31,806 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-04 14:55:31,806 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-04 14:55:31,807 [INFO] Argument:294 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-04 14:55:31,807 [INFO] Argument:304 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-04 14:55:31,807 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-04 14:55:31,807 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-04 14:55:31,807 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-04 14:55:31,807 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-04 14:55:31,807 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-04 14:55:31,807 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-04 14:55:31,807 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-04 14:55:31,807 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-04 14:55:31,807 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-04 14:55:31,807 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-04 14:55:31,808 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-04 14:55:31,808 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-04 14:55:31,808 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-04 14:55:31,808 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-04 14:55:31,808 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-04 14:55:31,808 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-04 14:55:31,808 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-04 14:55:31,808 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-04 14:55:31,808 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-04 14:55:31,808 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-04 14:55:31,808 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-04 14:55:31,808 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-04 14:55:31,808 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-04 14:55:31,808 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-04 14:55:31,808 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-04 14:55:31,809 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-04 14:55:31,809 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-04 14:55:31,809 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-04 14:55:31,809 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-04 14:55:31,809 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-04 14:55:31,809 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-04 14:55:31,809 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-04 14:55:31,809 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-04 14:55:31,809 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-04 14:55:31,809 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-04 14:55:31,809 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-04 14:55:31,810 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-04 14:55:31,810 [INFO] Argument:296 - 	 sub Args: 
+2022-01-04 14:55:31,810 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream4
+2022-01-04 14:55:31,810 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream4
+2022-01-04 14:55:31,810 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-04 14:55:31,810 [INFO] Argument:296 - 	 sub Args: 
+2022-01-04 14:55:31,811 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-04 14:55:31,811 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-04 14:55:31,811 [INFO] Argument:294 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-04 14:55:31,811 [INFO] Argument:304 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-04 14:55:31,811 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-04 14:55:31,811 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-04 14:55:31,811 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-04 14:55:31,811 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-04 14:55:31,811 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-04 14:55:31,811 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-04 14:55:31,811 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-04 14:55:31,811 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-04 14:55:31,811 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-04 14:55:31,811 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-04 14:55:31,812 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-04 14:55:31,812 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-04 14:55:31,812 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-04 14:55:31,812 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-04 14:55:31,812 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-04 14:55:31,812 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-04 14:55:31,812 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-04 14:55:31,812 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-04 14:55:31,812 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-04 14:55:31,812 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-04 14:55:31,812 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-04 14:55:31,812 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-04 14:55:31,812 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-04 14:55:31,812 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-04 14:55:31,813 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-04 14:55:31,813 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-04 14:55:31,813 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-04 14:55:31,813 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-04 14:55:31,813 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-04 14:55:31,813 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-04 14:55:31,813 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-04 14:55:31,813 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-04 14:55:31,813 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-04 14:55:31,813 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-04 14:55:31,813 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-04 14:55:31,813 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-04 14:55:32,778 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\license.tmp_save
+2022-01-04 14:55:32,863 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\license.tmp
+2022-01-04 14:55:33,056 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\gpio.tmp_save
+2022-01-04 14:55:33,132 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\gpio.tmp
+2022-01-04 14:55:33,385 [WARN] IPConfigManager:2738 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2022-01-04 14:55:33,391 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2022-01-04 14:55:33,439 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_vars.tmp
+2022-01-04 14:55:33,441 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2022-01-04 14:55:33,484 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_inc.tmp
+2022-01-04 14:55:33,486 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2022-01-04 14:55:33,604 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2022-01-04 14:55:33,607 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2022-01-04 14:55:33,691 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_Msp.tmp
+2022-01-04 14:55:35,427 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma.tmp_save
+2022-01-04 14:55:35,473 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma.tmp
+2022-01-04 14:55:35,476 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma_GV.tmp_save
+2022-01-04 14:55:35,517 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma_GV.tmp
+2022-01-04 14:55:35,533 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-04 14:55:35,537 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.c_save
+2022-01-04 14:55:35,592 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.c
+2022-01-04 14:55:35,595 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.h_save
+2022-01-04 14:55:35,648 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.h
+2022-01-04 14:55:35,651 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.h_save
+2022-01-04 14:55:35,704 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.h
+2022-01-04 14:55:35,706 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.c_save
+2022-01-04 14:55:35,779 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.c
+2022-01-04 14:55:35,781 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.h_save
+2022-01-04 14:55:35,835 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.h
+2022-01-04 14:55:35,838 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.c_save
+2022-01-04 14:55:35,913 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.c
+2022-01-04 14:55:35,917 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.h_save
+2022-01-04 14:55:35,985 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.h
+2022-01-04 14:55:35,988 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.c_save
+2022-01-04 14:55:36,076 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.c
+2022-01-04 14:55:36,091 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_it.c_save
+2022-01-04 14:55:36,236 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_it.c
+2022-01-04 14:55:36,240 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_it.h_save
+2022-01-04 14:55:36,310 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_it.h
+2022-01-04 14:55:36,329 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_msp.c_save
+2022-01-04 14:55:36,506 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_msp.c
+2022-01-04 14:55:36,509 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\system.tmp_save
+2022-01-04 14:55:36,557 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\system.tmp
+2022-01-04 14:55:36,559 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2022-01-04 14:55:36,643 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_timebase_tim.c
+2022-01-04 14:55:36,648 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_hal_conf.h_save
+2022-01-04 14:55:36,723 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_hal_conf.h
+2022-01-04 14:55:36,758 [WARN] IPConfigManager:3148 - IP not found : TIM
+2022-01-04 14:55:36,759 [WARN] CodeGenerator:3268 - IP not found : null
+2022-01-04 14:55:36,764 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\main.h_save
+2022-01-04 14:55:36,829 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\main.h
+2022-01-04 14:55:36,831 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\main.c_save
+2022-01-04 14:55:36,989 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\main.c
+2022-01-04 14:55:37,827 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 77mS.
+2022-01-04 14:55:37,832 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2022-01-04 14:55:38,445 [INFO] ConfigFileManager:1271 - The Die is : DIE431
+2022-01-04 14:55:40,886 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 3054mS.
+2022-01-04 14:55:40,887 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 1mS.
+2022-01-04 14:55:40,890 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2022-01-04 15:51:50,657 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 909726648 Bytes (1047527424)
+2022-01-04 15:51:52,190 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 679354280 Bytes (1047527424)
+2022-01-04 15:51:56,338 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 781066152 Bytes (1047527424)
+2022-01-04 15:51:56,856 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-04 15:51:56,857 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-04 15:51:56,857 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_OTG_FS
+2022-01-04 15:51:56,857 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-04 15:51:56,857 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-04 15:51:56,857 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: DMA
+2022-01-04 15:51:56,857 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-04 15:51:56,857 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-04 15:51:56,857 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_DEVICE
+2022-01-04 15:51:56,857 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2S
+2022-01-04 15:51:56,857 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-04 15:51:56,859 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-04 15:51:56,859 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-04 15:51:56,859 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-04 15:51:56,859 [INFO] CodeGenerator:663 - code generatio: config db path: D:\WindowsPrograms\STM32CUBE\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2022-01-04 15:51:56,897 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-04 15:51:56,897 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-04 15:51:56,918 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-04 15:51:56,918 [INFO] Argument:296 - 	 sub Args: 
+2022-01-04 15:51:56,918 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream3
+2022-01-04 15:51:56,918 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream3
+2022-01-04 15:51:56,918 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-04 15:51:56,918 [INFO] Argument:296 - 	 sub Args: 
+2022-01-04 15:51:56,918 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-04 15:51:56,918 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-04 15:51:56,918 [INFO] Argument:294 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-04 15:51:56,919 [INFO] Argument:304 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-04 15:51:56,919 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-04 15:51:56,919 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-04 15:51:56,919 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-04 15:51:56,919 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-04 15:51:56,919 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-04 15:51:56,919 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-04 15:51:56,919 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-04 15:51:56,919 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-04 15:51:56,919 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-04 15:51:56,919 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-04 15:51:56,919 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-04 15:51:56,919 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-04 15:51:56,919 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-04 15:51:56,919 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-04 15:51:56,920 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-04 15:51:56,920 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-04 15:51:56,921 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-04 15:51:56,921 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-04 15:51:56,921 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-04 15:51:56,921 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-04 15:51:56,921 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-04 15:51:56,921 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-04 15:51:56,921 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-04 15:51:56,922 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-04 15:51:56,922 [INFO] Argument:296 - 	 sub Args: 
+2022-01-04 15:51:56,922 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream4
+2022-01-04 15:51:56,922 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream4
+2022-01-04 15:51:56,922 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-04 15:51:56,922 [INFO] Argument:296 - 	 sub Args: 
+2022-01-04 15:51:56,922 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-04 15:51:56,922 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-04 15:51:56,922 [INFO] Argument:294 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-04 15:51:56,923 [INFO] Argument:304 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-04 15:51:56,923 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-04 15:51:56,923 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-04 15:51:56,923 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-04 15:51:56,923 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-04 15:51:56,923 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-04 15:51:56,923 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-04 15:51:56,923 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-04 15:51:56,923 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-04 15:51:56,923 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-04 15:51:56,923 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-04 15:51:56,923 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-04 15:51:56,923 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-04 15:51:56,924 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-04 15:51:56,924 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-04 15:51:56,924 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-04 15:51:56,924 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-04 15:51:56,924 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-04 15:51:56,924 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-04 15:51:56,924 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-04 15:51:56,924 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-04 15:51:56,924 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-04 15:51:56,924 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-04 15:51:56,924 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-04 15:51:56,924 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-04 15:51:56,924 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-04 15:51:56,924 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-04 15:51:56,925 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-04 15:51:56,925 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-04 15:51:56,925 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-04 15:51:56,925 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-04 15:51:56,925 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-04 15:51:56,925 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-04 15:51:56,925 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-04 15:51:56,925 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-04 15:51:56,925 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-04 15:51:56,925 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-04 15:51:57,997 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\license.tmp_save
+2022-01-04 15:51:58,055 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\license.tmp
+2022-01-04 15:51:58,193 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\gpio.tmp_save
+2022-01-04 15:51:58,292 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\gpio.tmp
+2022-01-04 15:51:58,535 [WARN] IPConfigManager:2738 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2022-01-04 15:51:58,541 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2022-01-04 15:51:58,588 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_vars.tmp
+2022-01-04 15:51:58,590 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2022-01-04 15:51:58,635 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_inc.tmp
+2022-01-04 15:51:58,637 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2022-01-04 15:51:58,690 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2022-01-04 15:51:58,691 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2022-01-04 15:51:58,754 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_Msp.tmp
+2022-01-04 15:52:00,735 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma.tmp_save
+2022-01-04 15:52:00,828 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma.tmp
+2022-01-04 15:52:00,830 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma_GV.tmp_save
+2022-01-04 15:52:00,883 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma_GV.tmp
+2022-01-04 15:52:00,903 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-04 15:52:00,912 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.c_save
+2022-01-04 15:52:01,003 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.c
+2022-01-04 15:52:01,007 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.h_save
+2022-01-04 15:52:01,076 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.h
+2022-01-04 15:52:01,078 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.h_save
+2022-01-04 15:52:01,132 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.h
+2022-01-04 15:52:01,135 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.c_save
+2022-01-04 15:52:01,218 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.c
+2022-01-04 15:52:01,220 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.h_save
+2022-01-04 15:52:01,282 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.h
+2022-01-04 15:52:01,286 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.c_save
+2022-01-04 15:52:01,391 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.c
+2022-01-04 15:52:01,396 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.h_save
+2022-01-04 15:52:01,504 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.h
+2022-01-04 15:52:01,509 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.c_save
+2022-01-04 15:52:01,606 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.c
+2022-01-04 15:52:01,644 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_it.c_save
+2022-01-04 15:52:01,771 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_it.c
+2022-01-04 15:52:01,776 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_it.h_save
+2022-01-04 15:52:01,845 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_it.h
+2022-01-04 15:52:01,856 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_msp.c_save
+2022-01-04 15:52:02,028 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_msp.c
+2022-01-04 15:52:02,032 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\system.tmp_save
+2022-01-04 15:52:02,106 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\system.tmp
+2022-01-04 15:52:02,111 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2022-01-04 15:52:02,255 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_timebase_tim.c
+2022-01-04 15:52:02,263 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_hal_conf.h_save
+2022-01-04 15:52:02,371 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_hal_conf.h
+2022-01-04 15:52:02,425 [WARN] IPConfigManager:3148 - IP not found : TIM
+2022-01-04 15:52:02,426 [WARN] CodeGenerator:3268 - IP not found : null
+2022-01-04 15:52:02,432 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\main.h_save
+2022-01-04 15:52:02,570 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\main.h
+2022-01-04 15:52:02,575 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\main.c_save
+2022-01-04 15:52:02,800 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\main.c
+2022-01-04 15:52:03,823 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 72mS.
+2022-01-04 15:52:03,828 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2022-01-04 15:52:04,313 [INFO] ConfigFileManager:1271 - The Die is : DIE431
+2022-01-04 15:52:06,939 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 3111mS.
+2022-01-04 15:52:06,941 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 1mS.
+2022-01-04 15:52:06,945 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2022-01-05 10:52:05,188 [INFO] I2sManager:626 - 1.6E8
+2022-01-05 10:52:05,188 [INFO] I2sManager:179 - I2S Clock Value : 1.6E8
+2022-01-05 10:52:05,189 [INFO] I2sManager:520 - AudioClock : 48076Divider : 6Odd : 1
+2022-01-05 10:52:05,190 [INFO] I2sManager:626 - 1.6E8
+2022-01-05 10:52:05,190 [INFO] I2sManager:179 - I2S Clock Value : 1.6E8
+2022-01-05 10:52:05,190 [INFO] I2sManager:520 - AudioClock : 48076Divider : 6Odd : 1
+2022-01-05 10:52:58,241 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 789632032 Bytes (1073741824)
+2022-01-05 10:53:50,204 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 825466344 Bytes (1073741824)
+2022-01-05 10:53:51,308 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 684973024 Bytes (1073741824)
+2022-01-05 10:53:55,437 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 841210848 Bytes (1073741824)
+2022-01-05 10:53:55,885 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 10:53:55,885 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 10:53:55,885 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_OTG_FS
+2022-01-05 10:53:55,886 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-05 10:53:55,886 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 10:53:55,886 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: DMA
+2022-01-05 10:53:55,886 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-05 10:53:55,886 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-05 10:53:55,886 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_DEVICE
+2022-01-05 10:53:55,886 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2S
+2022-01-05 10:53:55,886 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-05 10:53:55,887 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-05 10:53:55,887 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-05 10:53:55,887 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-05 10:53:55,888 [INFO] CodeGenerator:663 - code generatio: config db path: D:\WindowsPrograms\STM32CUBE\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2022-01-05 10:53:55,898 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 10:53:55,898 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 10:53:55,918 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-05 10:53:55,919 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 10:53:55,919 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream3
+2022-01-05 10:53:55,919 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream3
+2022-01-05 10:53:55,919 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-05 10:53:55,919 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 10:53:55,919 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 10:53:55,919 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 10:53:55,919 [INFO] Argument:294 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-05 10:53:55,919 [INFO] Argument:304 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-05 10:53:55,919 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 10:53:55,919 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 10:53:55,919 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 10:53:55,919 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 10:53:55,919 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 10:53:55,920 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 10:53:55,920 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 10:53:55,920 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 10:53:55,920 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 10:53:55,920 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 10:53:55,920 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 10:53:55,920 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 10:53:55,920 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 10:53:55,920 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 10:53:55,920 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-05 10:53:55,920 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-05 10:53:55,920 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-05 10:53:55,920 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-05 10:53:55,920 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-05 10:53:55,920 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-05 10:53:55,921 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-05 10:53:55,921 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-05 10:53:55,921 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-05 10:53:55,921 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-05 10:53:55,921 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-05 10:53:55,921 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-05 10:53:55,921 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-05 10:53:55,921 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-05 10:53:55,921 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 10:53:55,922 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 10:53:55,922 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 10:53:55,922 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 10:53:55,922 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-05 10:53:55,922 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-05 10:53:55,922 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-05 10:53:55,922 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-05 10:53:55,923 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-05 10:53:55,924 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 10:53:55,924 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream4
+2022-01-05 10:53:55,924 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream4
+2022-01-05 10:53:55,924 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-05 10:53:55,924 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 10:53:55,924 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 10:53:55,924 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 10:53:55,924 [INFO] Argument:294 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-05 10:53:55,925 [INFO] Argument:304 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-05 10:53:55,925 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 10:53:55,925 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 10:53:55,925 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 10:53:55,925 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 10:53:55,925 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 10:53:55,925 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 10:53:55,925 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 10:53:55,925 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 10:53:55,925 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 10:53:55,925 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 10:53:55,925 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 10:53:55,926 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 10:53:55,926 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 10:53:55,926 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 10:53:55,926 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-05 10:53:55,926 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-05 10:53:55,926 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-05 10:53:55,926 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-05 10:53:55,926 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-05 10:53:55,926 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-05 10:53:55,926 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-05 10:53:55,926 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-05 10:53:55,926 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-05 10:53:55,926 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-05 10:53:55,926 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-05 10:53:55,926 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-05 10:53:55,927 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-05 10:53:55,927 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-05 10:53:55,927 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 10:53:55,927 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 10:53:55,927 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 10:53:55,927 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 10:53:55,927 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-05 10:53:55,927 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-05 10:53:55,927 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-05 10:53:55,927 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-05 10:53:57,208 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\license.tmp_save
+2022-01-05 10:53:57,250 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\license.tmp
+2022-01-05 10:53:57,405 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\gpio.tmp_save
+2022-01-05 10:53:57,455 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\gpio.tmp
+2022-01-05 10:53:57,797 [WARN] IPConfigManager:2738 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2022-01-05 10:53:57,810 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2022-01-05 10:53:57,855 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_vars.tmp
+2022-01-05 10:53:57,858 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2022-01-05 10:53:57,904 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_inc.tmp
+2022-01-05 10:53:57,923 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2022-01-05 10:53:57,976 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2022-01-05 10:53:57,994 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2022-01-05 10:53:58,127 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_Msp.tmp
+2022-01-05 10:54:01,125 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma.tmp_save
+2022-01-05 10:54:01,177 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma.tmp
+2022-01-05 10:54:01,178 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma_GV.tmp_save
+2022-01-05 10:54:01,221 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma_GV.tmp
+2022-01-05 10:54:01,235 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-05 10:54:01,242 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.c_save
+2022-01-05 10:54:01,321 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.c
+2022-01-05 10:54:01,323 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.h_save
+2022-01-05 10:54:01,384 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.h
+2022-01-05 10:54:01,388 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.h_save
+2022-01-05 10:54:01,445 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.h
+2022-01-05 10:54:01,449 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.c_save
+2022-01-05 10:54:01,533 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.c
+2022-01-05 10:54:01,537 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.h_save
+2022-01-05 10:54:01,594 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.h
+2022-01-05 10:54:01,597 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.c_save
+2022-01-05 10:54:01,671 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.c
+2022-01-05 10:54:01,675 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.h_save
+2022-01-05 10:54:01,735 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.h
+2022-01-05 10:54:01,739 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.c_save
+2022-01-05 10:54:01,815 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.c
+2022-01-05 10:54:01,829 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_it.c_save
+2022-01-05 10:54:01,936 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_it.c
+2022-01-05 10:54:01,938 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_it.h_save
+2022-01-05 10:54:01,995 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_it.h
+2022-01-05 10:54:02,026 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_msp.c_save
+2022-01-05 10:54:02,239 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_msp.c
+2022-01-05 10:54:02,244 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\system.tmp_save
+2022-01-05 10:54:02,381 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\system.tmp
+2022-01-05 10:54:02,388 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2022-01-05 10:54:02,522 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_timebase_tim.c
+2022-01-05 10:54:02,533 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_hal_conf.h_save
+2022-01-05 10:54:02,713 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_hal_conf.h
+2022-01-05 10:54:02,800 [WARN] IPConfigManager:3148 - IP not found : TIM
+2022-01-05 10:54:02,803 [WARN] CodeGenerator:3268 - IP not found : null
+2022-01-05 10:54:02,811 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\main.h_save
+2022-01-05 10:54:02,897 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\main.h
+2022-01-05 10:54:02,921 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\main.c_save
+2022-01-05 10:54:03,108 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\main.c
+2022-01-05 10:54:04,175 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 145mS.
+2022-01-05 10:54:04,228 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2022-01-05 10:54:05,182 [INFO] ConfigFileManager:1271 - The Die is : DIE431
+2022-01-05 10:54:07,985 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 3757mS.
+2022-01-05 10:54:07,986 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2022-01-05 10:54:07,992 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2022-01-05 11:00:34,744 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 852983808 Bytes (1073741824)
+2022-01-05 11:00:36,636 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 723758736 Bytes (1073741824)
+2022-01-05 11:00:40,743 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 698243440 Bytes (1073741824)
+2022-01-05 11:00:41,372 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 11:00:41,372 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 11:00:41,372 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_OTG_FS
+2022-01-05 11:00:41,372 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-05 11:00:41,372 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 11:00:41,372 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: DMA
+2022-01-05 11:00:41,372 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-05 11:00:41,373 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-05 11:00:41,373 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_DEVICE
+2022-01-05 11:00:41,373 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2S
+2022-01-05 11:00:41,373 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-05 11:00:41,374 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-05 11:00:41,374 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-05 11:00:41,374 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-05 11:00:41,375 [INFO] CodeGenerator:663 - code generatio: config db path: D:\WindowsPrograms\STM32CUBE\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2022-01-05 11:00:41,390 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 11:00:41,390 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 11:00:41,415 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-05 11:00:41,415 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 11:00:41,415 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream3
+2022-01-05 11:00:41,415 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream3
+2022-01-05 11:00:41,415 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-05 11:00:41,415 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 11:00:41,415 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 11:00:41,415 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 11:00:41,415 [INFO] Argument:294 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-05 11:00:41,416 [INFO] Argument:304 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-05 11:00:41,416 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 11:00:41,416 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 11:00:41,417 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 11:00:41,420 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 11:00:41,420 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 11:00:41,420 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 11:00:41,420 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 11:00:41,421 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 11:00:41,421 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 11:00:41,421 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 11:00:41,421 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 11:00:41,421 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 11:00:41,421 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 11:00:41,421 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 11:00:41,421 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-05 11:00:41,421 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-05 11:00:41,421 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-05 11:00:41,421 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 11:00:41,422 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 11:00:41,423 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 11:00:41,423 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-05 11:00:41,423 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-05 11:00:41,423 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-05 11:00:41,423 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-05 11:00:41,424 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-05 11:00:41,424 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 11:00:41,424 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream4
+2022-01-05 11:00:41,424 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream4
+2022-01-05 11:00:41,424 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-05 11:00:41,424 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 11:00:41,424 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 11:00:41,425 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 11:00:41,425 [INFO] Argument:294 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-05 11:00:41,425 [INFO] Argument:304 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-05 11:00:41,425 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 11:00:41,425 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 11:00:41,425 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 11:00:41,425 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 11:00:41,425 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 11:00:41,425 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 11:00:41,425 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 11:00:41,425 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 11:00:41,425 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 11:00:41,426 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 11:00:41,426 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 11:00:41,426 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 11:00:41,426 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 11:00:41,426 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 11:00:41,426 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-05 11:00:41,426 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-05 11:00:41,426 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-05 11:00:41,426 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-05 11:00:41,426 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-05 11:00:41,426 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-05 11:00:41,426 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-05 11:00:41,427 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-05 11:00:41,427 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-05 11:00:41,427 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-05 11:00:41,427 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-05 11:00:41,427 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-05 11:00:41,427 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-05 11:00:41,427 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-05 11:00:41,427 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 11:00:41,427 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 11:00:41,427 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 11:00:41,428 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 11:00:41,428 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-05 11:00:41,428 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-05 11:00:41,428 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-05 11:00:41,428 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-05 11:00:42,441 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\license.tmp_save
+2022-01-05 11:00:42,527 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\license.tmp
+2022-01-05 11:00:42,636 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\gpio.tmp_save
+2022-01-05 11:00:42,692 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\gpio.tmp
+2022-01-05 11:00:42,950 [WARN] IPConfigManager:2738 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2022-01-05 11:00:42,956 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2022-01-05 11:00:43,000 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_vars.tmp
+2022-01-05 11:00:43,001 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2022-01-05 11:00:43,057 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_inc.tmp
+2022-01-05 11:00:43,059 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2022-01-05 11:00:43,121 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2022-01-05 11:00:43,123 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2022-01-05 11:00:43,179 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_Msp.tmp
+2022-01-05 11:00:45,180 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma.tmp_save
+2022-01-05 11:00:45,254 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma.tmp
+2022-01-05 11:00:45,257 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma_GV.tmp_save
+2022-01-05 11:00:45,332 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma_GV.tmp
+2022-01-05 11:00:45,347 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-05 11:00:45,353 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.c_save
+2022-01-05 11:00:45,419 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.c
+2022-01-05 11:00:45,421 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.h_save
+2022-01-05 11:00:45,475 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.h
+2022-01-05 11:00:45,477 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.h_save
+2022-01-05 11:00:45,533 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.h
+2022-01-05 11:00:45,536 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.c_save
+2022-01-05 11:00:45,610 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.c
+2022-01-05 11:00:45,613 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.h_save
+2022-01-05 11:00:45,666 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.h
+2022-01-05 11:00:45,668 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.c_save
+2022-01-05 11:00:45,731 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.c
+2022-01-05 11:00:45,733 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.h_save
+2022-01-05 11:00:45,792 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.h
+2022-01-05 11:00:45,795 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.c_save
+2022-01-05 11:00:45,871 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.c
+2022-01-05 11:00:45,884 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_it.c_save
+2022-01-05 11:00:46,366 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_it.c
+2022-01-05 11:00:46,370 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_it.h_save
+2022-01-05 11:00:46,438 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_it.h
+2022-01-05 11:00:46,456 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_msp.c_save
+2022-01-05 11:00:46,640 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_msp.c
+2022-01-05 11:00:46,642 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\system.tmp_save
+2022-01-05 11:00:46,696 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\system.tmp
+2022-01-05 11:00:46,699 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2022-01-05 11:00:46,766 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_timebase_tim.c
+2022-01-05 11:00:46,772 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_hal_conf.h_save
+2022-01-05 11:00:46,846 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_hal_conf.h
+2022-01-05 11:00:46,883 [WARN] IPConfigManager:3148 - IP not found : TIM
+2022-01-05 11:00:46,884 [WARN] CodeGenerator:3268 - IP not found : null
+2022-01-05 11:00:46,889 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\main.h_save
+2022-01-05 11:00:46,951 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\main.h
+2022-01-05 11:00:46,954 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\main.c_save
+2022-01-05 11:00:47,101 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\main.c
+2022-01-05 11:00:48,008 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 145mS.
+2022-01-05 11:00:48,023 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2022-01-05 11:00:48,705 [INFO] ConfigFileManager:1271 - The Die is : DIE431
+2022-01-05 11:00:51,263 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 3240mS.
+2022-01-05 11:00:51,264 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 1mS.
+2022-01-05 11:00:51,268 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2022-01-05 11:05:23,553 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 838511280 Bytes (1073741824)
+2022-01-05 11:05:24,929 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 863154864 Bytes (1073741824)
+2022-01-05 11:05:29,095 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 725362504 Bytes (1073741824)
+2022-01-05 11:05:29,745 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 11:05:29,745 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 11:05:29,745 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_OTG_FS
+2022-01-05 11:05:29,746 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-05 11:05:29,746 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 11:05:29,746 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: DMA
+2022-01-05 11:05:29,746 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-05 11:05:29,746 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-05 11:05:29,746 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_DEVICE
+2022-01-05 11:05:29,746 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2S
+2022-01-05 11:05:29,746 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-05 11:05:29,747 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-05 11:05:29,747 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-05 11:05:29,748 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-05 11:05:29,748 [INFO] CodeGenerator:663 - code generatio: config db path: D:\WindowsPrograms\STM32CUBE\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2022-01-05 11:05:29,765 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 11:05:29,765 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 11:05:29,799 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-05 11:05:29,799 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 11:05:29,799 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream3
+2022-01-05 11:05:29,799 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream3
+2022-01-05 11:05:29,799 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-05 11:05:29,799 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 11:05:29,800 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 11:05:29,800 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 11:05:29,800 [INFO] Argument:294 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-05 11:05:29,800 [INFO] Argument:304 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-05 11:05:29,800 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 11:05:29,800 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 11:05:29,800 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 11:05:29,801 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 11:05:29,801 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 11:05:29,801 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 11:05:29,801 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 11:05:29,801 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 11:05:29,802 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 11:05:29,802 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 11:05:29,802 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 11:05:29,802 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 11:05:29,802 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 11:05:29,803 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 11:05:29,803 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-05 11:05:29,803 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-05 11:05:29,803 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-05 11:05:29,803 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-05 11:05:29,803 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-05 11:05:29,804 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-05 11:05:29,804 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-05 11:05:29,804 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-05 11:05:29,804 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-05 11:05:29,804 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-05 11:05:29,804 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-05 11:05:29,804 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-05 11:05:29,805 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-05 11:05:29,805 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-05 11:05:29,805 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 11:05:29,805 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 11:05:29,805 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 11:05:29,805 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 11:05:29,805 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-05 11:05:29,806 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-05 11:05:29,806 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-05 11:05:29,806 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-05 11:05:29,808 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-05 11:05:29,808 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 11:05:29,808 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream4
+2022-01-05 11:05:29,808 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream4
+2022-01-05 11:05:29,808 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-05 11:05:29,808 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 11:05:29,809 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 11:05:29,809 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 11:05:29,809 [INFO] Argument:294 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-05 11:05:29,809 [INFO] Argument:304 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-05 11:05:29,809 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 11:05:29,809 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 11:05:29,809 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 11:05:29,809 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 11:05:29,810 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 11:05:29,810 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 11:05:29,810 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 11:05:29,810 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 11:05:29,810 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 11:05:29,810 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 11:05:29,810 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 11:05:29,810 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 11:05:29,811 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 11:05:29,811 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 11:05:29,811 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-05 11:05:29,811 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-05 11:05:29,811 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-05 11:05:29,811 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-05 11:05:29,811 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-05 11:05:29,812 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-05 11:05:29,812 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-05 11:05:29,812 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-05 11:05:29,812 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-05 11:05:29,812 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-05 11:05:29,812 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-05 11:05:29,812 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-05 11:05:29,812 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-05 11:05:29,813 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-05 11:05:29,813 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 11:05:29,813 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 11:05:29,813 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 11:05:29,813 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 11:05:29,813 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-05 11:05:29,813 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-05 11:05:29,813 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-05 11:05:29,814 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-05 11:05:30,938 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\license.tmp_save
+2022-01-05 11:05:31,008 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\license.tmp
+2022-01-05 11:05:31,147 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\gpio.tmp_save
+2022-01-05 11:05:31,252 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\gpio.tmp
+2022-01-05 11:05:31,635 [WARN] IPConfigManager:2738 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2022-01-05 11:05:31,640 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2022-01-05 11:05:31,685 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_vars.tmp
+2022-01-05 11:05:31,687 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2022-01-05 11:05:31,753 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_inc.tmp
+2022-01-05 11:05:31,755 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2022-01-05 11:05:31,805 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2022-01-05 11:05:31,807 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2022-01-05 11:05:31,867 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_Msp.tmp
+2022-01-05 11:05:33,942 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma.tmp_save
+2022-01-05 11:05:33,991 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma.tmp
+2022-01-05 11:05:33,993 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma_GV.tmp_save
+2022-01-05 11:05:34,031 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma_GV.tmp
+2022-01-05 11:05:34,044 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-05 11:05:34,048 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.c_save
+2022-01-05 11:05:34,107 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.c
+2022-01-05 11:05:34,109 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.h_save
+2022-01-05 11:05:34,171 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.h
+2022-01-05 11:05:34,174 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.h_save
+2022-01-05 11:05:34,271 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.h
+2022-01-05 11:05:34,276 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.c_save
+2022-01-05 11:05:34,561 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.c
+2022-01-05 11:05:34,572 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.h_save
+2022-01-05 11:05:34,697 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.h
+2022-01-05 11:05:34,702 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.c_save
+2022-01-05 11:05:34,836 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.c
+2022-01-05 11:05:34,840 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.h_save
+2022-01-05 11:05:34,939 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.h
+2022-01-05 11:05:34,943 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.c_save
+2022-01-05 11:05:35,058 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.c
+2022-01-05 11:05:35,075 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_it.c_save
+2022-01-05 11:05:35,175 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_it.c
+2022-01-05 11:05:35,177 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_it.h_save
+2022-01-05 11:05:35,233 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_it.h
+2022-01-05 11:05:35,249 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_msp.c_save
+2022-01-05 11:05:35,392 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_msp.c
+2022-01-05 11:05:35,394 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\system.tmp_save
+2022-01-05 11:05:35,441 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\system.tmp
+2022-01-05 11:05:35,443 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2022-01-05 11:05:35,499 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_timebase_tim.c
+2022-01-05 11:05:35,504 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_hal_conf.h_save
+2022-01-05 11:05:35,571 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_hal_conf.h
+2022-01-05 11:05:35,612 [WARN] IPConfigManager:3148 - IP not found : TIM
+2022-01-05 11:05:35,613 [WARN] CodeGenerator:3268 - IP not found : null
+2022-01-05 11:05:35,618 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\main.h_save
+2022-01-05 11:05:35,677 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\main.h
+2022-01-05 11:05:35,680 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\main.c_save
+2022-01-05 11:05:35,831 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\main.c
+2022-01-05 11:05:37,297 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 112mS.
+2022-01-05 11:05:37,304 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2022-01-05 11:05:37,998 [INFO] ConfigFileManager:1271 - The Die is : DIE431
+2022-01-05 11:05:40,912 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 3608mS.
+2022-01-05 11:05:40,914 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 1mS.
+2022-01-05 11:05:40,926 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2022-01-05 11:21:58,136 [INFO] I2sManager:626 - 1.6E8
+2022-01-05 11:21:58,137 [INFO] I2sManager:179 - I2S Clock Value : 1.6E8
+2022-01-05 11:21:58,137 [INFO] I2sManager:520 - AudioClock : 48076Divider : 6Odd : 1
+2022-01-05 11:22:32,506 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 701198904 Bytes (1073741824)
+2022-01-05 11:22:34,221 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 705320976 Bytes (1073741824)
+2022-01-05 11:22:41,224 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 715149184 Bytes (1073741824)
+2022-01-05 11:22:41,891 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 11:22:41,891 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 11:22:41,891 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_OTG_FS
+2022-01-05 11:22:41,891 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-05 11:22:41,891 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 11:22:41,892 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: DMA
+2022-01-05 11:22:41,892 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-05 11:22:41,892 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-05 11:22:41,892 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_DEVICE
+2022-01-05 11:22:41,892 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-05 11:22:41,895 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-05 11:22:41,895 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-05 11:22:41,896 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-05 11:22:41,897 [INFO] CodeGenerator:663 - code generatio: config db path: D:\WindowsPrograms\STM32CUBE\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2022-01-05 11:22:41,916 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 11:22:41,916 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 11:22:41,954 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-05 11:22:41,954 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 11:22:41,954 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream3
+2022-01-05 11:22:41,954 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream3
+2022-01-05 11:22:41,955 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-05 11:22:41,955 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 11:22:41,955 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 11:22:41,955 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 11:22:41,955 [INFO] Argument:294 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-05 11:22:41,955 [INFO] Argument:304 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-05 11:22:41,956 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 11:22:41,956 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 11:22:41,956 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 11:22:41,956 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 11:22:41,956 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 11:22:41,956 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 11:22:41,957 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 11:22:41,957 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 11:22:41,957 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 11:22:41,957 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 11:22:41,957 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 11:22:41,957 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 11:22:41,958 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 11:22:41,958 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 11:22:41,958 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-05 11:22:41,958 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-05 11:22:41,958 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-05 11:22:41,958 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-05 11:22:41,959 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-05 11:22:41,959 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-05 11:22:41,959 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-05 11:22:41,959 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-05 11:22:41,960 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-05 11:22:41,960 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-05 11:22:41,960 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-05 11:22:41,960 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-05 11:22:41,960 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-05 11:22:41,961 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-05 11:22:41,961 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 11:22:41,961 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 11:22:41,961 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 11:22:41,961 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 11:22:41,961 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-05 11:22:41,961 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-05 11:22:41,961 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-05 11:22:41,962 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-05 11:22:41,963 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-05 11:22:41,964 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 11:22:41,964 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream4
+2022-01-05 11:22:41,964 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream4
+2022-01-05 11:22:41,964 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-05 11:22:41,964 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 11:22:41,964 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 11:22:41,964 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 11:22:41,964 [INFO] Argument:294 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-05 11:22:41,964 [INFO] Argument:304 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-05 11:22:41,965 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 11:22:41,965 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 11:22:41,965 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 11:22:41,965 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 11:22:41,965 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 11:22:41,965 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 11:22:41,965 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 11:22:41,965 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 11:22:41,965 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 11:22:41,965 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 11:22:41,966 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 11:22:41,966 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 11:22:41,966 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 11:22:41,966 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 11:22:41,966 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-05 11:22:41,966 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-05 11:22:41,966 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-05 11:22:41,966 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-05 11:22:41,966 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-05 11:22:41,966 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-05 11:22:41,966 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-05 11:22:41,967 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-05 11:22:41,967 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-05 11:22:41,967 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-05 11:22:41,967 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-05 11:22:41,967 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-05 11:22:41,967 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-05 11:22:41,967 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-05 11:22:41,967 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 11:22:41,967 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 11:22:41,967 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 11:22:41,967 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 11:22:41,968 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-05 11:22:41,968 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-05 11:22:41,968 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-05 11:22:41,968 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-05 11:22:43,027 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\license.tmp_save
+2022-01-05 11:22:43,094 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\license.tmp
+2022-01-05 11:22:43,230 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\gpio.tmp_save
+2022-01-05 11:22:43,307 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\gpio.tmp
+2022-01-05 11:22:43,615 [WARN] IPConfigManager:2738 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2022-01-05 11:22:43,620 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2022-01-05 11:22:43,664 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_vars.tmp
+2022-01-05 11:22:43,665 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2022-01-05 11:22:43,721 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_inc.tmp
+2022-01-05 11:22:43,723 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2022-01-05 11:22:43,778 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2022-01-05 11:22:43,780 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2022-01-05 11:22:43,841 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\usb_otg_fs_Msp.tmp
+2022-01-05 11:22:45,646 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma.tmp_save
+2022-01-05 11:22:45,702 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma.tmp
+2022-01-05 11:22:45,704 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma_GV.tmp_save
+2022-01-05 11:22:45,745 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\dma_GV.tmp
+2022-01-05 11:22:45,760 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-05 11:22:45,765 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.c_save
+2022-01-05 11:22:45,841 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.c
+2022-01-05 11:22:45,845 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.h_save
+2022-01-05 11:22:45,917 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usb_device.h
+2022-01-05 11:22:45,920 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.h_save
+2022-01-05 11:22:45,998 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.h
+2022-01-05 11:22:46,002 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.c_save
+2022-01-05 11:22:46,124 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\Target\usbd_conf.c
+2022-01-05 11:22:46,128 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.h_save
+2022-01-05 11:22:46,202 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.h
+2022-01-05 11:22:46,206 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.c_save
+2022-01-05 11:22:46,294 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_desc.c
+2022-01-05 11:22:46,298 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.h_save
+2022-01-05 11:22:46,388 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.h
+2022-01-05 11:22:46,390 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.c_save
+2022-01-05 11:22:46,470 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\USB_DEVICE\App\usbd_cdc_if.c
+2022-01-05 11:22:46,485 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_it.c_save
+2022-01-05 11:22:46,602 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_it.c
+2022-01-05 11:22:46,605 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_it.h_save
+2022-01-05 11:22:46,665 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_it.h
+2022-01-05 11:22:46,675 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_msp.c_save
+2022-01-05 11:22:46,825 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_msp.c
+2022-01-05 11:22:46,828 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\system.tmp_save
+2022-01-05 11:22:46,892 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\MXTmpFiles\system.tmp
+2022-01-05 11:22:46,896 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2022-01-05 11:22:47,003 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\stm32f4xx_hal_timebase_tim.c
+2022-01-05 11:22:47,015 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_hal_conf.h_save
+2022-01-05 11:22:47,156 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\stm32f4xx_hal_conf.h
+2022-01-05 11:22:47,202 [WARN] IPConfigManager:3148 - IP not found : TIM
+2022-01-05 11:22:47,203 [WARN] CodeGenerator:3268 - IP not found : null
+2022-01-05 11:22:47,209 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\main.h_save
+2022-01-05 11:22:47,286 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Inc\main.h
+2022-01-05 11:22:47,290 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\Robot\Core\Src\main.c_save
+2022-01-05 11:22:47,474 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\Robot\Core\Src\main.c
+2022-01-05 11:22:48,371 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 72mS.
+2022-01-05 11:22:48,376 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2022-01-05 11:22:49,015 [INFO] ConfigFileManager:1271 - The Die is : DIE431
+2022-01-05 11:22:51,254 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 2878mS.
+2022-01-05 11:22:51,255 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 1mS.
+2022-01-05 11:22:51,259 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2022-01-05 15:35:37,715 [ERROR] ServerAccessManage:1031 - Warning during Server Connexion :  Unknown host sw-center.st.com
+2022-01-05 15:35:37,723 [ERROR] ServerAccessManage:1031 - Warning during Server Connexion :  Unknown host www.ebuc23.com
+2022-01-05 15:35:37,728 [INFO] MainUpdater:2671 - connection check result : 22
+2022-01-05 15:35:37,737 [ERROR] ServerAccessManage:1031 - Warning during Server Connexion :  Unknown host sw-center.st.com
+2022-01-05 15:35:37,740 [ERROR] ServerAccessManage:1031 - Warning during Server Connexion :  Unknown host www.ebuc23.com
+2022-01-05 15:35:37,745 [INFO] MainUpdater:2671 - connection check result : 22
+2022-01-05 15:36:05,740 [INFO] MicroXplorer:448 - Change Database Path : 
+2022-01-05 15:36:05,742 [INFO] MicroXplorer:478 - Change Database Version : DB.6.0.30
+2022-01-05 15:36:05,743 [WARN] ThirdParty:813 - waiting for thirdparty lock release [close project]
+2022-01-05 15:36:05,743 [INFO] ThirdParty:815 - entering critical section [close project]
+2022-01-05 15:36:05,744 [INFO] ThirdParty:825 - exiting critical section [close project]
+2022-01-05 15:36:05,748 [INFO] PinOutPanel:1463 - setPackage(No Configuration,No Configuration)
+2022-01-05 15:36:05,778 [WARN] IpParametersView:144 - Warning: This peripheral hasn't parameters
+2022-01-05 15:36:05,799 [WARN] MainPanel:246 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2022-01-05 15:36:05,808 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 710047968 Bytes (1073741824)
+2022-01-05 15:36:05,810 [INFO] MicroXplorer:448 - Change Database Path : 
+2022-01-05 15:36:05,810 [INFO] MicroXplorer:478 - Change Database Version : DB.6.0.30
+2022-01-05 15:36:05,810 [INFO] OpenFileManager:313 - Change cursor
+2022-01-05 15:36:05,955 [INFO] RulesReader:57 - Compatibility file has been processed (242 Rules)
+2022-01-05 15:36:10,389 [INFO] Context:592 - Trying to add GPIOservice into a context  which must be forbidden
+2022-01-05 15:36:11,398 [WARN] ApiManager:304 - Cannot register API 'Board Extension:S2868A1' from pack STMicroelectronics.X-CUBE-SFXS2LP1.3.1.0: no header file found
+2022-01-05 15:36:11,400 [WARN] ApiManager:304 - Cannot register API 'Board Extension:S2868A2' from pack STMicroelectronics.X-CUBE-SFXS2LP1.3.1.0: no header file found
+2022-01-05 15:36:11,400 [WARN] ApiManager:304 - Cannot register API 'Board Extension:S2915A1' from pack STMicroelectronics.X-CUBE-SFXS2LP1.3.1.0: no header file found
+2022-01-05 15:36:11,434 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,434 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,434 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,434 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,434 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,434 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,434 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,435 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,436 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,436 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,436 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,436 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,437 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,437 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,437 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,437 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,438 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,438 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,438 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,438 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,439 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,439 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,439 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,441 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,441 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,441 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,441 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,442 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,442 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,442 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,442 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2022-01-05 15:36:11,915 [WARN] ApiManager:304 - Cannot register API 'Board Extension:IKS01A3' from pack STMicroelectronics.X-CUBE-MEMS1.9.0.0: no header file found
+2022-01-05 15:36:12,181 [WARN] ApiManager:304 - Cannot register API 'Board Extension:IKS01A2' from pack STMicroelectronics.X-CUBE-MEMS1.9.0.0: no header file found
+2022-01-05 15:36:12,181 [WARN] ApiManager:304 - Cannot register API 'Board Extension:IKS02A1' from pack STMicroelectronics.X-CUBE-MEMS1.9.0.0: no header file found
+2022-01-05 15:36:12,204 [WARN] ApiManager:304 - Cannot register API 'Board Extension:S2868A1' from pack STMicroelectronics.X-CUBE-SUBG2.4.2.0: no header file found
+2022-01-05 15:36:12,205 [WARN] ApiManager:304 - Cannot register API 'Board Extension:S2868A2' from pack STMicroelectronics.X-CUBE-SUBG2.4.2.0: no header file found
+2022-01-05 15:36:12,205 [WARN] ApiManager:304 - Cannot register API 'Board Extension:S2915A1' from pack STMicroelectronics.X-CUBE-SUBG2.4.2.0: no header file found
+2022-01-05 15:36:12,626 [WARN] ApiManager:304 - Cannot register API 'Board Extension:IKS01A3' from pack STMicroelectronics.X-CUBE-MEMS1.9.1.0: no header file found
+2022-01-05 15:36:12,626 [WARN] ApiManager:304 - Cannot register API 'Board Extension:IKS01A2' from pack STMicroelectronics.X-CUBE-MEMS1.9.1.0: no header file found
+2022-01-05 15:36:12,626 [WARN] ApiManager:304 - Cannot register API 'Board Extension:IKS02A1' from pack STMicroelectronics.X-CUBE-MEMS1.9.1.0: no header file found
+2022-01-05 15:36:12,643 [INFO] RtosManager:484 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2022-01-05 15:36:12,643 [INFO] RtosManager:484 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2022-01-05 15:36:12,643 [INFO] RtosManager:484 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2022-01-05 15:36:12,643 [INFO] RtosManager:484 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2022-01-05 15:36:12,643 [WARN] ModelIntegratedComponent:181 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2022-01-05 15:36:12,643 [WARN] ModelIntegratedComponent:179 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:Audio HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,643 [WARN] ModelIntegratedComponent:185 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:Audio HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,643 [WARN] ModelIntegratedComponent:179 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:CDC HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,643 [WARN] ModelIntegratedComponent:185 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:CDC HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,643 [WARN] ModelIntegratedComponent:179 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:DFU HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,647 [WARN] ModelIntegratedComponent:185 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:DFU HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,647 [WARN] ModelIntegratedComponent:179 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:HID HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,647 [WARN] ModelIntegratedComponent:185 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:HID HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,647 [WARN] ModelIntegratedComponent:179 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:Custom HID HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,647 [WARN] ModelIntegratedComponent:185 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:Custom HID HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,647 [WARN] ModelIntegratedComponent:179 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:MSC HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,647 [WARN] ModelIntegratedComponent:185 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:MSC HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,660 [WARN] ApiManager:304 - Cannot register API 'Board Extension:EEPRMA1' from pack STMicroelectronics.X-CUBE-EEPRMA1.3.1.0: no header file found
+2022-01-05 15:36:12,661 [WARN] ApiManager:304 - Cannot register API 'Board Extension:EEPRMA2' from pack STMicroelectronics.X-CUBE-EEPRMA1.3.1.0: no header file found
+2022-01-05 15:36:12,662 [WARN] ApiManager:304 - Cannot register API 'Board Extension:GNSS1A1' from pack STMicroelectronics.X-CUBE-GNSS1.5.2.0: no header file found
+2022-01-05 15:36:12,663 [WARN] ApiManager:304 - Cannot register API 'Board Support:Custom' from pack STMicroelectronics.X-CUBE-GNSS1.5.2.0: no header file found
+2022-01-05 15:36:12,663 [WARN] ApiManager:304 - Cannot register API 'Data Exchange:lib_gnss' from pack STMicroelectronics.X-CUBE-GNSS1.5.2.0: no header file found
+2022-01-05 15:36:12,665 [WARN] ApiManager:304 - Cannot register API 'Wireless:BlueNRG-MS' from pack STMicroelectronics.X-CUBE-BLE1.6.2.1: no header file found
+2022-01-05 15:36:12,666 [WARN] ApiManager:304 - Cannot register API 'Wireless:BlueNRG-MS' from pack STMicroelectronics.X-CUBE-BLE1.6.2.2: no header file found
+2022-01-05 15:36:12,667 [WARN] ApiManager:304 - Cannot register API 'Wireless:BlueNRG-2' from pack STMicroelectronics.X-CUBE-BLE2.3.2.1: no header file found
+2022-01-05 15:36:12,668 [WARN] ApiManager:304 - Cannot register API 'Wireless:BlueNRG-2' from pack STMicroelectronics.X-CUBE-BLE2.3.2.2: no header file found
+2022-01-05 15:36:12,670 [WARN] ModelIntegratedComponent:179 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:Audio HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,670 [WARN] ModelIntegratedComponent:185 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:Audio HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,670 [WARN] ModelIntegratedComponent:179 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:CDC HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,671 [WARN] ModelIntegratedComponent:185 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:CDC HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,671 [WARN] ModelIntegratedComponent:179 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:MSC HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,671 [WARN] ModelIntegratedComponent:185 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:MSC HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,671 [WARN] ModelIntegratedComponent:179 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:HID HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,671 [WARN] ModelIntegratedComponent:185 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:HID HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,672 [WARN] ModelIntegratedComponent:179 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:MTP HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,672 [WARN] ModelIntegratedComponent:185 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:MTP HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2022-01-05 15:36:12,673 [WARN] ApiManager:304 - Cannot register API 'Board Extension:NFC04A1' from pack STMicroelectronics.X-CUBE-NFC4.2.0.3: no header file found
+2022-01-05 15:36:18,443 [INFO] RtosManager:791 - Current active RTOS is FREERTOS [Cortex-M4NS]
+2022-01-05 15:36:18,469 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (SPI5_RX) currently not set
+2022-01-05 15:36:18,470 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (SPI5_RX) currently not set
+2022-01-05 15:36:18,470 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (SPI5_RX) currently not set
+2022-01-05 15:36:18,471 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (SPI5_RX) currently not set
+2022-01-05 15:36:18,471 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (SPI5_RX) currently not set
+2022-01-05 15:36:18,472 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (SPI5_RX) currently not set
+2022-01-05 15:36:18,472 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (SPI5_RX) currently not set
+2022-01-05 15:36:18,473 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (SPI5_RX) currently not set
+2022-01-05 15:36:18,473 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (SPI5_RX) currently not set
+2022-01-05 15:36:18,473 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (SPI5_RX) currently not set
+2022-01-05 15:36:18,473 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (SPI5_TX) currently not set
+2022-01-05 15:36:18,474 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (SPI5_TX) currently not set
+2022-01-05 15:36:18,474 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (SPI5_TX) currently not set
+2022-01-05 15:36:18,474 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (SPI5_TX) currently not set
+2022-01-05 15:36:18,474 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (SPI5_TX) currently not set
+2022-01-05 15:36:18,475 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (SPI5_TX) currently not set
+2022-01-05 15:36:18,475 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (SPI5_TX) currently not set
+2022-01-05 15:36:18,475 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (SPI5_TX) currently not set
+2022-01-05 15:36:18,475 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (SPI5_TX) currently not set
+2022-01-05 15:36:18,475 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (SPI5_TX) currently not set
+2022-01-05 15:36:18,492 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 15:36:18,492 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 15:36:18,493 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2022-01-05 15:36:18,949 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 794056344 Bytes (1073741824)
+2022-01-05 15:36:18,951 [WARN] ThirdParty:779 - waiting for thirdparty lock release [change project]
+2022-01-05 15:36:18,952 [INFO] ThirdParty:781 - entering critical section [change project]
+2022-01-05 15:36:18,952 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SFXS2LP1 3.1.0
+2022-01-05 15:36:18,952 [INFO] ThirdParty:967 - CMSIS Pack Vendor :RoweBots I-CUBE-UNISONRTOS 5.5.0-4
+2022-01-05 15:36:18,953 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F4 1.0.0
+2022-01-05 15:36:18,953 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2022-01-05 15:36:18,953 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 2.0.0
+2022-01-05 15:36:18,953 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G4 1.0.0
+2022-01-05 15:36:18,953 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 1.0.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 2.0.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F7 1.0.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.0.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 1.1.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 4.2.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.1.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALS 1.0.1
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 7.0.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.2.1
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 1.0.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L5 1.0.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.2.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 3.1.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 5.2.0
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics ThreadX 0.0.2
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2022-01-05 15:36:18,954 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.2.1
+2022-01-05 15:36:18,958 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.2.2
+2022-01-05 15:36:18,958 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.2.1
+2022-01-05 15:36:18,958 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.2.2
+2022-01-05 15:36:18,958 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 2.0.0
+2022-01-05 15:36:18,958 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2022-01-05 15:36:18,958 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 2.0.3
+2022-01-05 15:36:18,958 [INFO] ThirdParty:967 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfSSL 4.8.0
+2022-01-05 15:36:18,959 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.17.0
+2022-01-05 15:36:18,959 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2022-01-05 15:36:18,959 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2022-01-05 15:36:18,959 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.18.1
+2022-01-05 15:36:18,959 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2022-01-05 15:36:18,959 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.18.0
+2022-01-05 15:36:18,960 [INFO] ThirdParty:787 - exiting critical section [change project]
+2022-01-05 15:36:19,582 [INFO] PinOutPanel:1463 - setPackage(No Configuration,No Configuration)
+2022-01-05 15:36:19,692 [INFO] PinOutPanel:1463 - setPackage(STM32F411VETx,LQFP100)
+2022-01-05 15:36:20,907 [INFO] UtilMem:74 - Before build in PCC Used Memory: 697262176 Bytes (1073741824)
+2022-01-05 15:36:21,753 [INFO] UtilMem:74 - After build in PCC Used Memory: 770130920 Bytes (1073741824)
+2022-01-05 15:36:22,161 [INFO] ApiDbMcu:468 - Load IP Config File for FREERTOS
+2022-01-05 15:36:22,278 [INFO] ApiDbMcu:468 - Load IP Config File for USB_DEVICE
+2022-01-05 15:36:22,356 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,356 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,356 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,356 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,356 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,356 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,360 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,360 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,360 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,360 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,360 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,360 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,363 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,364 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,367 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,369 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,370 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,370 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,371 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,372 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,373 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,374 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,374 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,375 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,376 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,377 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,379 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,379 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,381 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,382 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,383 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,384 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,385 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,385 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,387 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,388 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,389 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,390 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,390 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,390 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,395 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,396 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,399 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2022-01-05 15:36:22,480 [INFO] ApiDbMcu:468 - Load IP Config File for PDM2PCM
+2022-01-05 15:36:22,484 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 15:36:22,484 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 15:36:22,507 [INFO] I2sManager:626 - 1.6E8
+2022-01-05 15:36:22,507 [INFO] I2sManager:179 - I2S Clock Value : 1.6E8
+2022-01-05 15:36:22,509 [INFO] I2sManager:520 - AudioClock : 48076Divider : 6Odd : 1
+2022-01-05 15:36:22,542 [WARN] FreeRTOS:999 - Null or empty value: should not occur! (nothing added to the table)
+2022-01-05 15:36:22,582 [INFO] RtosManager:604 - Active RTOS found at IOC load: FREERTOS [Cortex-M4NS]
+2022-01-05 15:36:22,590 [INFO] OpenFileManager:333 - Restore cursor
+2022-01-05 15:36:22,952 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 15:36:22,952 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 15:36:22,955 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 15:36:22,955 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 15:37:18,321 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 15:37:18,322 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 15:37:18,323 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 15:37:18,324 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 15:37:18,585 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 15:37:18,585 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 15:37:18,820 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 15:37:18,821 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 15:37:23,410 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 762464672 Bytes (1073741824)
+2022-01-05 15:37:27,607 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 748731312 Bytes (1073741824)
+2022-01-05 15:37:32,560 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 875609000 Bytes (1073741824)
+2022-01-05 15:38:57,585 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 15:38:57,586 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 15:38:57,586 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_OTG_FS
+2022-01-05 15:38:57,586 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-05 15:38:57,586 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2022-01-05 15:38:57,586 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: FREERTOS
+2022-01-05 15:38:57,587 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: DMA
+2022-01-05 15:38:57,587 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-05 15:38:57,587 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-05 15:38:57,587 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8
+2022-01-05 15:38:57,587 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_DEVICE
+2022-01-05 15:38:57,587 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2S
+2022-01-05 15:38:57,587 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-05 15:38:57,589 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-05 15:38:57,590 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-05 15:38:57,590 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-05 15:38:57,592 [INFO] CodeGenerator:663 - code generatio: config db path: D:\WindowsPrograms\STM32CUBE\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2022-01-05 15:38:57,637 [WARN] IP:2125 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2022-01-05 15:38:57,638 [WARN] IP:2125 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2022-01-05 15:38:57,690 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-05 15:38:57,691 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 15:38:57,691 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream3
+2022-01-05 15:38:57,691 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream3
+2022-01-05 15:38:57,691 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-05 15:38:57,692 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 15:38:57,692 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 15:38:57,692 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 15:38:57,692 [INFO] Argument:294 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-05 15:38:57,692 [INFO] Argument:304 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2022-01-05 15:38:57,692 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 15:38:57,693 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 15:38:57,693 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 15:38:57,693 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 15:38:57,693 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 15:38:57,693 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 15:38:57,693 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 15:38:57,694 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 15:38:57,694 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 15:38:57,694 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 15:38:57,694 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 15:38:57,694 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 15:38:57,694 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 15:38:57,694 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 15:38:57,694 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-05 15:38:57,694 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-05 15:38:57,695 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-05 15:38:57,698 [INFO] Argument:294 - Argument : hdmavalue: null
+2022-01-05 15:38:57,698 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 15:38:57,698 [INFO] Argument:294 - Argument : Instancevalue: DMA2_Stream4
+2022-01-05 15:38:57,700 [INFO] Argument:304 - Argument : Instancevalue: DMA2_Stream4
+2022-01-05 15:38:57,700 [INFO] Argument:294 - Argument : Initvalue: null
+2022-01-05 15:38:57,700 [INFO] Argument:296 - 	 sub Args: 
+2022-01-05 15:38:57,700 [INFO] Argument:294 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 15:38:57,700 [INFO] Argument:304 - Argument : Channelvalue: DMA_CHANNEL_2
+2022-01-05 15:38:57,700 [INFO] Argument:294 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-05 15:38:57,700 [INFO] Argument:304 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2022-01-05 15:38:57,701 [INFO] Argument:294 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 15:38:57,701 [INFO] Argument:304 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2022-01-05 15:38:57,701 [INFO] Argument:294 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 15:38:57,701 [INFO] Argument:304 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2022-01-05 15:38:57,701 [INFO] Argument:294 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 15:38:57,701 [INFO] Argument:304 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2022-01-05 15:38:57,701 [INFO] Argument:294 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : Modevalue: DMA_NORMAL
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : FIFOThresholdvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : FIFOThresholdvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : MemBurstvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : MemBurstvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : PeriphBurstvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : PeriphBurstvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : Lockvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : Lockvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : Statevalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : Statevalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : Parentvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : Parentvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : XferCpltCallbackvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : XferCpltCallbackvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : XferHalfCpltCallbackvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:304 - Argument : XferM1CpltCallbackvalue: null
+2022-01-05 15:38:57,702 [INFO] Argument:294 - Argument : XferErrorCallbackvalue: null
+2022-01-05 15:38:57,706 [INFO] Argument:304 - Argument : XferErrorCallbackvalue: null
+2022-01-05 15:38:57,706 [INFO] Argument:294 - Argument : ErrorCodevalue: null
+2022-01-05 15:38:57,706 [INFO] Argument:304 - Argument : ErrorCodevalue: null
+2022-01-05 15:39:00,764 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\license.tmp_save
+2022-01-05 15:39:01,053 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\license.tmp
+2022-01-05 15:39:01,513 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\gpio.tmp_save
+2022-01-05 15:39:01,737 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\gpio.tmp
+2022-01-05 15:39:02,391 [WARN] IPConfigManager:2738 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2022-01-05 15:39:02,407 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2022-01-05 15:39:02,559 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\usb_otg_fs_vars.tmp
+2022-01-05 15:39:02,565 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2022-01-05 15:39:02,734 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\usb_otg_fs_inc.tmp
+2022-01-05 15:39:02,739 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2022-01-05 15:39:02,940 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2022-01-05 15:39:02,945 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2022-01-05 15:39:03,161 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\usb_otg_fs_Msp.tmp
+2022-01-05 15:39:08,628 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-05 15:39:08,709 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_inc.tmp_save
+2022-01-05 15:39:08,899 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_inc.tmp
+2022-01-05 15:39:08,938 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_kernelInit.tmp_save
+2022-01-05 15:39:09,083 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_kernelInit.tmp
+2022-01-05 15:39:09,118 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-05 15:39:09,295 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-05 15:39:09,324 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_typedefs.tmp_save
+2022-01-05 15:39:09,515 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_typedefs.tmp
+2022-01-05 15:39:09,553 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_vars.tmp_save
+2022-01-05 15:39:09,703 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_vars.tmp
+2022-01-05 15:39:09,737 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-05 15:39:09,914 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_pfp.tmp
+2022-01-05 15:39:09,954 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-05 15:39:10,079 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-05 15:39:10,155 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-05 15:39:10,290 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_default_thread.tmp
+2022-01-05 15:39:10,305 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_threads.tmp_save
+2022-01-05 15:39:10,427 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\rtos_threads.tmp
+2022-01-05 15:39:10,475 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Inc\FreeRTOSConfig.h_save
+2022-01-05 15:39:10,698 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Inc\FreeRTOSConfig.h
+2022-01-05 15:39:10,732 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Src\freertos.c_save
+2022-01-05 15:39:10,894 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Src\freertos.c
+2022-01-05 15:39:11,113 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\dma.tmp_save
+2022-01-05 15:39:11,308 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\dma.tmp
+2022-01-05 15:39:11,313 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\dma_GV.tmp_save
+2022-01-05 15:39:11,454 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\dma_GV.tmp
+2022-01-05 15:39:11,492 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-05 15:39:11,508 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\App\usb_device.c_save
+2022-01-05 15:39:11,693 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\App\usb_device.c
+2022-01-05 15:39:11,700 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\App\usb_device.h_save
+2022-01-05 15:39:11,864 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\App\usb_device.h
+2022-01-05 15:39:11,869 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\Target\usbd_conf.h_save
+2022-01-05 15:39:12,018 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\Target\usbd_conf.h
+2022-01-05 15:39:12,024 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\Target\usbd_conf.c_save
+2022-01-05 15:39:12,253 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\Target\usbd_conf.c
+2022-01-05 15:39:12,263 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\App\usbd_desc.h_save
+2022-01-05 15:39:12,470 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\App\usbd_desc.h
+2022-01-05 15:39:12,480 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\App\usbd_desc.c_save
+2022-01-05 15:39:12,685 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\App\usbd_desc.c
+2022-01-05 15:39:12,696 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\App\usbd_cdc_if.h_save
+2022-01-05 15:39:12,975 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\App\usbd_cdc_if.h
+2022-01-05 15:39:12,984 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\App\usbd_cdc_if.c_save
+2022-01-05 15:39:13,232 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\USB_DEVICE\App\usbd_cdc_if.c
+2022-01-05 15:39:13,267 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Src\stm32f4xx_it.c_save
+2022-01-05 15:39:13,568 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Src\stm32f4xx_it.c
+2022-01-05 15:39:13,577 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Inc\stm32f4xx_it.h_save
+2022-01-05 15:39:13,748 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Inc\stm32f4xx_it.h
+2022-01-05 15:39:13,794 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Src\stm32f4xx_hal_msp.c_save
+2022-01-05 15:39:14,304 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Src\stm32f4xx_hal_msp.c
+2022-01-05 15:39:14,311 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\system.tmp_save
+2022-01-05 15:39:14,529 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\MXTmpFiles\system.tmp
+2022-01-05 15:39:14,536 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2022-01-05 15:39:14,817 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Src\stm32f4xx_hal_timebase_tim.c
+2022-01-05 15:39:14,835 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Inc\stm32f4xx_hal_conf.h_save
+2022-01-05 15:39:15,166 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Inc\stm32f4xx_hal_conf.h
+2022-01-05 15:39:15,440 [WARN] IPConfigManager:3148 - IP not found : TIM
+2022-01-05 15:39:15,443 [WARN] CodeGenerator:3268 - IP not found : null
+2022-01-05 15:39:15,460 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Inc\main.h_save
+2022-01-05 15:39:15,751 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Inc\main.h
+2022-01-05 15:39:15,764 [INFO] CodeEngine:239 - oldGeneratedFile, G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Src\main.c_save
+2022-01-05 15:39:16,901 [INFO] CodeEngine:257 - Generated code: G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\Core\Src\main.c
+2022-01-05 15:39:20,024 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 445mS.
+2022-01-05 15:39:20,051 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2022-01-05 15:39:21,316 [INFO] ConfigFileManager:1271 - The Die is : DIE431
+2022-01-05 15:39:21,462 [INFO] ApiDbMcu:468 - Load IP Config File for FATFS
+2022-01-05 15:39:21,515 [INFO] ApiDbMcu:468 - Load IP Config File for LIBJPEG
+2022-01-05 15:39:21,708 [INFO] ApiDbMcu:468 - Load IP Config File for MBEDTLS
+2022-01-05 15:39:21,806 [INFO] ApiDbMcu:468 - Load IP Config File for USB_HOST
+2022-01-05 15:39:29,261 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 9210mS.
+2022-01-05 15:39:29,261 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2022-01-05 15:39:29,277 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
