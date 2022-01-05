@@ -1,0 +1,38 @@
+/*
+ * robotTasks.h
+ *
+ *  Created on: Jan 5, 2022
+ *      Author: ddomi
+ */
+
+#ifndef INC_ROBOTTASKS_H_
+#define INC_ROBOTTASKS_H_
+
+nRF24_RXResult pipe;
+extern volatile uint8_t nRF24_dataReady = 0;
+extern volatile uint8_t nRF24_status = 0;
+extern volatile int payload_length = 6;
+
+extern volatile uint8_t GyroReady = 0;
+extern volatile uint8_t AccReady = 0;
+extern volatile uint8_t MagReady = 0;
+extern volatile uint8_t sendData = 0;
+
+extern volatile uint8_t SPIcommandRecived = 0;
+
+extern volatile uint8_t SpiTxData[SPI_BUFFER_SIZE];
+extern volatile uint8_t SpiRxData[SPI_BUFFER_SIZE];
+
+extern volatile uint32_t timeSinceLastCommand = 0;
+
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
+void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi);
+
+void StartCalculatingPoz(void *argument);
+void StartRecivingCommandsNRF24(void *argument);
+void StartMotorControl(void *argument);
+void StartCalculatingPath(void *argument);
+
+
+#endif /* INC_ROBOTTASKS_H_ */

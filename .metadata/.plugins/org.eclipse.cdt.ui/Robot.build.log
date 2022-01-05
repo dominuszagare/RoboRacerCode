@@ -1,0 +1,42 @@
+15:14:17 **** Incremental Build of configuration Debug for project Robot ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"G:/ROBORACER/RoboRacerCode/Robot/FreeRTOS/Source/include" -I"G:/ROBORACER/RoboRacerCode/Robot/FreeRTOS/Source/portable/GCC/ARM_CM4F" -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/robotTasks.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"G:/ROBORACER/RoboRacerCode/Robot/FreeRTOS/Source/include" -I"G:/ROBORACER/RoboRacerCode/Robot/FreeRTOS/Source/portable/GCC/ARM_CM4F" -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/robotTasks.d" -MT"Core/Src/robotTasks.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/robotTasks.o"
+../Core/Src/robotTasks.c: In function 'StartRecivingCommandsNRF24':
+../Core/Src/robotTasks.c:184:2: warning: implicit declaration of function 'MX_USB_DEVICE_Init' [-Wimplicit-function-declaration]
+  184 |  MX_USB_DEVICE_Init();
+      |  ^~~~~~~~~~~~~~~~~~
+../Core/Src/robotTasks.c:193:53: warning: passing argument 2 of 'nRF24_ReadPayload' from incompatible pointer type [-Wincompatible-pointer-types]
+  193 |     pipe = nRF24_ReadPayload((uint8_t*)(&robotPay), &payload_length);
+      |                                                     ^~~~~~~~~~~~~~~
+      |                                                     |
+      |                                                     volatile int *
+In file included from ../Core/Src/robotTasks.c:11:
+../Core/Inc/nrf24.h:244:58: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile int *'
+  244 | nRF24_RXResult nRF24_ReadPayload(uint8_t *pBuf, uint8_t *length);
+      |                                                 ~~~~~~~~~^~~~~~
+../Core/Src/robotTasks.c: In function 'normalize_v3f':
+../Core/Src/robotTasks.c:53:1: warning: control reaches end of non-void function [-Wreturn-type]
+   53 | }
+      | ^
+../Core/Src/robotTasks.c: In function 'zgladiMotor':
+../Core/Src/robotTasks.c:66:1: warning: control reaches end of non-void function [-Wreturn-type]
+   66 | }
+      | ^
+arm-none-eabi-gcc -o "Robot.elf" @"objects.list"   -mcpu=cortex-m4 -T"G:\ROBORACER\RoboRacerCode\Robot\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robot.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Robot.elf
+ 
+arm-none-eabi-size   Robot.elf 
+arm-none-eabi-objdump -h -S  Robot.elf  > "Robot.list"
+   text	   data	    bss	    dec	    hex	filename
+  75140	    516	  88716	 164372	  28214	Robot.elf
+arm-none-eabi-objcopy  -O binary  Robot.elf  "Robot.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Robot.bin
+ 
+Finished building: Robot.list
+ 
+
+15:14:18 Build Finished. 0 errors, 4 warnings. (took 1s.571ms)
+

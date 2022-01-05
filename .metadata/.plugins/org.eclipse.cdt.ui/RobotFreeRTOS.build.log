@@ -1,59 +1,10 @@
-12:29:13 **** Incremental Build of configuration Debug for project RobotFreeRTOS ****
+18:48:33 **** Incremental Build of configuration Debug for project RobotFreeRTOS ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:489:39: warning: passing argument 2 of 'HAL_SPI_TransmitReceive_DMA' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  489 |   HAL_SPI_TransmitReceive_DMA(&hspi5, SpiTxData, SpiRxData, 2); //beremo po dva
-      |                                       ^~~~~~~~~
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:398,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
-                 from ../Core/Inc/main.h:31,
-                 from ../Core/Src/main.c:21:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:680:81: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
-  680 | HAL_StatusTypeDef HAL_SPI_TransmitReceive_DMA(SPI_HandleTypeDef *hspi, uint8_t *pTxData, uint8_t *pRxData,
-      |                                                                        ~~~~~~~~~^~~~~~~
-../Core/Src/main.c:489:50: warning: passing argument 3 of 'HAL_SPI_TransmitReceive_DMA' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  489 |   HAL_SPI_TransmitReceive_DMA(&hspi5, SpiTxData, SpiRxData, 2); //beremo po dva
-      |                                                  ^~~~~~~~~
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:398,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
-                 from ../Core/Inc/main.h:31,
-                 from ../Core/Src/main.c:21:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:680:99: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
-  680 | HAL_StatusTypeDef HAL_SPI_TransmitReceive_DMA(SPI_HandleTypeDef *hspi, uint8_t *pTxData, uint8_t *pRxData,
-      |                                                                                          ~~~~~~~~~^~~~~~~
-../Core/Src/main.c: In function 'StartRecivingCommandsNRF24':
-../Core/Src/main.c:1296:54: warning: passing argument 2 of 'nRF24_ReadPayload' from incompatible pointer type [-Wincompatible-pointer-types]
- 1296 |      pipe = nRF24_ReadPayload((uint8_t*)(&robotPay), &payload_length);
-      |                                                      ^~~~~~~~~~~~~~~
-      |                                                      |
-      |                                                      volatile int *
-In file included from ../Core/Src/main.c:30:
-../Core/Inc/nrf24.h:244:58: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile int *'
-  244 | nRF24_RXResult nRF24_ReadPayload(uint8_t *pBuf, uint8_t *length);
-      |                                                 ~~~~~~~~~^~~~~~
-../Core/Src/main.c: In function 'normalize_v3f':
-../Core/Src/main.c:300:1: warning: control reaches end of non-void function [-Wreturn-type]
-  300 | }
-      | ^
-../Core/Src/main.c: In function 'zgladiMotor':
-../Core/Src/main.c:313:1: warning: control reaches end of non-void function [-Wreturn-type]
-  313 | }
-      | ^
-arm-none-eabi-gcc -o "RobotFreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RobotFreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: RobotFreeRTOS.elf
- 
 arm-none-eabi-size   RobotFreeRTOS.elf 
-arm-none-eabi-objdump -h -S  RobotFreeRTOS.elf  > "RobotFreeRTOS.list"
    text	   data	    bss	    dec	    hex	filename
-  82316	    512	  30424	 113252	  1ba64	RobotFreeRTOS.elf
-arm-none-eabi-objcopy  -O binary  RobotFreeRTOS.elf  "RobotFreeRTOS.bin"
+  82444	    512	  30432	 113388	  1baec	RobotFreeRTOS.elf
 Finished building: default.size.stdout
  
-Finished building: RobotFreeRTOS.bin
- 
-Finished building: RobotFreeRTOS.list
- 
 
-12:29:18 Build Finished. 0 errors, 5 warnings. (took 5s.43ms)
+18:48:35 Build Finished. 0 errors, 0 warnings. (took 2s.11ms)
 

@@ -16,6 +16,27 @@ runApp = True
 
 floatVals = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
 
+@app.route('/_getData',methods = ['GET', 'POST'])
+
+def getData():
+    global floatVals
+    jsonData = jsonify(
+        pitch=floatVals[0],
+        roll=floatVals[1],
+        yaw=floatVals[2],
+        q0=floatVals[3],
+        q1=floatVals[4],
+        q2=floatVals[5],
+        q3=floatVals[6],
+        pozX=floatVals[7],
+        pozY=floatVals[8],
+        magX=floatVals[9],
+        magY=floatVals[10],
+        magZ=floatVals[11])
+    print("send", floatVals[11])
+    return jsonData
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -108,26 +129,6 @@ def readSerialData28():
         ser.close()
     except:
         print("serial is not open")
-
-@app.route('/_getData',methods = ['GET', 'POST'])
-
-def getData():
-    global floatVals
-    jsonData = jsonify(
-        pitch=floatVals[0],
-        roll=floatVals[1],
-        yaw=floatVals[2],
-        q0=floatVals[3],
-        q1=floatVals[4],
-        q2=floatVals[5],
-        q3=floatVals[6],
-        pozX=floatVals[7],
-        pozY=floatVals[8],
-        magX=floatVals[9],
-        magY=floatVals[10],
-        magZ=floatVals[11])
-    print("send", floatVals[11])
-    return jsonData
 
 if __name__ == '__main__':
     

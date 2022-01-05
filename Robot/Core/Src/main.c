@@ -19,12 +19,15 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "cmsis_os.h"
-#include "usb_device.h"
 #include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "robotPeriferija.h"
+#include "nrf24.h"
+#include "robotTasks.h"
 
 /* USER CODE END Includes */
 
@@ -35,6 +38,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -45,8 +50,6 @@
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
 
-I2S_HandleTypeDef hi2s3;
-
 SPI_HandleTypeDef hspi1;
 SPI_HandleTypeDef hspi2;
 SPI_HandleTypeDef hspi5;
@@ -55,38 +58,24 @@ DMA_HandleTypeDef hdma_spi5_tx;
 
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
-TIM_HandleTypeDef htim5;
 
-/* Definitions for CalculatePoz */
-osThreadId_t CalculatePozHandle;
-const osThreadAttr_t CalculatePoz_attributes = {
-  .name = "CalculatePoz",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityBelowNormal7,
-};
-/* Definitions for ReciveCommandsN */
-osThreadId_t ReciveCommandsNHandle;
-const osThreadAttr_t ReciveCommandsN_attributes = {
-  .name = "ReciveCommandsN",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
-};
-/* Definitions for MotorControl */
-osThreadId_t MotorControlHandle;
-const osThreadAttr_t MotorControl_attributes = {
-  .name = "MotorControl",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
-};
-/* Definitions for calculatePath */
-osThreadId_t calculatePathHandle;
-const osThreadAttr_t calculatePath_attributes = {
-  .name = "calculatePath",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityBelowNormal6,
-};
 /* USER CODE BEGIN PV */
+nRF24_RXResult pipe;
+volatile uint8_t nRF24_dataReady = 0;
+volatile uint8_t nRF24_status = 0;
+volatile int payload_length = 6;
 
+volatile uint8_t GyroReady = 0;
+volatile uint8_t AccReady = 0;
+volatile uint8_t MagReady = 0;
+volatile uint8_t sendData = 0;
+
+volatile uint8_t SPIcommandRecived = 0;
+
+volatile uint8_t SpiTxData[SPI_BUFFER_SIZE];
+volatile uint8_t SpiRxData[SPI_BUFFER_SIZE];
+
+volatile uint32_t timeSinceLastCommand = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -96,22 +85,129 @@ static void MX_I2C1_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_SPI2_Init(void);
-static void MX_I2S3_Init(void);
-static void MX_TIM5_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_SPI5_Init(void);
 static void MX_DMA_Init(void);
-void StartCalculatingPoz(void *argument);
-void StartRecivingCommandsNRF24(void *argument);
-void StartMotorControl(void *argument);
-void StartCalculatingPath(void *argument);
-
 /* USER CODE BEGIN PFP */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
+void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	//kateri pin je poklical EXIT event
+	if(GPIO_Pin == GPIO_PIN_14){
+		nRF24_dataReady = 1; //spremenil se je status register pejt pogledat kaj se je zgodilo
+	}
+	else if(GPIO_Pin == GPIO_PIN_15){
+		if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_2)){motorLF.poz--;}
+		else{motorLF.poz++;}
+	}
+	else if(GPIO_Pin == GPIO_PIN_7){
+		if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_5)){motorRF.poz--;}
+		else{motorRF.poz++;}
+	}
+	else if(GPIO_Pin == GPIO_PIN_3){
+		if(HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_11)){motorRB.poz--;}
+		else{motorRB.poz++;}
+	}
+	else if(GPIO_Pin == GPIO_PIN_8){
+		if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_6)){motorLB.poz--;}
+		else{motorLB.poz++;}
+	}
+	else if(GPIO_Pin == GPIO_PIN_1){ //vsakic ko dobis interupt posodobi podatke
+		spi1_beriRegistre(0x28, (uint8_t*)&Gyro, 6);
+		GyroReady = 1; //zastavica da so na voljo novi podatki 200Hz
+	}
+	else if(GPIO_Pin == GPIO_PIN_4){
+		//data ready pospeskometer
+		i2c1_beriRegistre(0x19, 0x28,(uint8_t*)&Acc, 6);
+		AccReady = 1; //200Hz
+	}
+	else if(GPIO_Pin == GPIO_PIN_2){
+		//data ready megnetometer
+		i2c1_beriRegistre(0x1e, 0x68,(uint8_t*)&Mag, 6);
+		MagReady = 1; //100Hz
+	}
+
+}
+
+
+void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
+	SPIcommandRecived = 1;
+	//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, 1);
+	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13); //oranzna
+	//HAL_SPI_Receive_DMA(&hspi5, (uint8_t*)&rasberyReq, rasberyReqSize);
+	//..rasberyReq = *(struct recivedRasberyPiPayload*)SpiRxData;
+	//if( SpiRxData[0] == 22){
+	//	SPIcommandRecived = 1;
+	//	//HAL_SPI_Transmit(&hspi5, (uint8_t*)&P, 28, 100);
+	//}
+}
+
+
+void nRF24SetChip(){
+	nRF24_Init();
+
+	nRF24_DisableAA(0xFF);
+	nRF24_SetRFChannel(115);
+	nRF24_SetDataRate(nRF24_DR_1Mbps);
+	nRF24_SetCRCScheme(nRF24_CRC_off);
+	nRF24_SetAddrWidth(3);
+
+	static const uint8_t nRF24_ADDR[] = { 0xE7, 0x1C, 0xE3 };
+	nRF24_SetAddr(nRF24_PIPE1, nRF24_ADDR); // program address for RX pipe #1
+	nRF24_SetRXPipe(nRF24_PIPE1, nRF24_AA_OFF, payload_length); // Auto-ACK: disabled, payload length: 5 bytes
+	nRF24_SetOperationalMode(nRF24_MODE_RX);
+	nRF24_SetPowerMode(nRF24_PWR_UP);
+	nRF24_CE_H();
+}
+
+void inicilizirajCipe(){
+	__HAL_I2C_ENABLE(&hi2c1); //omogocimo I2C1 za komunikacijo z vgrajenimi cipi
+	__HAL_SPI_ENABLE(&hspi1); //komunikacija gyro
+	__HAL_SPI_ENABLE(&hspi2); //komunikacija z nRF24
+	__HAL_SPI_ENABLE(&hspi5); //rasbery pi
+	HAL_Delay(50);
+	nRF24SetChip();
+	nastaviPospeskometer();
+	nastaviMagnetometer();
+	nastaviGiroskop();
+	//prvic preberi podatke da se generirajo interupti
+	spi1_beriRegistre(0x28, (uint8_t*)&Gyro, 6);
+	i2c1_beriRegistre(0x19, 0x28,(uint8_t*)&Acc, 6);
+	i2c1_beriRegistre(0x1e, 0x68,(uint8_t*)&Mag, 6);
+}
+
+
+
+void getDrift(){
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, 1);
+	int32_t sumGyrox = 0;
+	int32_t sumGyroy = 0;
+	int32_t sumGyroz = 0;
+	int32_t sumAccx = 0;
+	int32_t sumAccy = 0;
+	int32_t sumAccz = 0;
+	for(int i=0; i < 400; i++){
+		sumGyrox += Gyro.x;
+		sumGyroy += Gyro.y;
+		sumGyroz += Gyro.z;
+		sumAccx += Acc.x;
+		sumAccy += Acc.y;
+		sumAccz += Acc.z;
+		HAL_Delay(6);
+	}
+	E.Accx = sumAccx/400; //vektor gravitacije
+	E.Accy = sumAccy/400;
+	E.Accz = sumAccz/400;
+	E.Gyrox = sumGyrox/400;
+	E.Gyroy = sumGyroy/400;
+	E.Gyroz = sumGyroz/400;
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, 0);
+}
 
 /* USER CODE END 0 */
 
@@ -122,7 +218,6 @@ void StartCalculatingPath(void *argument);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -131,77 +226,97 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
   /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_I2C1_Init();
   MX_SPI1_Init();
   MX_TIM2_Init();
   MX_SPI2_Init();
-  MX_I2S3_Init();
-  MX_TIM5_Init();
   MX_TIM3_Init();
   MX_SPI5_Init();
-  MX_DMA_Init();
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
+
+  HAL_TIM_Base_Start(&htim2);
+  HAL_TIM_Base_Start(&htim3);
+  // zazenemo PWM
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
+
+  HAL_Delay(100);
+
+  inicilizirajCipe();
+  nRF24_status = nRF24_Check();
+  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12,nRF24_status); //ce dela prizgi ledico
+
+	B1.flags = 0;
+	B1.presedConf = 0;
+	B1.relesedConf = 0;
+	B1.port = GPIOA;
+	B1.pin = GPIO_PIN_0;
+	B1.debaunceCycles = 10;
+	B1.presses = 0;
+
+
+	//iniciliziramo vse spremenljivke
+	robotPay.x1 = 0; //nastavimo na srednje vrednosti
+	robotPay.x2 = 0;
+	robotPay.y1 = 0;
+	robotPay.y2 = 0;
+	robotPay.speed = 100;
+
+	nastaviMotor(RF,0);
+	nastaviMotor(LF,0);
+	nastaviMotor(LB,0);
+	nastaviMotor(RB,0);
+
+
+	motorLF.num = LF;
+	motorLB.num = LB;
+	motorRB.num = RB;
+	motorRF.num = RF;
+
+	E.Accx = 0;
+	E.Accy = 0;
+	E.Accz = 0;
+	E.Gyrox = 0;
+	E.Gyroy = 0;
+	E.Gyroz = 0;
+	E.HardIronMagx = 0;
+	E.HardIronMagy = 0;
+	E.HardIronMagz = 0;
+	E.SoftIronMagx = 1;
+	E.SoftIronMagy = 1;
+	E.SoftIronMagz = 1;
+
+	P.pozX = 0;
+	P.pozY = 0;
+
+	getDrift();
 
   /* USER CODE END 2 */
 
-  /* Init scheduler */
-  osKernelInitialize();
-
-  /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
-  /* USER CODE END RTOS_MUTEX */
-
-  /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
-  /* USER CODE END RTOS_SEMAPHORES */
-
-  /* USER CODE BEGIN RTOS_TIMERS */
-  /* start timers, add new ones, ... */
-  /* USER CODE END RTOS_TIMERS */
-
-  /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
-  /* USER CODE END RTOS_QUEUES */
-
-  /* Create the thread(s) */
-  /* creation of CalculatePoz */
-  CalculatePozHandle = osThreadNew(StartCalculatingPoz, NULL, &CalculatePoz_attributes);
-
-  /* creation of ReciveCommandsN */
-  ReciveCommandsNHandle = osThreadNew(StartRecivingCommandsNRF24, NULL, &ReciveCommandsN_attributes);
-
-  /* creation of MotorControl */
-  MotorControlHandle = osThreadNew(StartMotorControl, NULL, &MotorControl_attributes);
-
-  /* creation of calculatePath */
-  calculatePathHandle = osThreadNew(StartCalculatingPath, NULL, &calculatePath_attributes);
-
-  /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
-  /* USER CODE END RTOS_THREADS */
-
-  /* USER CODE BEGIN RTOS_EVENTS */
-  /* add events, ... */
-  /* USER CODE END RTOS_EVENTS */
-
-  /* Start scheduler */
-  osKernelStart();
-
-  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+	xTaskCreate(StartRecivingCommandsNRF24, "recivingCommands", 100, NULL, ( tskIDLE_PRIORITY + 4UL ), (TaskHandle_t *)NULL);
+	xTaskCreate(StartCalculatingPoz, "calculatePoz", 100, NULL, ( tskIDLE_PRIORITY + 2UL ), (TaskHandle_t *)NULL);
+	xTaskCreate(StartMotorControl, "motorControl", 100, NULL, ( tskIDLE_PRIORITY + 2UL ), (TaskHandle_t *)NULL);
+	xTaskCreate(StartCalculatingPath, "calculatePath", 100, NULL, ( tskIDLE_PRIORITY + 1UL ), (TaskHandle_t *)NULL);
+
+	vTaskStartScheduler();
+
   while (1)
   {
     /* USER CODE END WHILE */
@@ -285,40 +400,6 @@ static void MX_I2C1_Init(void)
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
-
-}
-
-/**
-  * @brief I2S3 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_I2S3_Init(void)
-{
-
-  /* USER CODE BEGIN I2S3_Init 0 */
-
-  /* USER CODE END I2S3_Init 0 */
-
-  /* USER CODE BEGIN I2S3_Init 1 */
-
-  /* USER CODE END I2S3_Init 1 */
-  hi2s3.Instance = SPI3;
-  hi2s3.Init.Mode = I2S_MODE_MASTER_TX;
-  hi2s3.Init.Standard = I2S_STANDARD_PHILIPS;
-  hi2s3.Init.DataFormat = I2S_DATAFORMAT_16B;
-  hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_ENABLE;
-  hi2s3.Init.AudioFreq = I2S_AUDIOFREQ_48K;
-  hi2s3.Init.CPOL = I2S_CPOL_LOW;
-  hi2s3.Init.ClockSource = I2S_CLOCK_PLL;
-  hi2s3.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
-  if (HAL_I2S_Init(&hi2s3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN I2S3_Init 2 */
-
-  /* USER CODE END I2S3_Init 2 */
 
 }
 
@@ -420,7 +501,7 @@ static void MX_SPI5_Init(void)
   hspi5.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi5.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi5.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi5.Init.NSS = SPI_NSS_HARD_INPUT;
+  hspi5.Init.NSS = SPI_NSS_SOFT;
   hspi5.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi5.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi5.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -562,51 +643,6 @@ static void MX_TIM3_Init(void)
 }
 
 /**
-  * @brief TIM5 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM5_Init(void)
-{
-
-  /* USER CODE BEGIN TIM5_Init 0 */
-
-  /* USER CODE END TIM5_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM5_Init 1 */
-
-  /* USER CODE END TIM5_Init 1 */
-  htim5.Instance = TIM5;
-  htim5.Init.Prescaler = 83;
-  htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim5.Init.Period = 4294967295;
-  htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim5.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim5) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim5, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim5, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM5_Init 2 */
-
-  /* USER CODE END TIM5_Init 2 */
-
-}
-
-/**
   * Enable DMA controller clock
   */
 static void MX_DMA_Init(void)
@@ -617,10 +653,10 @@ static void MX_DMA_Init(void)
 
   /* DMA interrupt init */
   /* DMA2_Stream3_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 5, 0);
+  HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
   /* DMA2_Stream4_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream4_IRQn, 5, 0);
+  HAL_NVIC_SetPriority(DMA2_Stream4_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream4_IRQn);
 
 }
@@ -692,6 +728,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : I2S3_WS_Pin */
+  GPIO_InitStruct.Pin = I2S3_WS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
+  HAL_GPIO_Init(I2S3_WS_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pin : PB2 */
   GPIO_InitStruct.Pin = GPIO_PIN_2;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -733,6 +777,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : I2S3_MCK_Pin I2S3_SCK_Pin I2S3_SD_Pin */
+  GPIO_InitStruct.Pin = I2S3_MCK_Pin|I2S3_SCK_Pin|I2S3_SD_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
   /*Configure GPIO pin : PA15 */
   GPIO_InitStruct.Pin = GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
@@ -764,22 +816,22 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI1_IRQn, 5, 0);
+  HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 
-  HAL_NVIC_SetPriority(EXTI2_IRQn, 5, 0);
+  HAL_NVIC_SetPriority(EXTI2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI2_IRQn);
 
-  HAL_NVIC_SetPriority(EXTI3_IRQn, 5, 0);
+  HAL_NVIC_SetPriority(EXTI3_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI3_IRQn);
 
-  HAL_NVIC_SetPriority(EXTI4_IRQn, 5, 0);
+  HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI4_IRQn);
 
-  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 5, 0);
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
-  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 5, 0);
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 }
@@ -787,80 +839,6 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
-
-/* USER CODE BEGIN Header_StartCalculatingPoz */
-/**
-  * @brief  Function implementing the CalculatePoz thread.
-  * @param  argument: Not used
-  * @retval None
-  */
-/* USER CODE END Header_StartCalculatingPoz */
-void StartCalculatingPoz(void *argument)
-{
-  /* init code for USB_DEVICE */
-  MX_USB_DEVICE_Init();
-  /* USER CODE BEGIN 5 */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END 5 */
-}
-
-/* USER CODE BEGIN Header_StartRecivingCommandsNRF24 */
-/**
-* @brief Function implementing the ReciveCommandsN thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartRecivingCommandsNRF24 */
-void StartRecivingCommandsNRF24(void *argument)
-{
-  /* USER CODE BEGIN StartRecivingCommandsNRF24 */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END StartRecivingCommandsNRF24 */
-}
-
-/* USER CODE BEGIN Header_StartMotorControl */
-/**
-* @brief Function implementing the MotorControl thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartMotorControl */
-void StartMotorControl(void *argument)
-{
-  /* USER CODE BEGIN StartMotorControl */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END StartMotorControl */
-}
-
-/* USER CODE BEGIN Header_StartCalculatingPath */
-/**
-* @brief Function implementing the calculatePath thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartCalculatingPath */
-void StartCalculatingPath(void *argument)
-{
-  /* USER CODE BEGIN StartCalculatingPath */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END StartCalculatingPath */
-}
 
 /**
   * @brief  Period elapsed callback in non blocking mode

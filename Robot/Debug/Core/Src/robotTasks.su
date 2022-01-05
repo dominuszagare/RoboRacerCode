@@ -1,0 +1,7 @@
+robotTasks.c:48:7:normalize_v3f	32	static
+robotTasks.c:55:9:zgladiMotor	16	static
+robotTasks.c:68:6:speedControl	40	static
+robotTasks.c:108:6:StartCalculatingPoz	72	static
+robotTasks.c:183:6:StartRecivingCommandsNRF24	24	static
+robotTasks.c:219:6:StartMotorControl	16	static
+robotTasks.c:241:6:StartCalculatingPath	32	static

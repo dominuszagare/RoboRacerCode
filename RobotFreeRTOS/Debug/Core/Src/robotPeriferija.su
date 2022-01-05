@@ -1,0 +1,13 @@
+robotPeriferija.c:9:9:i2c1_pisiRegister	32	static
+robotPeriferija.c:14:6:i2c1_beriRegistre	32	static
+robotPeriferija.c:21:9:spi1_beriRegister	32	static
+robotPeriferija.c:33:6:spi1_pisiRegister	24	static
+robotPeriferija.c:43:6:spi1_beriRegistre	16	static
+robotPeriferija.c:51:6:nastaviPospeskometer	8	static
+robotPeriferija.c:63:6:nastaviMagnetometer	8	static
+robotPeriferija.c:70:6:nastaviGiroskop	16	static
+robotPeriferija.c:102:9:izracunajPovprecjeInt16	16	static
+robotPeriferija.c:112:6:nastaviMotor	24	static
+robotPeriferija.c:151:6:getDrift	40	static
+robotPeriferija.c:180:9:zgladiMotor	16	static
+robotPeriferija.c:194:6:ifButtonPresed	16	static

@@ -398,14 +398,14 @@ int main(void)
 
 		  if(AccF.x == 0 && AccF.y == 0 && AccF.z==0){ax=0.0f; ay=0.0f; az=1.0f;}
 		  else{
-			  ax = ((float)AccF.x) *0.0006103515f;
+			  ax = ((float)AccF.x) *-0.0006103515f;
 			  ay = ((float)AccF.y) *0.0006103515f;
 			  az = ((float)AccF.z) *0.0006103515f; //+-2g  2/(2^16/2)
 			  normalize_v3f(&ax,&ay,&az);
 		  }
 
 		  gx = ((float)GyroF.x) * 0.0175f * DEG_TO_RAD*2; //deg/s obcutljivost 500dps
-		  gy = ((float)GyroF.y) * -0.0175f * DEG_TO_RAD*2;
+		  gy = ((float)GyroF.y) * 0.0175f * DEG_TO_RAD*2;
 		  gz = ((float)GyroF.z) * 0.0175f * DEG_TO_RAD*2;
 
 		  if(MagF.x == 0 && MagF.y == 0 && MagF.z==0){mx = 0.2f; my = 0.2f; mz = 0.1f;}

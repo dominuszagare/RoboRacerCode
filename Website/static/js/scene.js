@@ -11,6 +11,20 @@ var debugText = document.getElementById("info");
 
 var controls = new OrbitControls(camera,renderer.domElement);
 const loader = new GLTFLoader();
+var robo = new THREE.Object3D();
+
+loader.load( '../models/robot.glb', function ( gltf ) {
+    robo = gltf.scene.children[0];
+	scene.add( robo );
+    robo.matrixAutoUpdate = false;
+    //var roboMatrix = new THREE.Matrix4();
+    //roboMatrix.makeScale(new THREE.Vector3( 0.01, 0.01, 0.01));
+    //robo.applyMatrix4(roboMatrix);
+
+}, undefined, function ( error ) {
+	console.error( error );
+} );
+
 
 var pi = 3.14159265358979323846
 
@@ -97,10 +111,27 @@ function update_values() {
     var dir = new THREE.Quaternion(res.q2[0],res.q3[0],res.q1[0],res.q0[0]); //zamenjal sem y in z da model narisem pokoncno
     robot0.setRotationFromQuaternion(dir);
     robot0.position.copy( new THREE.Vector3( res.pozX, 0, res.pozY));
-    robot0.updateMatrix ();
+
+
+    var rotationMatrix = new THREE.Matrix4();
+
+    robo.matrix.makeRotationY((-90*pi)/180);
+    rotationMatrix.makeRotationFromQuaternion(dir);
+    robo.applyMatrix4(rotationMatrix);
+    robo.matrix.scale(new THREE.Vector3( 0.01, 0.01, 0.01))
+    robo.matrix.setPosition(new THREE.Vector3( res.pozX, 0, res.pozY));
+
+    //rotationMatrix.makeRotationFromQuaternion(dir);
+    //robo.matrix = robo.matrix * rotationMatrix;
+    //robo.matrix = robo.matrix * THREE.Matrix4.makeRotationY((90*pi)/180);
+    //roboMatrix.copy(rotationMatrix);
+    //roboMatrix.setPosition(new THREE.Vector3( res.pozX, 0, res.pozY));
+    //robo.applyMatrix4(roboMatrix);
+
     arrowHelperW.setRotationFromQuaternion(dir);
 
     arrowHelperMag.setDirection(new THREE.Vector3( res.magx, res.magz, res.magy))
+    //arrowHelperMag.position.copy(robot0.position)
 
     debugText.innerHTML = "pitch " + String(res.pitch*(180/pi)) + "<br> roll " + String(res.roll*(180/pi)) + "<br> yaw " + String(res.yaw*(180/pi))
     + "<br> pozX" + String(res.pozX) +"<br> pozY"+ String(res.pozY)
@@ -116,11 +147,4 @@ var RenderLoop = function(){
     renderer.render(scene,camera);
 };
 
-/*
-loader.load( '../models/robot.glb', function ( gltf ) {
-	scene.add( gltf.scene );
-}, undefined, function ( error ) {
-	console.error( error );
-} );
-*/
 RenderLoop();

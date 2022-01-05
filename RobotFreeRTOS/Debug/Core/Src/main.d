@@ -47,9 +47,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../USB_DEVICE/App/usb_device.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
- ../USB_DEVICE/Target/usbd_conf.h ../Core/Inc/setup.h ../Core/Inc/main.h \
- ../Core/Inc/nrf24.h ../Core/Inc/support.h ../Core/Inc/MadgwickAHRS.h \
- ../USB_DEVICE/App/usbd_cdc_if.h \
+ ../USB_DEVICE/Target/usbd_conf.h ../Core/Inc/robotPeriferija.h \
+ ../Core/Inc/main.h ../Core/Inc/nrf24.h ../Core/Inc/support.h \
+ ../Core/Inc/MadgwickAHRS.h ../USB_DEVICE/App/usbd_cdc_if.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
@@ -157,7 +157,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../USB_DEVICE/Target/usbd_conf.h:
 
-../Core/Inc/setup.h:
+../Core/Inc/robotPeriferija.h:
 
 ../Core/Inc/main.h:
 

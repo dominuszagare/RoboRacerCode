@@ -1,0 +1,20 @@
+/*
+ * robotTasks.h
+ *
+ *  Created on: Jan 5, 2022
+ *      Author: ddomi
+ */
+
+#ifndef INC_ROBOTTASKS_H_
+#define INC_ROBOTTASKS_H_
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
+void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi);
+
+void StartCalculatingPoz(void *argument);
+void StartRecivingCommandsNRF24(void *argument);
+void StartMotorControl(void *argument);
+void StartCalculatingPath(void *argument);
+
+
+#endif /* INC_ROBOTTASKS_H_ */

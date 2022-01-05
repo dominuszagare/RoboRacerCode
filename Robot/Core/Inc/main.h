@@ -37,12 +37,78 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+struct EMUdata{
+	int16_t x;
+	int16_t y;
+	int16_t z;
+} Acc, AccF, Gyro, GyroF, Mag, MagF;
+struct motorData{
+	int32_t poz;
+	int32_t prevPoz;
+	uint8_t num; //enumorator motorja
+	float targetVel;
+	float error;
+	float prevError;
+	float integralError;
+	float vals[10];
+	float sum;
+	uint8_t index;
+}motorLF, motorRF, motorRB, motorLB;
+struct robotPayload{
+	int8_t x1;
+	int8_t y1;
+	int8_t x2;
+	int8_t y2;
+	uint8_t speed;
+	uint8_t crc; //sestej vse podatke v 16 bitno stevilo in vzami prvih 8 LSB
+} robotPay;
+struct SendIMU{
+	uint16_t head;
+	//uint16_t num;
+	int16_t XAcc;
+	int16_t YAcc;
+	int16_t ZAcc;
+	int16_t XGyro;
+	int16_t YGyro;
+	int16_t ZGyro;
+	int16_t XMag;
+	int16_t YMag;
+	int16_t ZMag;
+}IMUsend;
+volatile struct CalculatePoz{
+	uint32_t head;
+	float pitch;
+	float roll;
+	float heading;
+	float Q0;
+	float Q1;
+	float Q2;
+	float Q3;
+	float pozX;
+	float pozY;
+	float magX;
+	float magY;
+	float magZ;
+}P;
+volatile struct IMUError{
+	int16_t Gyrox; //drift from 0
+	int16_t Gyroy;
+	int16_t Gyroz;
+	float HardIronMagx;
+	float HardIronMagy;
+	float HardIronMagz;
+	float SoftIronMagx;
+	float SoftIronMagy;
+	float SoftIronMagz;
+	int16_t Accx;
+	int16_t Accy;
+	int16_t Accz;
+}E;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-
+#define SPI_BUFFER_SIZE 32
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

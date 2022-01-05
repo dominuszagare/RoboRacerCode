@@ -26,7 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdint.h"
-#include "setup.h"
+#include "robotPeriferija.h".h"
 #include "nrf24.h"
 #include "math.h"
 #include "MadgwickAHRS.h"
@@ -35,83 +35,6 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-struct button{
-	uint8_t flags;
-	uint32_t presedConf;
-	uint32_t relesedConf;
-	GPIO_TypeDef* port;
-	uint16_t pin;
-	uint16_t debaunceCycles;
-	uint8_t presses;
-} B1; //moder gumb na ploscici
-struct EMUdata{
-	int16_t x;
-	int16_t y;
-	int16_t z;
-} Acc, AccF, Gyro, GyroF, Mag, MagF;
-struct motorData{
-	int32_t poz;
-	int32_t prevPoz;
-	uint8_t num; //enumorator motorja
-	float targetVel;
-	float error;
-	float prevError;
-	float integralError;
-	float vals[10];
-	float sum;
-	uint8_t index;
-}motorLF, motorRF, motorRB, motorLB;
-struct robotPayload{
-	int8_t x1;
-	int8_t y1;
-	int8_t x2;
-	int8_t y2;
-	uint8_t speed;
-	uint8_t crc; //sestej vse podatke v 16 bitno stevilo in vzami prvih 8 LSB
-} robotPay;
-struct SendIMU{
-	uint16_t head;
-	//uint16_t num;
-	int16_t XAcc;
-	int16_t YAcc;
-	int16_t ZAcc;
-	int16_t XGyro;
-	int16_t YGyro;
-	int16_t ZGyro;
-	int16_t XMag;
-	int16_t YMag;
-	int16_t ZMag;
-}IMUsend;
-volatile struct CalculatePoz{
-	uint32_t head;
-	float pitch;
-	float roll;
-	float heading;
-	float Q0;
-	float Q1;
-	float Q2;
-	float Q3;
-	float pozX;
-	float pozY;
-	float magX;
-	float magY;
-	float magZ;
-}P;
-volatile struct IMUError{
-	int16_t Gyrox; //drift from 0
-	int16_t Gyroy;
-	int16_t Gyroz;
-	float HardIronMagx;
-	float HardIronMagy;
-	float HardIronMagz;
-	float SoftIronMagx;
-	float SoftIronMagy;
-	float SoftIronMagz;
-	int16_t Accx;
-	int16_t Accy;
-	int16_t Accz;
-}E;
-
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin); //external interupti
 //void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi);
@@ -269,47 +192,13 @@ void inicilizirajCipe(){
 	i2c1_beriRegistre(0x1e, 0x68,(uint8_t*)&Mag, 6);
 }
 
-void ifButtonPresed(void(*f)(),struct button* b){
-	  if(HAL_GPIO_ReadPin (b->port,b->pin)){
-		b->presedConf++;
-  	    b->relesedConf = 0;
-  	    if (b->presedConf > b->debaunceCycles){
-  	    	if(~b->flags & 1){ //ce je zastavica na prvem bitu 0 jo nastavi na 1 in zastavico na drugem bitu na 0
-  	    		b->flags |= 1; b->flags &= ~(1<<1);
-  	    		 //on press funkcija
-  	    	}
-  	    }
-  	}
-  	else{
-  		b->presedConf = 0;
-  	    b->relesedConf++;
-  	    if (b->relesedConf > b->debaunceCycles){
-  	    	if(~b->flags & (1<<1)){ //ce je zastavica na drugem bitu 0 jo nastavi na 1 in zastavico na prvem bitu na 0
-  	    		b->flags |= (1<<1); b->flags &= ~1;
-  	    		(*f)();
-  	    		b->presses++;
-  	    	}
-  	    }
-  	}
-}
+
+
 float normalize_v3f(float* x, float* y, float* z){
 	float norm = sqrt( (*x) * (*x) + (*y) * (*y) + (*z) * (*z) );
 	*x /= norm;
 	*y /= norm;
 	*z /= norm;
-}
-
-int16_t zgladiMotor(enum motor m, int16_t pwm){
-	switch(m){
-	case LF:
-		return izracunajPovprecjeInt16(&M4,pwm,5);
-	case RB:
-		return izracunajPovprecjeInt16(&M2,pwm,5);
-	case RF:
-		return izracunajPovprecjeInt16(&M1,pwm,5);
-	case LB:
-		return izracunajPovprecjeInt16(&M3,pwm,5);
-	}
 }
 
 void speedControl(struct motorData* m, float deltaT){
@@ -351,39 +240,6 @@ void speedControl(struct motorData* m, float deltaT){
 		nastaviMotor(m->num,Pwm);
 	}
 }
-
-
-//void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
-//	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
-//}
-
-
-void getDrift(){
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, 1);
-	int32_t sumGyrox = 0;
-	int32_t sumGyroy = 0;
-	int32_t sumGyroz = 0;
-	int32_t sumAccx = 0;
-	int32_t sumAccy = 0;
-	int32_t sumAccz = 0;
-	for(int i=0; i < 400; i++){
-		sumGyrox += Gyro.x;
-		sumGyroy += Gyro.y;
-		sumGyroz += Gyro.z;
-		sumAccx += Acc.x;
-		sumAccy += Acc.y;
-		sumAccz += Acc.z;
-		HAL_Delay(6);
-	}
-	E.Accx = sumAccx/400; //vektor gravitacije
-	E.Accy = sumAccy/400;
-	E.Accz = sumAccz/400;
-	E.Gyrox = sumGyrox/400;
-	E.Gyroy = sumGyroy/400;
-	E.Gyroz = sumGyroz/400;
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, 0);
-}
-
 /* USER CODE END 0 */
 
 /**
@@ -414,7 +270,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_I2C1_Init();
   MX_SPI1_Init();
   MX_TIM2_Init();
@@ -423,6 +278,7 @@ int main(void)
   MX_TIM5_Init();
   MX_TIM3_Init();
   MX_SPI5_Init();
+  MX_DMA_Init();
   /* USER CODE BEGIN 2 */
   //!--ce generator kode inicilizira DMA zadnje pomakni funkcijo visje da se incilizira prvo
 
@@ -753,7 +609,7 @@ static void MX_SPI5_Init(void)
   hspi5.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi5.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi5.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi5.Init.NSS = SPI_NSS_HARD_INPUT;
+  hspi5.Init.NSS = SPI_NSS_SOFT;
   hspi5.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi5.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi5.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -1025,6 +881,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PC5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
   /*Configure GPIO pin : PB2 */
   GPIO_InitStruct.Pin = GPIO_PIN_2;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -1216,14 +1078,14 @@ void StartCalculatingPoz(void *argument)
 
 		  if(AccF.x == 0 && AccF.y == 0 && AccF.z==0){ax=0.0f; ay=0.0f; az=1.0f;}
 		  else{
-			  ax = ((float)AccF.x) *0.0006103515f;
+			  ax = ((float)AccF.x) *-0.0006103515f;
 			  ay = ((float)AccF.y) *0.0006103515f;
 			  az = ((float)AccF.z) *0.0006103515f;//+-2g  2/(2^16/2)
 			  normalize_v3f(&ax,&ay,&az);
 		  }
 
 		  gx = ((float)GyroF.x) * 0.0175f * DEG_TO_RAD*2; //deg/s obcutljivost 500dps
-		  gy = ((float)GyroF.y) * -0.0175f * DEG_TO_RAD*2;
+		  gy = ((float)GyroF.y) * 0.0175f * DEG_TO_RAD*2;
 		  gz = ((float)GyroF.z) * 0.0175f * DEG_TO_RAD*2;
 
 		  if(MagF.x == 0 && MagF.y == 0 && MagF.z==0){mx = 0.2f; my = 0.2f; mz = 0.1f;}
@@ -1364,11 +1226,15 @@ void StartCalculatingPath(void *argument)
   for(;;)
   {
 
-	  float pot = (float)(motorRF.poz - motorRFprevPoz);
+	  int32_t sum = (motorRF.poz - motorRFprevPoz)+(motorLF.poz - motorLFprevPoz)+(motorLB.poz - motorLBprevPoz);
+	  float pot = (float)(sum)/3;
 	  pot *= PI*0.003f;
 	  motorRFprevPoz = motorRF.poz;
-	  P.pozX += sin(P.heading) * pot;
-	  P.pozY += cos(P.heading) * pot;
+	  motorRBprevPoz = motorRB.poz;
+	  motorLFprevPoz = motorLF.poz;
+	  motorLBprevPoz = motorLB.poz;
+	  P.pozX += cos(P.heading) * pot;
+	  P.pozY -= sin(P.heading) * pot;
 	  osDelay(100);
   }
   /* USER CODE END StartCalculatingPath */
