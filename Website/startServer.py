@@ -4,6 +4,20 @@ import threading
 import time
 import struct
 
+import cv2
+
+def show_webcam(mirror=False):
+    cam = cv2.VideoCapture(1)
+    while True:
+        ret_val, img = cam.read()
+        if mirror: 
+            img = cv2.flip(img, 1)
+        cv2.imshow('my webcam', img)
+        if cv2.waitKey(1) == 27: 
+            break  # esc to quit
+    cv2.destroyAllWindows()
+
+
 app = Flask(__name__,
             static_url_path='', 
             static_folder='static',
@@ -117,7 +131,7 @@ def readSerialData28():
                         floatVals[4] = q1
                         floatVals[5] = q2
                         floatVals[6] = q3
-                        print("serial",floatVals[11]) #odkomentiraj ce dobimo prave vrednosti
+                        #print("serial",floatVals[11]) #odkomentiraj ce dobimo prave vrednosti
                         #print(pitch,roll,yaw,q0,q1,q2,q3)
 
             except:
@@ -134,6 +148,9 @@ if __name__ == '__main__':
     
     t1 = threading.Thread(target=readSerialData28, args=())
     t1.start()
+
+    t2 = threading.Thread(target=show_webcam, args=())
+    t2.start()
     
     app.run(debug=True, port=6555, host='0.0.0.0')
     runApp = False

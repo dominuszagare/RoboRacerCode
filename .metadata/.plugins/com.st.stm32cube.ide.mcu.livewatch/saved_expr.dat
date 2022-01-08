@@ -4,3 +4,5 @@ MagF
 AccF
 motorRF
 GyroF
+SpiRxData
+SpiTxData

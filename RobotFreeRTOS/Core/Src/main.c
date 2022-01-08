@@ -39,7 +39,9 @@
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin); //external interupti
 //void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi);
 //void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi);
-void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi);
+//void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi);
+void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c);
+//void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c)
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -56,7 +58,7 @@ void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi);
 #define PI 3.14159265358979323846f
 #define DEG_TO_RAD 0.01745329252f
 
-#define SPI_BUFFER_SIZE 32
+#define I2C_BUFFER_SIZE 100
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -67,14 +69,10 @@ void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi);
 
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
-
-I2S_HandleTypeDef hi2s3;
+I2C_HandleTypeDef hi2c3;
 
 SPI_HandleTypeDef hspi1;
 SPI_HandleTypeDef hspi2;
-SPI_HandleTypeDef hspi5;
-DMA_HandleTypeDef hdma_spi5_rx;
-DMA_HandleTypeDef hdma_spi5_tx;
 
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
@@ -127,13 +125,13 @@ volatile int32_t motorLFprevPoz=0;
 volatile int32_t motorRBprevPoz=0;
 volatile int32_t motorLBprevPoz=0;
 
-volatile uint8_t SPIcommandRecived = 0;
-
-volatile uint8_t SpiTxData[SPI_BUFFER_SIZE];
-volatile uint8_t SpiRxData[SPI_BUFFER_SIZE];
+volatile uint8_t I2CTxData[I2C_BUFFER_SIZE];
+volatile uint8_t I2CRxData[I2C_BUFFER_SIZE];
 
 
 volatile uint32_t timeSinceLastCommand = 0;
+volatile uint8_t activateRasbetyPI = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -143,11 +141,9 @@ static void MX_I2C1_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_SPI2_Init(void);
-static void MX_I2S3_Init(void);
 static void MX_TIM5_Init(void);
 static void MX_TIM3_Init(void);
-static void MX_SPI5_Init(void);
-static void MX_DMA_Init(void);
+static void MX_I2C3_Init(void);
 void StartCalculatingPoz(void *argument);
 void StartRecivingCommandsNRF24(void *argument);
 void StartMotorControl(void *argument);
@@ -180,7 +176,6 @@ void inicilizirajCipe(){
 	__HAL_I2C_ENABLE(&hi2c1); //omogocimo I2C1 za komunikacijo z vgrajenimi cipi
 	__HAL_SPI_ENABLE(&hspi1); //komunikacija gyro
 	__HAL_SPI_ENABLE(&hspi2); //komunikacija z nRF24
-	__HAL_SPI_ENABLE(&hspi5); //rasbery pi
 	HAL_Delay(50);
 	nRF24SetChip();
 	nastaviPospeskometer();
@@ -274,11 +269,9 @@ int main(void)
   MX_SPI1_Init();
   MX_TIM2_Init();
   MX_SPI2_Init();
-  MX_I2S3_Init();
   MX_TIM5_Init();
   MX_TIM3_Init();
-  MX_SPI5_Init();
-  MX_DMA_Init();
+  MX_I2C3_Init();
   /* USER CODE BEGIN 2 */
   //!--ce generator kode inicilizira DMA zadnje pomakni funkcijo visje da se incilizira prvo
 
@@ -340,9 +333,13 @@ int main(void)
 
   getDrift();
 
+  __HAL_I2C_ENABLE(&hi2c3);
+  HAL_Delay(100);
+  activateRasbetyPI = 1;
+
   //HAL_SPI_Receive_DMA(&hspi5, (uint8_t*)&rasberyReq, rasberyReqSize);
   //HAL_SPI_TransmitReceive_DMA(&hspi5, SpiTxData, SpiRxData, SPI_BUFFER_SIZE);
-  HAL_SPI_TransmitReceive_DMA(&hspi5, SpiTxData, SpiRxData, 2); //beremo po dva
+  //HAL_SPI_TransmitReceive_DMA(&hspi5, SpiTxData, SpiRxData, 2); //beremo po dva
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -478,36 +475,36 @@ static void MX_I2C1_Init(void)
 }
 
 /**
-  * @brief I2S3 Initialization Function
+  * @brief I2C3 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_I2S3_Init(void)
+static void MX_I2C3_Init(void)
 {
 
-  /* USER CODE BEGIN I2S3_Init 0 */
+  /* USER CODE BEGIN I2C3_Init 0 */
 
-  /* USER CODE END I2S3_Init 0 */
+  /* USER CODE END I2C3_Init 0 */
 
-  /* USER CODE BEGIN I2S3_Init 1 */
+  /* USER CODE BEGIN I2C3_Init 1 */
 
-  /* USER CODE END I2S3_Init 1 */
-  hi2s3.Instance = SPI3;
-  hi2s3.Init.Mode = I2S_MODE_MASTER_TX;
-  hi2s3.Init.Standard = I2S_STANDARD_PHILIPS;
-  hi2s3.Init.DataFormat = I2S_DATAFORMAT_16B;
-  hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_ENABLE;
-  hi2s3.Init.AudioFreq = I2S_AUDIOFREQ_48K;
-  hi2s3.Init.CPOL = I2S_CPOL_LOW;
-  hi2s3.Init.ClockSource = I2S_CLOCK_PLL;
-  hi2s3.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
-  if (HAL_I2S_Init(&hi2s3) != HAL_OK)
+  /* USER CODE END I2C3_Init 1 */
+  hi2c3.Instance = I2C3;
+  hi2c3.Init.ClockSpeed = 100000;
+  hi2c3.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c3.Init.OwnAddress1 = 0;
+  hi2c3.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c3.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c3.Init.OwnAddress2 = 0;
+  hi2c3.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c3.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c3) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN I2S3_Init 2 */
+  /* USER CODE BEGIN I2C3_Init 2 */
 
-  /* USER CODE END I2S3_Init 2 */
+  /* USER CODE END I2C3_Init 2 */
 
 }
 
@@ -584,43 +581,6 @@ static void MX_SPI2_Init(void)
   /* USER CODE BEGIN SPI2_Init 2 */
 
   /* USER CODE END SPI2_Init 2 */
-
-}
-
-/**
-  * @brief SPI5 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_SPI5_Init(void)
-{
-
-  /* USER CODE BEGIN SPI5_Init 0 */
-
-  /* USER CODE END SPI5_Init 0 */
-
-  /* USER CODE BEGIN SPI5_Init 1 */
-
-  /* USER CODE END SPI5_Init 1 */
-  /* SPI5 parameter configuration*/
-  hspi5.Instance = SPI5;
-  hspi5.Init.Mode = SPI_MODE_SLAVE;
-  hspi5.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi5.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi5.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi5.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi5.Init.NSS = SPI_NSS_SOFT;
-  hspi5.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi5.Init.TIMode = SPI_TIMODE_DISABLE;
-  hspi5.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi5.Init.CRCPolynomial = 10;
-  if (HAL_SPI_Init(&hspi5) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN SPI5_Init 2 */
-
-  /* USER CODE END SPI5_Init 2 */
 
 }
 
@@ -796,25 +756,6 @@ static void MX_TIM5_Init(void)
 }
 
 /**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA2_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA2_Stream3_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
-  /* DMA2_Stream4_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream4_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream4_IRQn);
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -881,9 +822,17 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : I2S3_WS_Pin */
+  GPIO_InitStruct.Pin = I2S3_WS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
+  HAL_GPIO_Init(I2S3_WS_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pin : PC5 */
   GPIO_InitStruct.Pin = GPIO_PIN_5;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
@@ -927,6 +876,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : I2S3_MCK_Pin I2S3_SCK_Pin I2S3_SD_Pin */
+  GPIO_InitStruct.Pin = I2S3_MCK_Pin|I2S3_SCK_Pin|I2S3_SD_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PA15 */
   GPIO_InitStruct.Pin = GPIO_PIN_15;
@@ -1016,21 +973,40 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		i2c1_beriRegistre(0x1e, 0x68,(uint8_t*)&Mag, 6);
 		MagReady = 1; //100Hz
 	}
+	else if(GPIO_Pin == GPIO_PIN_5 && activateRasbetyPI){
+		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13); //oranzna
+
+
+
+
+		HAL_I2C_Slave_Receive(&hi2c3, I2CRxData, 8, 100);
+
+		//HAL_I2C_Slave_Transmit(&hi2c3, I2CTxData, I2C_BUFFER_SIZE, 10);
+		HAL_I2C_Slave_Transmit(&hi2c3, I2CTxData, 48,100);
+		//HAL_I2C_Slave_Transmit(&hi2c3, I2CTxData, I2C_BUFFER_SIZE, 100);
+		//Rasbery pi zahteva podatke in posilja ukaze
+		//HAL_SPI_TransmitReceive_IT(&hspi5, SpiTxData, SpiRxData, SPI_BUFFER_SIZE);
+		//HAL_SPI_TransmitReceive(&hspi5, SpiTxData, SpiRxData, SPI_BUFFER_SIZE, 10);
+		//HAL_SPI_Transmit(&hspi5, SpiTxData, SPI_BUFFER_SIZE, 200);
+
+	}
 
 }
+void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c){
+	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+}
 
-
-void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
-	SPIcommandRecived = 1;
+//void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
 	//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, 1);
-	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13); //oranzna
+	//HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13); //oranzna
 	//HAL_SPI_Receive_DMA(&hspi5, (uint8_t*)&rasberyReq, rasberyReqSize);
 	//..rasberyReq = *(struct recivedRasberyPiPayload*)SpiRxData;
 	//if( SpiRxData[0] == 22){
 	//	SPIcommandRecived = 1;
 	//	//HAL_SPI_Transmit(&hspi5, (uint8_t*)&P, 28, 100);
 	//}
-}
+
+//}
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartCalculatingPoz */
@@ -1124,8 +1100,8 @@ void StartCalculatingPoz(void *argument)
 		  P.magY = ay;
 		  P.magZ = az;
 
-		  for(int n=4; n<30; n++){ //pripravi podatke za spi
-			  SpiTxData[n-4] = ((uint8_t*)&P)[n];
+		  for(int n=4; n<52; n++){ //pripravi podatke za spi
+			  I2CTxData[n-4] = ((uint8_t*)&P)[n];
 		  }
 
 	  }

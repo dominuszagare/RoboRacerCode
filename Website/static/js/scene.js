@@ -12,6 +12,7 @@ var debugText = document.getElementById("info");
 var controls = new OrbitControls(camera,renderer.domElement);
 const loader = new GLTFLoader();
 var robo = new THREE.Object3D();
+var ovira = new THREE.Object3D();
 
 loader.load( '../models/robot.glb', function ( gltf ) {
     robo = gltf.scene.children[0];
@@ -25,7 +26,17 @@ loader.load( '../models/robot.glb', function ( gltf ) {
 	console.error( error );
 } );
 
+loader.load( '../models/ovira.glb', function ( gltf ) {
+    ovira = gltf.scene.children[0];
+	scene.add( ovira );
+    robo.matrixAutoUpdate = false;
+}, undefined, function ( error ) {
+	console.error( error );
+} );
 
+
+
+var razdaljaOdovire = 2.4;
 var pi = 3.14159265358979323846
 
 const Ambientlight = new THREE.AmbientLight( 0x202020 ); // soft white light
@@ -136,6 +147,21 @@ function update_values() {
     debugText.innerHTML = "pitch " + String(res.pitch*(180/pi)) + "<br> roll " + String(res.roll*(180/pi)) + "<br> yaw " + String(res.yaw*(180/pi))
     + "<br> pozX" + String(res.pozX) +"<br> pozY"+ String(res.pozY)
     + "<br> X " + String(res.magx) + "<br>Y "  + String(res.magy) + "<br>Z "  + String(res.magz);
+
+
+    
+    ovira.setRotationFromQuaternion(dir);
+    rotationMatrix.makeRotationY((-90*pi)/180);
+    ovira.applyMatrix4(rotationMatrix);
+    ovira.position.copy(robot0.position)
+    ovira.matrix.scale(new THREE.Vector3( 0.01, 0.01, 0.01));
+   
+
+    var translationMatrix = new THREE.Matrix4();
+    translationMatrix.makeTranslation(razdaljaOdovire+1.2,0,0);
+    ovira.applyMatrix4(translationMatrix)
+    
+
 } 
 
 var update = function(){
