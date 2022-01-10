@@ -2,9 +2,12 @@ import * as THREE from "./libs/threejs/three.module.js";
 import { OrbitControls } from "./libs/threejs/controls/OrbitControls.js";
 import { GLTFLoader } from "./libs/threejs/loaders/GLTFLoader.js";
 
+
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75,window.innerWidth / window.innerHeight,0.1,1000);
 var renderer = new THREE.WebGLRenderer();
+renderer.shadowMap.enabled = true; //omogocimo sence
+
 renderer.setSize(window.innerWidth,window.innerHeight);
 document.body.appendChild(renderer.domElement);
 var debugText = document.getElementById("info");
@@ -18,9 +21,6 @@ loader.load( '../models/robot.glb', function ( gltf ) {
     robo = gltf.scene.children[0];
 	scene.add( robo );
     robo.matrixAutoUpdate = false;
-    //var roboMatrix = new THREE.Matrix4();
-    //roboMatrix.makeScale(new THREE.Vector3( 0.01, 0.01, 0.01));
-    //robo.applyMatrix4(roboMatrix);
 
 }, undefined, function ( error ) {
 	console.error( error );
@@ -29,42 +29,92 @@ loader.load( '../models/robot.glb', function ( gltf ) {
 loader.load( '../models/ovira.glb', function ( gltf ) {
     ovira = gltf.scene.children[0];
 	scene.add( ovira );
-    robo.matrixAutoUpdate = false;
+    ovira.visible = false;
 }, undefined, function ( error ) {
 	console.error( error );
 } );
 
 
+//poscaj sled za vozilom
+const trailMaterial1 = new THREE.LineBasicMaterial( {
+    color: 0x0f00f,
+} );
+var trailPath = [];
+trailPath.push( 
+  new THREE.Vector3( 0.0, 0.0, 0.0 ), 
+);
+const TrailLine = new THREE.Line( new THREE.BufferGeometry().setFromPoints( trailPath ), trailMaterial1 );
+scene.add( TrailLine );
 
-var razdaljaOdovire = 2.4;
+
+
 var pi = 3.14159265358979323846
 
-const Ambientlight = new THREE.AmbientLight( 0x202020 ); // soft white light
-scene.add( Ambientlight );
-const light = new THREE.PointLight( 0xffffff, 1, 90 );
-light.position.set( 2, 10, -2 );
+//osvetlitev scene
+scene.background = new THREE.Color(0xa0a0a0);
+var light = new THREE.HemisphereLight(0xffeeb1,0x080802,4);
 scene.add( light );
+var spotlight = new THREE.SpotLight(0x303030,4);
+spotlight.position.set(-50,50,50);
+spotlight.castShadow = true;
+scene.add( spotlight );
 
-camera.position.z = 2;
-camera.position.y = 2;
-camera.position.x = 2;
+
+camera.position.z = 8;
+camera.position.y = 8;
+camera.position.x = 8;
 camera.lookAt(0,0,0);
 
 const arrowHelperX = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xff0000 );
 const arrowHelperY = new THREE.ArrowHelper( new THREE.Vector3( 0, 1, 0) , new THREE.Vector3( 0, 0, 0), 1, 0x00ff00 );
 const arrowHelperZ = new THREE.ArrowHelper( new THREE.Vector3( 0, 0, 1) , new THREE.Vector3( 0, 0, 0), 1, 0x0000ff );
 const arrowHelperW = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xffff00 );
-const arrowHelperMag = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xff00f0 );
+const arrowHelperGx = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xff00f0 );
+const arrowHelperGy = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xff0f00 );
+
 scene.add( arrowHelperX );
 scene.add( arrowHelperY );
 scene.add( arrowHelperZ );
 scene.add( arrowHelperW );
-scene.add( arrowHelperMag );
+scene.add( arrowHelperGx );
+scene.add( arrowHelperGy );
 
-const geometry = new THREE.BoxGeometry(0.3,0.05,0.5);
-const robot0 = new THREE.Mesh( geometry, new THREE.MeshStandardMaterial( { color: 0x00ff0f } ));
+//mreza za tla
+const gridHelper = new THREE.GridHelper( 100, 100 );
+gridHelper.position.copy(new THREE.Vector3(0,-0.6,0));
+scene.add( gridHelper );
 
+
+//zelena skatlica ploscica STM32
+const robot0 = new THREE.Mesh( new THREE.BoxGeometry(0.6,0.05,0.9), new THREE.MeshStandardMaterial( { color: 0x00ff0f } ));
 scene.add( robot0 );
+
+
+
+var targetObjecs = [];
+var targetPozX = [];
+var targetPozY = [];
+var furstrumArea = [];
+
+furstrumArea.push(new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 12, 0x00f0f0 ));
+furstrumArea.push(new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 12, 0x00f0f0 ));
+furstrumArea.push(new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 12, 0x00f0f0 ));
+furstrumArea.push(new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 12, 0x00f0f0 ));
+
+targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshStandardMaterial( { color: 0x0f00f0 } ))); 
+targetPozX.push(600-300); targetPozY.push(300-150); //od x in y piksla kamere odstejemo polovico resolucije slike
+targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshStandardMaterial( { color: 0x0f00f0 } ))); 
+targetPozX.push(0-300); targetPozY.push(300-150);
+targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshStandardMaterial( { color: 0x0f00f0 } ))); 
+targetPozX.push(0-300); targetPozY.push(0-150);
+targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshStandardMaterial( { color: 0x0f00f0 } ))); 
+targetPozX.push(600-300); targetPozY.push(0-150);
+targetObjecs.forEach(obj => {
+    scene.add(obj);
+});
+furstrumArea.forEach(obj => {
+    scene.add(obj);
+});
 
 
 let clock = new THREE.Clock();
@@ -82,6 +132,7 @@ var IMUdata = {
     MagZ: 0.0,
 };
 
+var razdaljaOdovire = 2.4;
 var res ={
     q0: 1,
     q1: 0,
@@ -114,14 +165,47 @@ function update_values() {
                 res.q3 = data.q3;
                 res.pozX = data.pozX;
                 res.pozY = data.pozY;
-                res.magx = data.magX;
-                res.magy = data.magY;
-                res.magz = data.magZ;
+                res.gx = data.magX;
+                res.gy = data.magY;
+                res.gz = data.magZ;
             }
     );
     var dir = new THREE.Quaternion(res.q2[0],res.q3[0],res.q1[0],res.q0[0]); //zamenjal sem y in z da model narisem pokoncno
+    
+    //odkomentriaj za debugiranje
+    
+    //var dir = new THREE.Quaternion(0,0.2,0,0.9);
+    //res.pozX = 1.2; res.pozY = 2; res.gx=0.1; res.gy = 0.2; res.gz = 1
+
+    var ROBOTPOZ = new THREE.Vector3( res.pozX[0], 0.2, res.pozY[0]);
+
+    arrowHelperW.setRotationFromQuaternion(dir);
+    arrowHelperW.position.copy(ROBOTPOZ);
+
+    
+
+    
+    var localOffset = new THREE.Vector3(-0.8,-0.4,0);
+    var eulerAngles = new THREE.Euler(0,1,0);
+    eulerAngles.setFromQuaternion(dir);
+    //console.log(eulerAngles);
+    localOffset.applyQuaternion(dir)
+  
+    var trailPoint = new THREE.Vector3();
+    trailPoint.copy(ROBOTPOZ);
+    trailPoint.addVectors(trailPoint,localOffset);
+
+    trailPath.push( 
+        trailPoint 
+    );
+    if(trailPath.length > 200){
+        trailPath.shift();
+    }
+    TrailLine.geometry = new THREE.BufferGeometry().setFromPoints( trailPath );
+
+
     robot0.setRotationFromQuaternion(dir);
-    robot0.position.copy( new THREE.Vector3( res.pozX, 0, res.pozY));
+    robot0.position.copy( ROBOTPOZ);
 
 
     var rotationMatrix = new THREE.Matrix4();
@@ -130,7 +214,7 @@ function update_values() {
     rotationMatrix.makeRotationFromQuaternion(dir);
     robo.applyMatrix4(rotationMatrix);
     robo.matrix.scale(new THREE.Vector3( 0.01, 0.01, 0.01))
-    robo.matrix.setPosition(new THREE.Vector3( res.pozX, 0, res.pozY));
+    robo.matrix.setPosition(ROBOTPOZ);
 
     //rotationMatrix.makeRotationFromQuaternion(dir);
     //robo.matrix = robo.matrix * rotationMatrix;
@@ -139,27 +223,69 @@ function update_values() {
     //roboMatrix.setPosition(new THREE.Vector3( res.pozX, 0, res.pozY));
     //robo.applyMatrix4(roboMatrix);
 
-    arrowHelperW.setRotationFromQuaternion(dir);
 
-    arrowHelperMag.setDirection(new THREE.Vector3( res.magx, res.magz, res.magy))
+    //arrowHelperG.setDirection(new THREE.Vector3( res.magx, res.magz, res.magy))
+    
+    arrowHelperGx.setRotationFromQuaternion(dir);
+    arrowHelperGx.rotateX((90*pi)/180);
+    arrowHelperGx.setLength(res.gx*4,res.gx,0.1)
+    arrowHelperGx.position.copy(ROBOTPOZ);
+    arrowHelperGx.translateZ(-0.1);
+
+    arrowHelperGy.setRotationFromQuaternion(dir);
+    arrowHelperGy.rotateZ((90*pi)/180);
+    arrowHelperGy.setLength(res.gy*4,res.gy,0.1)
+    arrowHelperGy.position.copy(ROBOTPOZ);
+    arrowHelperGy.translateX(0.1);
+    
+    //arrowHelperG.matrix.makeRotationFromQuaternion(dir);
+    //arrowHelperG.applyMatrix4(rotationMatrix);
+    
     //arrowHelperMag.position.copy(robot0.position)
 
     debugText.innerHTML = "pitch " + String(res.pitch*(180/pi)) + "<br> roll " + String(res.roll*(180/pi)) + "<br> yaw " + String(res.yaw*(180/pi))
     + "<br> pozX" + String(res.pozX) +"<br> pozY"+ String(res.pozY)
-    + "<br> X " + String(res.magx) + "<br>Y "  + String(res.magy) + "<br>Z "  + String(res.magz);
+    + "<br> X " + String(res.gx) + "<br>Y "  + String(res.gy) + "<br>Z "  + String(res.gz);
 
 
     
+    ovira.position.copy(ROBOTPOZ)
     ovira.setRotationFromQuaternion(dir);
     rotationMatrix.makeRotationY((-90*pi)/180);
-    ovira.applyMatrix4(rotationMatrix);
-    ovira.position.copy(robot0.position)
-    ovira.matrix.scale(new THREE.Vector3( 0.01, 0.01, 0.01));
-   
-
     var translationMatrix = new THREE.Matrix4();
     translationMatrix.makeTranslation(razdaljaOdovire+1.2,0,0);
     ovira.applyMatrix4(translationMatrix)
+    ovira.applyMatrix4(rotationMatrix);
+    ovira.matrix.scale(new THREE.Vector3( 0.01, 0.01, 0.01));
+   
+    for (let i = 0; i < targetObjecs.length; i++) {
+        targetObjecs[i].setRotationFromQuaternion(dir);
+        targetObjecs[i].position.copy(ROBOTPOZ);
+        targetObjecs[i].translateX(1.2)
+        targetObjecs[i].translateY(0.2)
+        var pozition = new THREE.Vector3();
+        pozition.copy(targetObjecs[i].position);
+
+        furstrumArea[i].position.copy(targetObjecs[i].position);
+
+        var offsetCamera = new THREE.Vector3(500,targetPozY[i],targetPozX[i]);
+        //var offsetCamera = new THREE.Vector3(1000,200,300);
+        offsetCamera.normalize();
+        offsetCamera.applyQuaternion(dir);
+
+        furstrumArea[i].setDirection(offsetCamera);
+
+        offsetCamera.setLength(5);
+        pozition.addVectors(pozition,offsetCamera);
+        targetObjecs[i].position.copy(pozition);
+
+        
+
+        
+
+        
+    }
+    
     
 
 } 
