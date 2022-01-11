@@ -975,14 +975,12 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	}
 	else if(GPIO_Pin == GPIO_PIN_5 && activateRasbetyPI){
 		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13); //oranzna
-
-
-
-
 		HAL_I2C_Slave_Receive(&hi2c3, I2CRxData, 8, 100);
-
-		//HAL_I2C_Slave_Transmit(&hi2c3, I2CTxData, I2C_BUFFER_SIZE, 10);
 		HAL_I2C_Slave_Transmit(&hi2c3, I2CTxData, 48,100);
+		//P.head = 0xAAAB;
+		//CDC_Transmit_FS((uint8_t*)&P,(sizeof(float)*12)+4);
+
+
 		//HAL_I2C_Slave_Transmit(&hi2c3, I2CTxData, I2C_BUFFER_SIZE, 100);
 		//Rasbery pi zahteva podatke in posilja ukaze
 		//HAL_SPI_TransmitReceive_IT(&hspi5, SpiTxData, SpiRxData, SPI_BUFFER_SIZE);

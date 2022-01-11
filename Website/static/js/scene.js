@@ -96,19 +96,24 @@ var targetPozX = [];
 var targetPozY = [];
 var furstrumArea = [];
 
+var CAMERA_HALF_RESX = 300; //600x300 resolucija
+var CAMERA_HALF_RESY = 150;
+var CAMERA_PROJECTION_PLANE = 800;
+
+//za prikaz gledisca kamere
 furstrumArea.push(new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 12, 0x00f0f0 ));
 furstrumArea.push(new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 12, 0x00f0f0 ));
 furstrumArea.push(new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 12, 0x00f0f0 ));
 furstrumArea.push(new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 12, 0x00f0f0 ));
 
-targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshStandardMaterial( { color: 0x0f00f0 } ))); 
-targetPozX.push(600-300); targetPozY.push(300-150); //od x in y piksla kamere odstejemo polovico resolucije slike
-targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshStandardMaterial( { color: 0x0f00f0 } ))); 
-targetPozX.push(0-300); targetPozY.push(300-150);
-targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshStandardMaterial( { color: 0x0f00f0 } ))); 
-targetPozX.push(0-300); targetPozY.push(0-150);
-targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshStandardMaterial( { color: 0x0f00f0 } ))); 
-targetPozX.push(600-300); targetPozY.push(0-150);
+targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.01,0.01,0.01), new THREE.MeshStandardMaterial( { color: 0x0f0ff0 } ))); 
+targetPozX.push(CAMERA_HALF_RESX); targetPozY.push(CAMERA_HALF_RESY); //od x in y piksla kamere odstejemo polovico resolucije slike
+targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.01,0.01,0.01), new THREE.MeshStandardMaterial( { color: 0x0f0ff0 } ))); 
+targetPozX.push(-CAMERA_HALF_RESX); targetPozY.push(CAMERA_HALF_RESY);
+targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.01,0.01,0.01), new THREE.MeshStandardMaterial( { color: 0x0f0ff0 } ))); 
+targetPozX.push(-CAMERA_HALF_RESX); targetPozY.push(-CAMERA_HALF_RESY);
+targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.01,0.01,0.01), new THREE.MeshStandardMaterial( { color: 0x0f0ff0 } ))); 
+targetPozX.push(CAMERA_HALF_RESX); targetPozY.push(-CAMERA_HALF_RESY);
 targetObjecs.forEach(obj => {
     scene.add(obj);
 });
@@ -165,17 +170,17 @@ function update_values() {
                 res.q3 = data.q3;
                 res.pozX = data.pozX;
                 res.pozY = data.pozY;
-                res.gx = data.magX;
-                res.gy = data.magY;
-                res.gz = data.magZ;
+                res.gx = data.gX;
+                res.gy = data.gY;
+                res.gz = data.gZ;
             }
     );
-    var dir = new THREE.Quaternion(res.q2[0],res.q3[0],res.q1[0],res.q0[0]); //zamenjal sem y in z da model narisem pokoncno
+    //var dir = new THREE.Quaternion(res.q2[0],res.q3[0],res.q1[0],res.q0[0]); //zamenjal sem y in z da model narisem pokoncno
     
     //odkomentriaj za debugiranje
     
-    //var dir = new THREE.Quaternion(0,0.2,0,0.9);
-    //res.pozX = 1.2; res.pozY = 2; res.gx=0.1; res.gy = 0.2; res.gz = 1
+    var dir = new THREE.Quaternion(0,0.2,0,0.9);
+    res.pozX = 1.2; res.pozY = 2; res.gx=0.1; res.gy = 0.2; res.gz = 1
 
     var ROBOTPOZ = new THREE.Vector3( res.pozX[0], 0.2, res.pozY[0]);
 
@@ -268,7 +273,7 @@ function update_values() {
 
         furstrumArea[i].position.copy(targetObjecs[i].position);
 
-        var offsetCamera = new THREE.Vector3(500,targetPozY[i],targetPozX[i]);
+        var offsetCamera = new THREE.Vector3(CAMERA_PROJECTION_PLANE,targetPozY[i],targetPozX[i]);
         //var offsetCamera = new THREE.Vector3(1000,200,300);
         offsetCamera.normalize();
         offsetCamera.applyQuaternion(dir);
@@ -278,11 +283,6 @@ function update_values() {
         offsetCamera.setLength(5);
         pozition.addVectors(pozition,offsetCamera);
         targetObjecs[i].position.copy(pozition);
-
-        
-
-        
-
         
     }
     

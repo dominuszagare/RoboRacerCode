@@ -6790,3 +6790,17 @@ Finished building: RobotFreeRTOS.bin
  
 Finished building: RobotFreeRTOS.list
  
+07:40:56 **** Build of configuration Debug for project Robot ****
+make -j12 all 
+arm-none-eabi-size   Robot.elf 
+   text	   data	    bss	    dec	    hex	filename
+  75140	    516	  88716	 164372	  28214	Robot.elf
+Finished building: default.size.stdout
+ 
+07:57:36 **** Incremental Build of configuration Debug for project Robot ****
+make -j12 all 
+arm-none-eabi-size   Robot.elf 
+   text	   data	    bss	    dec	    hex	filename
+  75140	    516	  88716	 164372	  28214	Robot.elf
+Finished building: default.size.stdout
+ 

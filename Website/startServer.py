@@ -44,9 +44,9 @@ def getData():
         q3=floatVals[6],
         pozX=floatVals[7],
         pozY=floatVals[8],
-        magX=floatVals[9],
-        magY=floatVals[10],
-        magZ=floatVals[11])
+        gX=floatVals[9],
+        gY=floatVals[10],
+        gZ=floatVals[11])
     print("send", floatVals[11])
     return jsonData
 
