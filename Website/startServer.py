@@ -3,8 +3,13 @@ import serial
 import threading
 import time
 import struct
+import random
+import numpy as np
+
 
 import cv2
+
+from IntStiskanje import kodiranje
 
 
 app = Flask(__name__,
@@ -17,9 +22,18 @@ SERIAL_PORT = 'COM5'
 SERIAL_RATE = 115200
 runApp = True
 
+MERI_RAZDALJO = True
+podatki_senzorja = [0,0,0,0]
+
+
+VIDEO_FEED = False
+
 @app.route('/video_feed')
 def video_feed():
-    return Response(show_webcam(True), mimetype='multipart/x-mixed-replace; boundary=frame')
+    if VIDEO_FEED == True:
+        return Response(show_webcam(True), mimetype='multipart/x-mixed-replace; boundary=frame')
+    else:
+        return ""
 
 def show_webcam(mirror=False):
     global cameraImage
@@ -49,7 +63,7 @@ floatVals = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 @app.route('/_getData',methods = ['GET', 'POST'])
 
 def getData():
-    global floatVals
+    global floatVals, podatki_senzorja
     jsonData = jsonify(
         pitch=floatVals[0],
         roll=floatVals[1],
@@ -62,8 +76,10 @@ def getData():
         pozY=floatVals[8],
         gX=floatVals[9],
         gY=floatVals[10],
-        gZ=floatVals[11])
-    #print("send", floatVals[11])
+        gZ=floatVals[11],
+        podatki_senzorja=podatki_senzorja
+        )
+    #print("send", podatki_senzorja)
     return jsonData
 
 
@@ -160,6 +176,18 @@ def readSerialData28():
     except:
         print("serial is not open")
 
+def meriRazdaljo():
+    global podatki_senzorja
+    while True:
+        lista=[]
+        for x in range(10):
+            r1 = random.randint(420, 435)
+            lista.append(r1)
+        
+        podatki_senzorja, string = kodiranje(lista)
+        #print(string)
+        time.sleep(1)
+
 if __name__ == '__main__':
     
     #t1 = threading.Thread(target=readSerialData28, args=())
@@ -167,8 +195,14 @@ if __name__ == '__main__':
 
     #t2 = threading.Thread(target=show_webcam, args=())
     #t2.start()
+
+    if MERI_RAZDALJO == True:
+        t4 = threading.Thread(target=meriRazdaljo, args=())
+        t4.start()
     
     app.run(debug=True, port=6555, host='0.0.0.0')
     runApp = False
     print("DONE")
     
+
+

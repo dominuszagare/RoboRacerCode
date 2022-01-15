@@ -71,6 +71,7 @@ const arrowHelperZ = new THREE.ArrowHelper( new THREE.Vector3( 0, 0, 1) , new TH
 const arrowHelperW = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xffff00 );
 const arrowHelperGx = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xff00f0 );
 const arrowHelperGy = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xff0f00 );
+const arrowHelperR1 = new THREE.ArrowHelper( new THREE.Vector3( -1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0x0f00f0 );
 
 scene.add( arrowHelperX );
 scene.add( arrowHelperY );
@@ -78,6 +79,7 @@ scene.add( arrowHelperZ );
 scene.add( arrowHelperW );
 scene.add( arrowHelperGx );
 scene.add( arrowHelperGy );
+scene.add( arrowHelperR1 );
 
 //mreza za tla
 const gridHelper = new THREE.GridHelper( 100, 100 );
@@ -121,21 +123,7 @@ furstrumArea.forEach(obj => {
     scene.add(obj);
 });
 
-
 let clock = new THREE.Clock();
-let delta = 0;
-
-var IMUdata = {
-    AccX: 0.0,
-    AccY: 0.0,
-    AccZ: 0.0,
-    GyroX: 0.0,
-    GyroY: 0.0,
-    GyroZ: 0.0,
-    MagX: 0.0,
-    MagY: 0.0,
-    MagZ: 0.0,
-};
 
 var razdaljaOdovire = 2.4;
 var res ={
@@ -151,11 +139,13 @@ var res ={
     magx: 0,
     magy: 0,
     magz: 0,
+    podatki_senzorja: [],
+    razsirjeniPodatki: []
 }
 
 var JSdata
         
-var intervalID = setInterval(update_values,100);
+var intervalID = setInterval(update_values,500);
 function update_values() {
     $.getJSON("_getData",
             function (data) {
@@ -173,13 +163,14 @@ function update_values() {
                 res.gx = data.gX;
                 res.gy = data.gY;
                 res.gz = data.gZ;
+                res.podatki_senzorja = data.podatki_senzorja;
             }
     );
     //var dir = new THREE.Quaternion(res.q2[0],res.q3[0],res.q1[0],res.q0[0]); //zamenjal sem y in z da model narisem pokoncno
     
     //odkomentriaj za debugiranje
     
-    var dir = new THREE.Quaternion(0,0.2,0,0.9);
+    var dir = new THREE.Quaternion(0,0.1,0,1);
     res.pozX = 1.2; res.pozY = 2; res.gx=0.1; res.gy = 0.2; res.gz = 1
 
     var ROBOTPOZ = new THREE.Vector3( res.pozX[0], 0.2, res.pozY[0]);
@@ -247,10 +238,14 @@ function update_values() {
     //arrowHelperG.applyMatrix4(rotationMatrix);
     
     //arrowHelperMag.position.copy(robot0.position)
+    if(res.podatki_senzorja.length > 6){
+        res.razsirjeniPodatki = RazsiriPodatke(res.podatki_senzorja);
+    }
 
     debugText.innerHTML = "pitch " + String(res.pitch*(180/pi)) + "<br> roll " + String(res.roll*(180/pi)) + "<br> yaw " + String(res.yaw*(180/pi))
     + "<br> pozX" + String(res.pozX) +"<br> pozY"+ String(res.pozY)
-    + "<br> X " + String(res.gx) + "<br>Y "  + String(res.gy) + "<br>Z "  + String(res.gz);
+    + "<br> X " + String(res.gx) + "<br>Y "  + String(res.gy) + "<br>Z "  + String(res.gz)
+    + "<br> Razdalja1 " + String(res.razsirjeniPodatki[0]); //+ "<br>Razdalja2 "  + String(res.razsirjeniPodatki[1]);
 
 
     
@@ -287,6 +282,16 @@ function update_values() {
         targetObjecs[i].position.copy(pozition);
         
     }
+
+    if(res.razsirjeniPodatki[0] > 0){
+        arrowHelperR1.setRotationFromQuaternion(dir);
+        arrowHelperR1.rotateZ((-90*pi)/180);
+        arrowHelperR1.setLength(res.razsirjeniPodatki[0]*0.01)
+        arrowHelperR1.position.copy(ROBOTPOZ);
+        arrowHelperR1.translateX(0.3);
+        arrowHelperR1.translateY(1.8);
+        arrowHelperR1.translateZ(-0.35);
+    } 
     
     
 
