@@ -263,6 +263,7 @@ function update_values() {
     ovira.applyMatrix4(rotationMatrix);
     ovira.matrix.scale(new THREE.Vector3( 0.01, 0.01, 0.01));
    
+    //izrisi gledisce kamere in zaznane tarce prvi 4 objekti so za dolocanje gledisca
     for (let i = 0; i < targetObjecs.length; i++) {
         targetObjecs[i].setRotationFromQuaternion(dir);
         targetObjecs[i].position.copy(ROBOTPOZ);
@@ -271,14 +272,15 @@ function update_values() {
         var pozition = new THREE.Vector3();
         pozition.copy(targetObjecs[i].position);
 
-        furstrumArea[i].position.copy(targetObjecs[i].position);
+        if(i<4){furstrumArea[i].position.copy(targetObjecs[i].position);}
+        
 
         var offsetCamera = new THREE.Vector3(CAMERA_PROJECTION_PLANE,targetPozY[i],targetPozX[i]);
         //var offsetCamera = new THREE.Vector3(1000,200,300);
         offsetCamera.normalize();
         offsetCamera.applyQuaternion(dir);
 
-        furstrumArea[i].setDirection(offsetCamera);
+        if(i<4){furstrumArea[i].setDirection(offsetCamera);}
 
         offsetCamera.setLength(5);
         pozition.addVectors(pozition,offsetCamera);

@@ -1,21 +1,10 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, Response
 import serial
 import threading
 import time
 import struct
 
 import cv2
-
-def show_webcam(mirror=False):
-    cam = cv2.VideoCapture(1)
-    while True:
-        ret_val, img = cam.read()
-        if mirror: 
-            img = cv2.flip(img, 1)
-        cv2.imshow('my webcam', img)
-        if cv2.waitKey(1) == 27: 
-            break  # esc to quit
-    cv2.destroyAllWindows()
 
 
 app = Flask(__name__,
@@ -27,6 +16,33 @@ app = Flask(__name__,
 SERIAL_PORT = 'COM5'
 SERIAL_RATE = 115200
 runApp = True
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(show_webcam(True), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+def show_webcam(mirror=False):
+    global cameraImage
+    cam = cv2.VideoCapture(1)
+    while True:
+        ret_val, cameraImage = cam.read()
+        if not ret_val:
+            break
+        if mirror: 
+            cameraImage = cv2.flip(cameraImage, 1)
+
+        #cv2.imshow('my webcam', cameraImage)
+
+        ret, buffer = cv2.imencode('.jpg',cameraImage)
+        frame = buffer.tobytes()
+        yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+
+        if cv2.waitKey(1) == 27: 
+            break  # esc to quit
+    cv2.destroyAllWindows()
+
+
 
 floatVals = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
 
@@ -47,7 +63,7 @@ def getData():
         gX=floatVals[9],
         gY=floatVals[10],
         gZ=floatVals[11])
-    print("send", floatVals[11])
+    #print("send", floatVals[11])
     return jsonData
 
 
@@ -146,11 +162,11 @@ def readSerialData28():
 
 if __name__ == '__main__':
     
-    t1 = threading.Thread(target=readSerialData28, args=())
-    t1.start()
+    #t1 = threading.Thread(target=readSerialData28, args=())
+    #t1.start()
 
-    t2 = threading.Thread(target=show_webcam, args=())
-    t2.start()
+    #t2 = threading.Thread(target=show_webcam, args=())
+    #t2.start()
     
     app.run(debug=True, port=6555, host='0.0.0.0')
     runApp = False

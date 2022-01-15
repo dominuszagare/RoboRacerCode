@@ -5,8 +5,6 @@
  *      Author: ddomi
  */
 #include "robotTasks.h"
-#include "FreeRTOS.h"
-#include "task.h"
 #include "robotPeriferija.h"
 #include "nrf24.h"
 #include "math.h"
@@ -35,6 +33,9 @@ extern volatile uint8_t GyroReady;
 extern volatile uint8_t AccReady;
 extern volatile uint8_t MagReady;
 extern volatile uint8_t sendData;
+
+extern QueueHandle_t PozDataQueueHandle;
+
 
 extern volatile uint8_t SPIcommandRecived;
 
@@ -105,78 +106,94 @@ void speedControl(struct motorData* m, float deltaT){
 	}
 }
 
-void StartCalculatingPoz(void *argument){
+void StartTransmitingData(void *argument){ //opravilo z nizko prioriteto
+
 	while(1){
-		if(MagReady){
-			MagF.x = izracunajPovprecjeInt16(&MagX,Mag.x,10);
-			MagF.y = izracunajPovprecjeInt16(&MagY,Mag.y,10);
-			MagF.z = izracunajPovprecjeInt16(&MagZ,Mag.z,10);
-			MagReady = 0;
-
+		if(xQueueReceive(PozDataQueueHandle, &P, portMAX_DELAY) == pdPASS){
 			P.head = 0xAAAB;
-			CDC_Transmit_FS((uint8_t*)&P,(sizeof(float)*12)+4);
+			CDC_Transmit_FS((uint8_t*)&P,sizeof(P));
 		}
-	    if(AccReady){
-		    Acc.x -= E.Accx;
-		    Acc.y -= E.Accy;
-		    AccF.x = izracunajPovprecjeInt16(&AccX,Acc.x,50);
-		    AccF.y = izracunajPovprecjeInt16(&AccY,Acc.y,50);
-		    AccF.z = izracunajPovprecjeInt16(&AccZ,Acc.z,50);
-		    AccReady = 0;
-	    }
-	    if(GyroReady){
-		    Gyro.x -= E.Gyrox;
-		    Gyro.y -= E.Gyroy;
-		    Gyro.z -= E.Gyroz;
-		    GyroF.x = izracunajPovprecjeInt16(&GyroX,Gyro.x,50);
-		    GyroF.y = izracunajPovprecjeInt16(&GyroY,Gyro.y,50);
-		    GyroF.z = izracunajPovprecjeInt16(&GyroZ,Gyro.z,50);
-		    GyroReady = 0;
+		vTaskDelay(2);
+	}
+}
 
-		    //poracunamo podatke
-		    float gx,gy,gz,ax,ay,az,mx,my,mz;
+void StartCalculatingPoz(void *argument){
+	uint32_t notification = 0;
+	while(1){
+		if(xTaskNotifyWait(0,0,&notification,pdMS_TO_TICKS(10)) == pdTRUE){
+			if(MagReady){ //zamenjaj mag redy zastavice z task notification
+				MagF.x = izracunajPovprecjeInt16(&MagX,Mag.x,10);
+				MagF.y = izracunajPovprecjeInt16(&MagY,Mag.y,10);
+				MagF.z = izracunajPovprecjeInt16(&MagZ,Mag.z,10);
+				MagReady = 0;
 
-		    if(AccF.x == 0 && AccF.y == 0 && AccF.z==0){ax=0.0f; ay=0.0f; az=1.0f;}
-		    else{
-			    ax = ((float)AccF.x) *0.0006103515f;
-			    ay = ((float)AccF.y) *0.0006103515f;
-			    az = ((float)AccF.z) *0.0006103515f;//+-2g  2/(2^16/2)
-			    normalize_v3f(&ax,&ay,&az);
-		    }
+				//vstavi podatke v queue za posiljanje 100 na sekundo
+				xQueueSend(PozDataQueueHandle, &P, portMAX_DELAY);
 
-		    gx = ((float)GyroF.x) * 0.0175f * DEG_TO_RAD*2; //deg/s obcutljivost 500dps
-		    gy = ((float)GyroF.y) * -0.0175f * DEG_TO_RAD*2;
-		    gz = ((float)GyroF.z) * 0.0175f * DEG_TO_RAD*2;
+			}
+			if(AccReady){
+				Acc.x -= E.Accx;
+				Acc.y -= E.Accy;
+				AccF.x = izracunajPovprecjeInt16(&AccX,Acc.x,50);
+				AccF.y = izracunajPovprecjeInt16(&AccY,Acc.y,50);
+				AccF.z = izracunajPovprecjeInt16(&AccZ,Acc.z,50);
+				AccReady = 0;
+			}
+			if(GyroReady){
+				Gyro.x -= E.Gyrox;
+				Gyro.y -= E.Gyroy;
+				Gyro.z -= E.Gyroz;
+				GyroF.x = izracunajPovprecjeInt16(&GyroX,Gyro.x,50);
+				GyroF.y = izracunajPovprecjeInt16(&GyroY,Gyro.y,50);
+				GyroF.z = izracunajPovprecjeInt16(&GyroZ,Gyro.z,50);
+				GyroReady = 0;
 
-		    if(MagF.x == 0 && MagF.y == 0 && MagF.z==0){mx = 0.2f; my = 0.2f; mz = 0.1f;}
-		    else{
-			    mx = ((float)MagF.x) * 0.0015f; //magnetic sesnetivity 1.5 mgauss/LSB
-			    my = ((float)MagF.y) * 0.0015f;
-			    mz = ((float)MagF.z) * 0.0015f;
-		    }
-		    normalize_v3f(&mx,&my,&mz);
+				//poracunamo podatke
+				float gx,gy,gz,ax,ay,az,mx,my,mz;
 
-		    MadgwickAHRSupdate(gx,gy,gz,ax,ay,az,0,0,0);
-		    P.heading = atan2(2*(q0*q3+q1*q2),1-2*(q2*q2+q3*q3));
-		    P.roll = atan2(2*(q0*q1+q2*q3),1-2*(q1*q1+q2*q2));
-		    P.pitch = asin(2*(q0*q2 - q3*q1));
-		    P.Q0 = q0; P.Q1 = q1; P.Q2 = q2; P.Q3 = q3;
+				if(AccF.x == 0 && AccF.y == 0 && AccF.z==0){ax=0.0f; ay=0.0f; az=1.0f;}
+				else{
+					ax = ((float)AccF.x) *0.0006103515f;
+					ay = ((float)AccF.y) *0.0006103515f;
+					az = ((float)AccF.z) *0.0006103515f;//+-2g  2/(2^16/2)
+					normalize_v3f(&ax,&ay,&az);
+				}
 
-		    //rotiraj po X za roll
-		    ay = ay*cos(-P.roll)-az*sin(P.roll);
-		    az = ay*sin(-P.roll)+az*cos(P.roll);
-		    //rotiraj vektor okoli Y za pitch
-		    ax = ax*cos(-P.pitch)-az*sin(-P.pitch);
-		    az = -ax*sin(-P.pitch)+az*cos(-P.pitch);
+				gx = ((float)GyroF.x) * 0.0175f * DEG_TO_RAD*2; //deg/s obcutljivost 500dps
+				gy = ((float)GyroF.y) * -0.0175f * DEG_TO_RAD*2;
+				gz = ((float)GyroF.z) * 0.0175f * DEG_TO_RAD*2;
 
-		    P.magX = ax;
-		    P.magY = ay;
-		    P.magZ = az;
+				if(MagF.x == 0 && MagF.y == 0 && MagF.z==0){mx = 0.2f; my = 0.2f; mz = 0.1f;}
+				else{
+					mx = ((float)MagF.x) * 0.0015f; //magnetic sesnetivity 1.5 mgauss/LSB
+					my = ((float)MagF.y) * 0.0015f;
+					mz = ((float)MagF.z) * 0.0015f;
+				}
+				normalize_v3f(&mx,&my,&mz);
 
-		    for(int n=4; n<30; n++){ //pripravi podatke za spi
-			    SpiTxData[n-4] = ((uint8_t*)&P)[n];
-		    }
-	    }
+				MadgwickAHRSupdate(gx,gy,gz,ax,ay,az,0,0,0);
+				P.heading = atan2(2*(q0*q3+q1*q2),1-2*(q2*q2+q3*q3));
+				P.roll = atan2(2*(q0*q1+q2*q3),1-2*(q1*q1+q2*q2));
+				P.pitch = asin(2*(q0*q2 - q3*q1));
+				P.Q0 = q0; P.Q1 = q1; P.Q2 = q2; P.Q3 = q3;
+
+				//rotiraj po X za roll
+				ay = ay*cos(-P.roll)-az*sin(P.roll);
+				az = ay*sin(-P.roll)+az*cos(P.roll);
+				//rotiraj vektor okoli Y za pitch
+				ax = ax*cos(-P.pitch)-az*sin(-P.pitch);
+				az = -ax*sin(-P.pitch)+az*cos(-P.pitch);
+
+				P.magX = ax;
+				P.magY = ay;
+				P.magZ = az;
+
+				for(int n=4; n<30; n++){ //pripravi podatke za spi
+					SpiTxData[n-4] = ((uint8_t*)&P)[n];
+				}
+			}
+
+		}
 	    vTaskDelay(1);
 	}
 }

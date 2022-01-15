@@ -23,8 +23,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "FreeRTOS.h"
-#include "task.h"
 #include "robotPeriferija.h"
 #include "nrf24.h"
 #include "robotTasks.h"
@@ -70,6 +68,11 @@ volatile uint8_t AccReady = 0;
 volatile uint8_t MagReady = 0;
 volatile uint8_t sendData = 0;
 
+TaskHandle_t TaskHandleCalculatingPoz = NULL;
+
+
+QueueHandle_t PozDataQueueHandle;
+
 volatile uint8_t SPIcommandRecived = 0;
 
 volatile uint8_t SpiTxData[SPI_BUFFER_SIZE];
@@ -101,7 +104,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	if(GPIO_Pin == GPIO_PIN_14){
 		nRF24_dataReady = 1; //spremenil se je status register pejt pogledat kaj se je zgodilo
 	}
-	else if(GPIO_Pin == GPIO_PIN_15){
+	else if(GPIO_Pin == GPIO_PIN_15){ //za spremenljivko pozicija motorja nimam shihronizaciskih mehanizmov ker ni tako pomembno da imam pravo vrednost ki se sicer ne speminja veliko
 		if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_2)){motorLF.poz--;}
 		else{motorLF.poz++;}
 	}
@@ -117,19 +120,23 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_6)){motorLB.poz--;}
 		else{motorLB.poz++;}
 	}
-	else if(GPIO_Pin == GPIO_PIN_1){ //vsakic ko dobis interupt posodobi podatke
+	else if(GPIO_Pin == GPIO_PIN_1){
 		spi1_beriRegistre(0x28, (uint8_t*)&Gyro, 6);
 		GyroReady = 1; //zastavica da so na voljo novi podatki 200Hz
+		xTaskNotifyFromISR(TaskHandleCalculatingPoz,0,eNoAction,pdFALSE);
+
 	}
 	else if(GPIO_Pin == GPIO_PIN_4){
 		//data ready pospeskometer
 		i2c1_beriRegistre(0x19, 0x28,(uint8_t*)&Acc, 6);
 		AccReady = 1; //200Hz
+		xTaskNotifyFromISR(TaskHandleCalculatingPoz,0,eNoAction,pdFALSE);
 	}
 	else if(GPIO_Pin == GPIO_PIN_2){
 		//data ready megnetometer
 		i2c1_beriRegistre(0x1e, 0x68,(uint8_t*)&Mag, 6);
 		MagReady = 1; //100Hz
+		xTaskNotifyFromISR(TaskHandleCalculatingPoz,0,eNoAction,pdFALSE);
 	}
 
 }
@@ -180,8 +187,6 @@ void inicilizirajCipe(){
 	i2c1_beriRegistre(0x19, 0x28,(uint8_t*)&Acc, 6);
 	i2c1_beriRegistre(0x1e, 0x68,(uint8_t*)&Mag, 6);
 }
-
-
 
 void getDrift(){
 	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, 1);
@@ -303,17 +308,24 @@ int main(void)
 	P.pozX = 0;
 	P.pozY = 0;
 
-	getDrift();
+	//getDrift();
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+	PozDataQueueHandle = xQueueCreate(20,sizeof(P)); //struktura P je velika 13 zlogov
+	if (PozDataQueueHandle == 0){
+		//napaka z ustvarjanjem vrste prizgemo redeco lediko
+		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, 1);
+	}
 
 	xTaskCreate(StartRecivingCommandsNRF24, "recivingCommands", 100, NULL, ( tskIDLE_PRIORITY + 4UL ), (TaskHandle_t *)NULL);
-	xTaskCreate(StartCalculatingPoz, "calculatePoz", 100, NULL, ( tskIDLE_PRIORITY + 2UL ), (TaskHandle_t *)NULL);
+	xTaskCreate(StartCalculatingPoz, "calculatePoz", 100, NULL, ( tskIDLE_PRIORITY + 2UL ), &TaskHandleCalculatingPoz);
 	xTaskCreate(StartMotorControl, "motorControl", 100, NULL, ( tskIDLE_PRIORITY + 2UL ), (TaskHandle_t *)NULL);
 	xTaskCreate(StartCalculatingPath, "calculatePath", 100, NULL, ( tskIDLE_PRIORITY + 1UL ), (TaskHandle_t *)NULL);
+
+	xTaskCreate(StartTransmitingData, "transmitData", 100, NULL, ( tskIDLE_PRIORITY + 1UL ), (TaskHandle_t *)NULL);
 
 	vTaskStartScheduler();
 

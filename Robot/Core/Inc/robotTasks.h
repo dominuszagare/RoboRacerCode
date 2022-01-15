@@ -14,6 +14,7 @@ void StartCalculatingPoz(void *argument);
 void StartRecivingCommandsNRF24(void *argument);
 void StartMotorControl(void *argument);
 void StartCalculatingPath(void *argument);
+void StartTransmitingData(void *argument);
 
 
 #endif /* INC_ROBOTTASKS_H_ */

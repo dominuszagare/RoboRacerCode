@@ -7,10 +7,17 @@
         <script src="/js/libs/jquery/jquery-3.5.1.js"></script>
         <style>
             #info {position: absolute;top: 40px;width: 100%;text-align: left;z-index: 100; display:block; color: aqua; margin: 10px;}
+            #videostream {position: absolute; right: 0; z-index: 110; display:block;}
         </style>
     </head>
     <body>
-        <div id="info">0</div>
+        <div id="info">
+            0
+        </div>
+        <div>
+            <img id="videostream" src="{{ url_for('video_feed') }}" width="50%">
+        </div>
         <script type="module" src="/js/scene.js"></script>
+        </body>
     </body>>
 </html>

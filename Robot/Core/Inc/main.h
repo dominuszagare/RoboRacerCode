@@ -32,7 +32,9 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -75,7 +77,7 @@ struct SendIMU{
 	int16_t YMag;
 	int16_t ZMag;
 }IMUsend;
-volatile struct CalculatePoz{
+struct CalculatePoz{
 	uint32_t head;
 	float pitch;
 	float roll;
@@ -90,7 +92,7 @@ volatile struct CalculatePoz{
 	float magY;
 	float magZ;
 }P;
-volatile struct IMUError{
+struct IMUError{
 	int16_t Gyrox; //drift from 0
 	int16_t Gyroy;
 	int16_t Gyroz;
