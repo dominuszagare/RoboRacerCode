@@ -7,7 +7,13 @@ import random
 import numpy as np
 
 
+import main as arm
+import cv2.aruco as aruco
 import cv2
+import os
+import glob
+import yaml
+import math
 
 from IntStiskanje import kodiranje
 
@@ -24,24 +30,24 @@ runApp = True
 
 MERI_RAZDALJO = True
 podatki_senzorja = [0,0,0,0]
+floatVals = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+pozicijaARtaga = [(0,0)]
 
 
-VIDEO_FEED = False
+VIDEO_FEED = True
 
 @app.route('/video_feed')
 def video_feed():
     if VIDEO_FEED == True:
-        return Response(show_webcam(True), mimetype='multipart/x-mixed-replace; boundary=frame')
+        return Response(stream(True), mimetype='multipart/x-mixed-replace; boundary=frame')
     else:
         return ""
 
-def show_webcam(mirror=False):
-    global cameraImage
-    cam = cv2.VideoCapture(1)
+def stream(mirror=False):
+    global image
+
     while True:
-        ret_val, cameraImage = cam.read()
-        if not ret_val:
-            break
+        cameraImage = image
         if mirror: 
             cameraImage = cv2.flip(cameraImage, 1)
 
@@ -52,18 +58,10 @@ def show_webcam(mirror=False):
         yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 
-        if cv2.waitKey(1) == 27: 
-            break  # esc to quit
-    cv2.destroyAllWindows()
-
-
-
-floatVals = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
-
 @app.route('/_getData',methods = ['GET', 'POST'])
 
 def getData():
-    global floatVals, podatki_senzorja
+    global floatVals, podatki_senzorja, pozicijaARtaga
     jsonData = jsonify(
         pitch=floatVals[0],
         roll=floatVals[1],
@@ -77,6 +75,8 @@ def getData():
         gX=floatVals[9],
         gY=floatVals[10],
         gZ=floatVals[11],
+        distAr=floatVals[12],
+        arPoz=pozicijaARtaga,
         podatki_senzorja=podatki_senzorja
         )
     #print("send", podatki_senzorja)
@@ -86,6 +86,52 @@ def getData():
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+def show_webcam(mirror=False):
+    global floatVals, image, pozicijaARtaga
+    
+    camera = cv2.VideoCapture(1)
+    #impImage = cv2.imread("new.jpg")
+    mtx, dist = arm.calibrateCamera()
+
+    while True:
+        status, image = camera.read()
+
+        detected_tag = arm.detectTag(mtx, dist, image)
+
+        if len(detected_tag[0]) != 0:
+            for frame, tag, rvec, tvec in zip(detected_tag[0], detected_tag[1], detected_tag[2], detected_tag[3]):
+                # image = superimposeImage(image, impImage, frame, tag)
+                if tag is not None:
+                    for i in range(tag.size):
+                        upper_left = frame[0][0][0], frame[0][0][1]
+                        upper_right = frame[0][1][0], frame[0][1][1]
+                        lower_right = frame[0][2][0], frame[0][2][1]
+                        lower_left = frame[0][3][0], frame[0][3][1]
+
+                        frame_pos = frame.reshape((4, 2))
+
+                        (up_left, up_right, low_right, low_left) = frame_pos
+                        up_left = (int(up_left[0]), int(up_left[1]))
+
+                        # rr, thet = ra.rArea(corners)
+                        #print(frame)
+                        aruco.drawAxis(image, mtx, dist, rvec[0], tvec[0], 0.06)  # np.array([0.0, 0.0, 0.0])
+                        cv2.putText(image,
+                                    "%.1f cm" % ((tvec[:, 2] * 100) - 10),
+                                    (up_left[0], up_left[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (244, 244, 244), 2)
+                        # cv2.circle(image, (100, int(rr / 600)), 6, (200, 40, 230), -1)
+                        R, _ = cv2.Rodrigues(rvec[0])
+                        #floatVals[12] =  ((tvec[:, 2] * 100) - 10)
+                        cameraPose = -R.T * tvec[0]
+                        #print("XY",cameraPose)
+                        pozicijaARtaga[0] = ((tvec[:, 2] * 100) - 10)
+                        print("Distance:", pozicijaARtaga[0])
+
+        cv2.imshow("Image", image)
+        cv2.waitKey(1)
+
 
 def readSerialData28():
     global floatVals, runApp
@@ -193,8 +239,8 @@ if __name__ == '__main__':
     #t1 = threading.Thread(target=readSerialData28, args=())
     #t1.start()
 
-    #t2 = threading.Thread(target=show_webcam, args=())
-    #t2.start()
+    t2 = threading.Thread(target=show_webcam, args=())
+    t2.start()
 
     if MERI_RAZDALJO == True:
         t4 = threading.Thread(target=meriRazdaljo, args=())

@@ -140,7 +140,9 @@ var res ={
     magy: 0,
     magz: 0,
     podatki_senzorja: [],
-    razsirjeniPodatki: []
+    razsirjeniPodatki: [],
+    distAr: 0,
+    pozAr: []
 }
 
 var JSdata
@@ -164,6 +166,8 @@ function update_values() {
                 res.gy = data.gY;
                 res.gz = data.gZ;
                 res.podatki_senzorja = data.podatki_senzorja;
+                res.distAr = data.distAr;
+                res.pozAr = data.arPoz;
             }
     );
     //var dir = new THREE.Quaternion(res.q2[0],res.q3[0],res.q1[0],res.q0[0]); //zamenjal sem y in z da model narisem pokoncno
@@ -245,7 +249,8 @@ function update_values() {
     debugText.innerHTML = "pitch " + String(res.pitch*(180/pi)) + "<br> roll " + String(res.roll*(180/pi)) + "<br> yaw " + String(res.yaw*(180/pi))
     + "<br> pozX" + String(res.pozX) +"<br> pozY"+ String(res.pozY)
     + "<br> X " + String(res.gx) + "<br>Y "  + String(res.gy) + "<br>Z "  + String(res.gz)
-    + "<br> Razdalja1 " + String(res.razsirjeniPodatki[0]); //+ "<br>Razdalja2 "  + String(res.razsirjeniPodatki[1]);
+    + "<br> Razdalja1 " + String(res.razsirjeniPodatki[0])
+    + "<br> ar " + String(res.pozAr[0]); //+ "<br>Razdalja2 "  + String(res.razsirjeniPodatki[1]);
 
 
     
