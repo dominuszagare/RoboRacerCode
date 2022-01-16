@@ -53,6 +53,7 @@ var pi = 3.14159265358979323846
 //osvetlitev scene
 scene.background = new THREE.Color(0xa0a0a0);
 var light = new THREE.HemisphereLight(0xffeeb1,0x080802,4);
+light.castShadow = true;
 scene.add( light );
 var spotlight = new THREE.SpotLight(0x303030,4);
 spotlight.position.set(-50,50,50);
@@ -71,7 +72,9 @@ const arrowHelperZ = new THREE.ArrowHelper( new THREE.Vector3( 0, 0, 1) , new TH
 const arrowHelperW = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xffff00 );
 const arrowHelperGx = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xff00f0 );
 const arrowHelperGy = new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0xff0f00 );
-const arrowHelperR1 = new THREE.ArrowHelper( new THREE.Vector3( -1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0x0f00f0 );
+const arrowHelperR1 = new THREE.ArrowHelper( new THREE.Vector3( -1, 0, 0) , new THREE.Vector3( 0, 0, 0), 1, 0x0f00f0 ); arrowHelperR1.visible = false
+const razdalja1Zid = new THREE.Mesh( new THREE.BoxGeometry(0.1,1,1), new THREE.MeshStandardMaterial( { color: 0xff0f0f }));  razdalja1Zid.visible = false;
+
 
 scene.add( arrowHelperX );
 scene.add( arrowHelperY );
@@ -80,6 +83,7 @@ scene.add( arrowHelperW );
 scene.add( arrowHelperGx );
 scene.add( arrowHelperGy );
 scene.add( arrowHelperR1 );
+scene.add( razdalja1Zid );
 
 //mreza za tla
 const gridHelper = new THREE.GridHelper( 100, 100 );
@@ -289,6 +293,7 @@ function update_values() {
     }
 
     if(res.razsirjeniPodatki[0] > 0){
+        arrowHelperR1.visible = true;
         arrowHelperR1.setRotationFromQuaternion(dir);
         arrowHelperR1.rotateZ((-90*pi)/180);
         arrowHelperR1.setLength(res.razsirjeniPodatki[0]*0.01)
@@ -296,8 +301,16 @@ function update_values() {
         arrowHelperR1.translateX(0.3);
         arrowHelperR1.translateY(1.8);
         arrowHelperR1.translateZ(-0.35);
+
+        razdalja1Zid.position.copy(arrowHelperR1.position);
+        razdalja1Zid.setRotationFromQuaternion(dir);
+        razdalja1Zid.translateX(res.razsirjeniPodatki[0]*0.01);
+        razdalja1Zid.visible = true;
     } 
-    
+    else{
+        arrowHelperR1.visible = false;
+        razdalja1Zid.visible = false;
+    }
     
 
 } 

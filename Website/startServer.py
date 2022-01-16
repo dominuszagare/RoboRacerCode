@@ -34,7 +34,7 @@ floatVals = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 pozicijaARtaga = [(0,0)]
 
 
-VIDEO_FEED = True
+VIDEO_FEED = False
 
 @app.route('/video_feed')
 def video_feed():
