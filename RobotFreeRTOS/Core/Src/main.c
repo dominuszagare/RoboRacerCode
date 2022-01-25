@@ -26,7 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdint.h"
-#include "robotPeriferija.h".h"
+#include "robotPeriferija.h"
 #include "nrf24.h"
 #include "math.h"
 #include "MadgwickAHRS.h"
@@ -53,7 +53,7 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c);
 #define PID_I_LIMIT 50.0f
 #define PID_D 0.1f
 #define PID_LIMIT 1.0f
-#define SPEEDMOD 0.5f
+#define SPEEDMOD 1.0f
 
 #define PI 3.14159265358979323846f
 #define DEG_TO_RAD 0.01745329252f
@@ -189,7 +189,7 @@ void inicilizirajCipe(){
 
 
 
-float normalize_v3f(float* x, float* y, float* z){
+void normalize_v3f(float* x, float* y, float* z){
 	float norm = sqrt( (*x) * (*x) + (*y) * (*y) + (*z) * (*z) );
 	*x /= norm;
 	*y /= norm;

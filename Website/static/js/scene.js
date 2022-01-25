@@ -52,12 +52,10 @@ var pi = 3.14159265358979323846
 
 //osvetlitev scene
 scene.background = new THREE.Color(0xa0a0a0);
-var light = new THREE.HemisphereLight(0xffeeb1,0x080802,4);
-light.castShadow = true;
+var light = new THREE.HemisphereLight(0xffeeb1,0x080802,3);
 scene.add( light );
-var spotlight = new THREE.SpotLight(0x303030,4);
+var spotlight = new THREE.SpotLight(0x303030,2);
 spotlight.position.set(-50,50,50);
-spotlight.castShadow = true;
 scene.add( spotlight );
 
 
@@ -87,7 +85,7 @@ scene.add( razdalja1Zid );
 
 //mreza za tla
 const gridHelper = new THREE.GridHelper( 100, 100 );
-gridHelper.position.copy(new THREE.Vector3(0,-0.6,0));
+gridHelper.position.copy(new THREE.Vector3(0,-0.5,0));
 scene.add( gridHelper );
 
 
@@ -100,11 +98,12 @@ scene.add( robot0 );
 var targetObjecs = [];
 var targetPozX = [];
 var targetPozY = [];
+var targetDistance = [];
 var furstrumArea = [];
 
-var CAMERA_HALF_RESX = 300; //600x300 resolucija
-var CAMERA_HALF_RESY = 150;
-var CAMERA_PROJECTION_PLANE = 800;
+var CAMERA_HALF_RESX = 300; //600x400 resoucija
+var CAMERA_HALF_RESY = 200;
+var CAMERA_PROJECTION_PLANE = 310;
 
 //za prikaz gledisca kamere
 furstrumArea.push(new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 12, 0x00f0f0 ));
@@ -112,15 +111,22 @@ furstrumArea.push(new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE
 furstrumArea.push(new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 12, 0x00f0f0 ));
 furstrumArea.push(new THREE.ArrowHelper( new THREE.Vector3( 1, 0, 0) , new THREE.Vector3( 0, 0, 0), 12, 0x00f0f0 ));
 
-targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.01,0.01,0.01), new THREE.MeshStandardMaterial( { color: 0x0f0ff0 } ))); 
-targetPozX.push(CAMERA_HALF_RESX); targetPozY.push(CAMERA_HALF_RESY); //od x in y piksla kamere odstejemo polovico resolucije slike
-targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.01,0.01,0.01), new THREE.MeshStandardMaterial( { color: 0x0f0ff0 } ))); 
-targetPozX.push(-CAMERA_HALF_RESX); targetPozY.push(CAMERA_HALF_RESY);
-targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.01,0.01,0.01), new THREE.MeshStandardMaterial( { color: 0x0f0ff0 } ))); 
-targetPozX.push(-CAMERA_HALF_RESX); targetPozY.push(-CAMERA_HALF_RESY);
-targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.01,0.01,0.01), new THREE.MeshStandardMaterial( { color: 0x0f0ff0 } ))); 
-targetPozX.push(CAMERA_HALF_RESX); targetPozY.push(-CAMERA_HALF_RESY);
+targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.1,0.1,0.1), new THREE.MeshStandardMaterial( { color: 0x0f0ff0 } ))); 
+targetPozX.push(CAMERA_HALF_RESX); targetPozY.push(CAMERA_HALF_RESY); targetDistance.push(5); //od x in y piksla kamere odstejemo polovico resolucije slike
+targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.1,0.1,0.1), new THREE.MeshStandardMaterial( { color: 0x0f0ff0 } ))); 
+targetPozX.push(-CAMERA_HALF_RESX); targetPozY.push(CAMERA_HALF_RESY); targetDistance.push(5);
+targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.1,0.1,0.1), new THREE.MeshStandardMaterial( { color: 0x0f0ff0 } ))); 
+targetPozX.push(-CAMERA_HALF_RESX); targetPozY.push(-CAMERA_HALF_RESY); targetDistance.push(5);
+targetObjecs.push(new THREE.Mesh( new THREE.BoxGeometry(0.1,0.1,0.1), new THREE.MeshStandardMaterial( { color: 0x0f0ff0 } ))); 
+targetPozX.push(CAMERA_HALF_RESX); targetPozY.push(-CAMERA_HALF_RESY); targetDistance.push(5);
+//porini objekt ar taga
+const textLoader = new THREE.TextureLoader();
+const textMapArTag = textLoader.load('../models/artag.png')
+targetObjecs.push(new THREE.Mesh( new THREE.PlaneGeometry(0.6,0.6), new THREE.MeshBasicMaterial( { color: 0xffffff, map:textMapArTag } ))); 
+targetPozX.push(0); targetPozY.push(0); targetDistance.push(50);
+
 targetObjecs.forEach(obj => {
+    obj.visible = false;
     scene.add(obj);
 });
 furstrumArea.forEach(obj => {
@@ -151,7 +157,7 @@ var res ={
 
 var JSdata
         
-var intervalID = setInterval(update_values,500);
+var intervalID = setInterval(update_values,100);
 function update_values() {
     $.getJSON("_getData",
             function (data) {
@@ -169,17 +175,18 @@ function update_values() {
                 res.gx = data.gX;
                 res.gy = data.gY;
                 res.gz = data.gZ;
-                res.podatki_senzorja = data.podatki_senzorja;
+                //res.podatki_senzorja = data.podatki_senzorja;
+                res.razsirjeniPodatki = data.podatki_senzorja;
                 res.distAr = data.distAr;
                 res.pozAr = data.arPoz;
             }
     );
-    //var dir = new THREE.Quaternion(res.q2[0],res.q3[0],res.q1[0],res.q0[0]); //zamenjal sem y in z da model narisem pokoncno
+    var dir = new THREE.Quaternion(res.q2[0],res.q3[0],res.q1[0],res.q0[0]); //zamenjal sem y in z da model narisem pokoncno
     
     //odkomentriaj za debugiranje
     
-    var dir = new THREE.Quaternion(0,0.1,0,1);
-    res.pozX = 1.2; res.pozY = 2; res.gx=0.1; res.gy = 0.2; res.gz = 1
+    //var dir = new THREE.Quaternion(0,0.1,0,1);
+    //res.pozX = 1.2; res.pozY = 2; res.gx=0.1; res.gy = 0.2; res.gz = 1
 
     var ROBOTPOZ = new THREE.Vector3( res.pozX[0], 0.2, res.pozY[0]);
 
@@ -242,22 +249,18 @@ function update_values() {
     arrowHelperGy.position.copy(ROBOTPOZ);
     arrowHelperGy.translateX(0.1);
     
-    //arrowHelperG.matrix.makeRotationFromQuaternion(dir);
-    //arrowHelperG.applyMatrix4(rotationMatrix);
-    
-    //arrowHelperMag.position.copy(robot0.position)
-    if(res.podatki_senzorja.length > 6){
-        res.razsirjeniPodatki = RazsiriPodatke(res.podatki_senzorja);
-    }
+
+    //if(res.podatki_senzorja.length > 6){ //ce smo prejeli stisjene podatke jih razsiri
+    //    res.razsirjeniPodatki = RazsiriPodatke(res.podatki_senzorja);
+    //}
 
     debugText.innerHTML = "pitch " + String(res.pitch*(180/pi)) + "<br> roll " + String(res.roll*(180/pi)) + "<br> yaw " + String(res.yaw*(180/pi))
     + "<br> pozX" + String(res.pozX) +"<br> pozY"+ String(res.pozY)
     + "<br> X " + String(res.gx) + "<br>Y "  + String(res.gy) + "<br>Z "  + String(res.gz)
-    + "<br> Razdalja1 " + String(res.razsirjeniPodatki[0])
-    + "<br> ar " + String(res.pozAr[0]); //+ "<br>Razdalja2 "  + String(res.razsirjeniPodatki[1]);
+    + "<br> ar " + String(res.pozAr); //+ "<br>Razdalja2 "  + String(res.razsirjeniPodatki[1]);
 
 
-    
+    /*
     ovira.position.copy(ROBOTPOZ)
     ovira.setRotationFromQuaternion(dir);
     rotationMatrix.makeRotationY((-90*pi)/180);
@@ -266,13 +269,25 @@ function update_values() {
     ovira.applyMatrix4(translationMatrix)
     ovira.applyMatrix4(rotationMatrix);
     ovira.matrix.scale(new THREE.Vector3( 0.01, 0.01, 0.01));
+    */
    
     //izrisi gledisce kamere in zaznane tarce prvi 4 objekti so za dolocanje gledisca
+    if( res.pozAr.length > 2){
+        targetObjecs[4].visible = true;
+        targetDistance[4] = res.pozAr[0]/40;
+        targetPozX[4] = res.pozAr[1] - CAMERA_HALF_RESX;
+        targetPozY[4] = CAMERA_HALF_RESY - res.pozAr[2];
+    }
+    else{
+        targetObjecs[4].visible = false;
+        
+    }
+
     for (let i = 0; i < targetObjecs.length; i++) {
         targetObjecs[i].setRotationFromQuaternion(dir);
         targetObjecs[i].position.copy(ROBOTPOZ);
         targetObjecs[i].translateX(1.2)
-        targetObjecs[i].translateY(0.2)
+        targetObjecs[i].translateY(0.3)
         var pozition = new THREE.Vector3();
         pozition.copy(targetObjecs[i].position);
 
@@ -286,13 +301,16 @@ function update_values() {
 
         if(i<4){furstrumArea[i].setDirection(offsetCamera);}
 
-        offsetCamera.setLength(5);
+        offsetCamera.setLength(targetDistance[i]);
         pozition.addVectors(pozition,offsetCamera);
         targetObjecs[i].position.copy(pozition);
+        targetObjecs[i].lookAt(ROBOTPOZ);
         
     }
 
-    if(res.razsirjeniPodatki[0] > 0){
+    if(res.razsirjeniPodatki[0] > 0 && res.razsirjeniPodatki[0] < 1500){
+        debugText.innerHTML += "<br> Razdalja1 " + String(res.razsirjeniPodatki[0]);
+
         arrowHelperR1.visible = true;
         arrowHelperR1.setRotationFromQuaternion(dir);
         arrowHelperR1.rotateZ((-90*pi)/180);

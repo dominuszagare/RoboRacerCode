@@ -1,7 +1,7 @@
 support.h:17:20:nRF24_CE_H	8	static
 main.c:158:6:nRF24SetChip	8	static
 main.c:175:6:inicilizirajCipe	8	static
-main.c:192:7:normalize_v3f	32	static
+main.c:192:6:normalize_v3f	32	static
 main.c:199:6:speedControl	40	static
 main.c:244:5:main	8	static
 main.c:404:6:SystemClock_Config	88	static
@@ -14,10 +14,10 @@ main.c:659:13:MX_TIM3_Init	64	static
 main.c:718:13:MX_TIM5_Init	32	static
 main.c:763:13:MX_GPIO_Init	56	static
 main.c:940:6:HAL_GPIO_EXTI_Callback	16	static
-main.c:995:6:HAL_I2C_SlaveRxCpltCallback	16	static
-main.c:1019:6:StartCalculatingPoz	72	static
-main.c:1121:6:StartRecivingCommandsNRF24	24	static
-main.c:1169:6:StartMotorControl	16	static
-main.c:1198:6:StartCalculatingPath	32	static
-main.c:1227:6:HAL_TIM_PeriodElapsedCallback	16	static
-main.c:1244:6:Error_Handler	8	static,ignoring_inline_asm
+main.c:993:6:HAL_I2C_SlaveRxCpltCallback	16	static
+main.c:1017:6:StartCalculatingPoz	72	static
+main.c:1119:6:StartRecivingCommandsNRF24	24	static
+main.c:1167:6:StartMotorControl	16	static
+main.c:1196:6:StartCalculatingPath	32	static
+main.c:1225:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:1242:6:Error_Handler	8	static,ignoring_inline_asm

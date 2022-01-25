@@ -1,15 +1,9 @@
-13:13:26 **** Incremental Build of configuration Debug for project RobotFreeRTOS ****
+09:40:17 **** Build of configuration Debug for project RobotFreeRTOS ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c:29:29: warning: extra tokens at end of #include directive
-   29 | #include "robotPeriferija.h".h"
-      |                             ^
-../Core/Src/main.c:29:31: warning: missing terminating " character
-   29 | #include "robotPeriferija.h".h"
-      |                               ^
 ../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
-../Core/Src/main.c:982:33: warning: passing argument 2 of 'HAL_I2C_Slave_Receive' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  982 |   HAL_I2C_Slave_Receive(&hi2c3, I2CRxData, 8, 100);
+../Core/Src/main.c:978:33: warning: passing argument 2 of 'HAL_I2C_Slave_Receive' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  978 |   HAL_I2C_Slave_Receive(&hi2c3, I2CRxData, 8, 100);
       |                                 ^~~~~~~~~
 In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
                  from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
@@ -18,8 +12,8 @@ In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:570:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
   570 | HAL_StatusTypeDef HAL_I2C_Slave_Receive(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout);
       |                                                                  ~~~~~~~~~^~~~~
-../Core/Src/main.c:985:34: warning: passing argument 2 of 'HAL_I2C_Slave_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  985 |   HAL_I2C_Slave_Transmit(&hi2c3, I2CTxData, 48,100);
+../Core/Src/main.c:979:34: warning: passing argument 2 of 'HAL_I2C_Slave_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  979 |   HAL_I2C_Slave_Transmit(&hi2c3, I2CTxData, 48,100);
       |                                  ^~~~~~~~~
 In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
                  from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
@@ -29,8 +23,8 @@ In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
   569 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout);
       |                                                                   ~~~~~~~~~^~~~~
 ../Core/Src/main.c: In function 'StartRecivingCommandsNRF24':
-../Core/Src/main.c:1134:54: warning: passing argument 2 of 'nRF24_ReadPayload' from incompatible pointer type [-Wincompatible-pointer-types]
- 1134 |      pipe = nRF24_ReadPayload((uint8_t*)(&robotPay), &payload_length);
+../Core/Src/main.c:1132:54: warning: passing argument 2 of 'nRF24_ReadPayload' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1132 |      pipe = nRF24_ReadPayload((uint8_t*)(&robotPay), &payload_length);
       |                                                      ^~~~~~~~~~~~~~~
       |                                                      |
       |                                                      volatile int *
@@ -38,18 +32,14 @@ In file included from ../Core/Src/main.c:30:
 ../Core/Inc/nrf24.h:244:58: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile int *'
   244 | nRF24_RXResult nRF24_ReadPayload(uint8_t *pBuf, uint8_t *length);
       |                                                 ~~~~~~~~~^~~~~~
-../Core/Src/main.c: In function 'normalize_v3f':
-../Core/Src/main.c:197:1: warning: control reaches end of non-void function [-Wreturn-type]
-  197 | }
-      | ^
 arm-none-eabi-gcc -o "RobotFreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RobotFreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: RobotFreeRTOS.elf
  
 arm-none-eabi-size   RobotFreeRTOS.elf 
 arm-none-eabi-objdump -h -S  RobotFreeRTOS.elf  > "RobotFreeRTOS.list"
-   text	   data	    bss	    dec	    hex	filename
-  83364	    512	  30296	 114172	  1bdfc	RobotFreeRTOS.elf
 arm-none-eabi-objcopy  -O binary  RobotFreeRTOS.elf  "RobotFreeRTOS.bin"
+   text	   data	    bss	    dec	    hex	filename
+  83348	    512	  30296	 114156	  1bdec	RobotFreeRTOS.elf
 Finished building: default.size.stdout
  
 Finished building: RobotFreeRTOS.bin
@@ -57,5 +47,5 @@ Finished building: RobotFreeRTOS.bin
 Finished building: RobotFreeRTOS.list
  
 
-13:13:27 Build Finished. 0 errors, 6 warnings. (took 1s.382ms)
+09:40:23 Build Finished. 0 errors, 3 warnings. (took 5s.462ms)
 

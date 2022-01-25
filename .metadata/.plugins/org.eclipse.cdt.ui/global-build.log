@@ -2,3 +2,109 @@
 make -j12 clean 
 rm -rf  default.size.stdout  Robot.list  Robot.elf  ./USB_DEVICE/Target/usbd_conf.o  ./USB_DEVICE/App/usb_device.o ./USB_DEVICE/App/usbd_cdc_if.o ./USB_DEVICE/App/usbd_desc.o  ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o  ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o  ./FreeRTOS/Source/portable/MemMang/heap_4.o  ./FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o  ./FreeRTOS/Source/croutine.o ./FreeRTOS/Source/event_groups.o ./FreeRTOS/Source/list.o ./FreeRTOS/Source/queue.o ./FreeRTOS/Source/stream_buffer.o ./FreeRTOS/Source/tasks.o ./FreeRTOS/Source/timers.o  ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.o  ./Core/Startup/startup_stm32f411vetx.o  ./Core/Src/MadgwickAHRS.o ./Core/Src/main.o ./Core/Src/nrf24.o ./Core/Src/robotPeriferija.o ./Core/Src/robotTasks.o ./Core/Src/stm32f4xx_hal_msp.o ./Core/Src/stm32f4xx_hal_timebase_tim.o ./Core/Src/stm32f4xx_it.o ./Core/Src/syscalls.o ./Core/Src/system_stm32f4xx.o  ./Core/Startup/startup_stm32f411vetx.d  ./USB_DEVICE/Target/usbd_conf.d  ./USB_DEVICE/App/usb_device.d ./USB_DEVICE/App/usbd_cdc_if.d ./USB_DEVICE/App/usbd_desc.d  ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.d ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.d ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.d  ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.d  ./FreeRTOS/Source/portable/MemMang/heap_4.d  ./FreeRTOS/Source/portable/GCC/ARM_CM4F/port.d  ./FreeRTOS/Source/croutine.d ./FreeRTOS/Source/event_groups.d ./FreeRTOS/Source/list.d ./FreeRTOS/Source/queue.d ./FreeRTOS/Source/stream_buffer.d ./FreeRTOS/Source/tasks.d ./FreeRTOS/Source/timers.d  ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.d  ./Core/Src/MadgwickAHRS.d ./Core/Src/main.d ./Core/Src/nrf24.d ./Core/Src/robotPeriferija.d ./Core/Src/robotTasks.d ./Core/Src/stm32f4xx_hal_msp.d ./Core/Src/stm32f4xx_hal_timebase_tim.d ./Core/Src/stm32f4xx_it.d ./Core/Src/syscalls.d ./Core/Src/system_stm32f4xx.d  Robot.bin  Robot.elf
  
+13:08:45 **** Build of configuration Debug for project RobotFreeRTOS ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:29:29: warning: extra tokens at end of #include directive
+   29 | #include "robotPeriferija.h".h"
+      |                             ^
+../Core/Src/main.c:29:31: warning: missing terminating " character
+   29 | #include "robotPeriferija.h".h"
+      |                               ^
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:978:33: warning: passing argument 2 of 'HAL_I2C_Slave_Receive' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  978 |   HAL_I2C_Slave_Receive(&hi2c3, I2CRxData, 8, 100);
+      |                                 ^~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:570:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
+  570 | HAL_StatusTypeDef HAL_I2C_Slave_Receive(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c:979:34: warning: passing argument 2 of 'HAL_I2C_Slave_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  979 |   HAL_I2C_Slave_Transmit(&hi2c3, I2CTxData, 48,100);
+      |                                  ^~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:569:76: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
+  569 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                   ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'StartRecivingCommandsNRF24':
+../Core/Src/main.c:1132:54: warning: passing argument 2 of 'nRF24_ReadPayload' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1132 |      pipe = nRF24_ReadPayload((uint8_t*)(&robotPay), &payload_length);
+      |                                                      ^~~~~~~~~~~~~~~
+      |                                                      |
+      |                                                      volatile int *
+In file included from ../Core/Src/main.c:30:
+../Core/Inc/nrf24.h:244:58: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile int *'
+  244 | nRF24_RXResult nRF24_ReadPayload(uint8_t *pBuf, uint8_t *length);
+      |                                                 ~~~~~~~~~^~~~~~
+../Core/Src/main.c: In function 'normalize_v3f':
+../Core/Src/main.c:197:1: warning: control reaches end of non-void function [-Wreturn-type]
+  197 | }
+      | ^
+arm-none-eabi-gcc -o "RobotFreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RobotFreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RobotFreeRTOS.elf
+ 
+arm-none-eabi-size   RobotFreeRTOS.elf 
+arm-none-eabi-objdump -h -S  RobotFreeRTOS.elf  > "RobotFreeRTOS.list"
+arm-none-eabi-objcopy  -O binary  RobotFreeRTOS.elf  "RobotFreeRTOS.bin"
+   text	   data	    bss	    dec	    hex	filename
+  83364	    512	  30296	 114172	  1bdfc	RobotFreeRTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: RobotFreeRTOS.bin
+ 
+Finished building: RobotFreeRTOS.list
+ 
+09:40:17 **** Build of configuration Debug for project RobotFreeRTOS ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:978:33: warning: passing argument 2 of 'HAL_I2C_Slave_Receive' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  978 |   HAL_I2C_Slave_Receive(&hi2c3, I2CRxData, 8, 100);
+      |                                 ^~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:570:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
+  570 | HAL_StatusTypeDef HAL_I2C_Slave_Receive(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c:979:34: warning: passing argument 2 of 'HAL_I2C_Slave_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  979 |   HAL_I2C_Slave_Transmit(&hi2c3, I2CTxData, 48,100);
+      |                                  ^~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:569:76: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
+  569 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                   ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'StartRecivingCommandsNRF24':
+../Core/Src/main.c:1132:54: warning: passing argument 2 of 'nRF24_ReadPayload' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1132 |      pipe = nRF24_ReadPayload((uint8_t*)(&robotPay), &payload_length);
+      |                                                      ^~~~~~~~~~~~~~~
+      |                                                      |
+      |                                                      volatile int *
+In file included from ../Core/Src/main.c:30:
+../Core/Inc/nrf24.h:244:58: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile int *'
+  244 | nRF24_RXResult nRF24_ReadPayload(uint8_t *pBuf, uint8_t *length);
+      |                                                 ~~~~~~~~~^~~~~~
+arm-none-eabi-gcc -o "RobotFreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"G:\ROBORACER\RoboRacerCode\RobotFreeRTOS\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RobotFreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RobotFreeRTOS.elf
+ 
+arm-none-eabi-size   RobotFreeRTOS.elf 
+arm-none-eabi-objdump -h -S  RobotFreeRTOS.elf  > "RobotFreeRTOS.list"
+arm-none-eabi-objcopy  -O binary  RobotFreeRTOS.elf  "RobotFreeRTOS.bin"
+   text	   data	    bss	    dec	    hex	filename
+  83348	    512	  30296	 114156	  1bdec	RobotFreeRTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: RobotFreeRTOS.bin
+ 
+Finished building: RobotFreeRTOS.list
+ 

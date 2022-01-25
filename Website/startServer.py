@@ -15,7 +15,7 @@ import glob
 import yaml
 import math
 
-from IntStiskanje import kodiranje
+#from IntStiskanje import kodiranje
 
 
 app = Flask(__name__,
@@ -31,31 +31,10 @@ runApp = True
 MERI_RAZDALJO = True
 podatki_senzorja = [0,0,0,0]
 floatVals = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
-pozicijaARtaga = [(0,0)]
+pozicijaARtaga = [0]
 
 
-VIDEO_FEED = False
-
-@app.route('/video_feed')
-def video_feed():
-    if VIDEO_FEED == True:
-        return Response(stream(True), mimetype='multipart/x-mixed-replace; boundary=frame')
-    else:
-        return ""
-
-def stream(mirror=False):
-    global image
-
-    while True:
-        cameraImage = image
-        if mirror: 
-            cameraImage = cv2.flip(cameraImage, 1)
-
-        #cv2.imshow('my webcam', cameraImage)
-
-        ret, buffer = cv2.imencode('.jpg',cameraImage)
-        frame = buffer.tobytes()
-        yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+VIDEO_FEED = True
 
 
 @app.route('/_getData',methods = ['GET', 'POST'])
@@ -82,14 +61,31 @@ def getData():
     #print("send", podatki_senzorja)
     return jsonData
 
+@app.route('/video_feed')
+def video_feed():
+    if VIDEO_FEED == True:
+        return Response(show_webcam(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    else:
+        return ""
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+"""
+def stream(mirror=False):
+    global image
 
+    while True:
+        cameraImage = image
+        if mirror: 
+            cameraImage = cv2.flip(cameraImage, 1)
 
-def show_webcam(mirror=False):
-    global floatVals, image, pozicijaARtaga
+        #cv2.imshow('my webcam', cameraImage)
+
+        ret, buffer = cv2.imencode('.jpg',cameraImage)
+        frame = buffer.tobytes()
+        yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+"""
+
+def show_webcam():
+    global floatVals, pozicijaARtaga
     
     camera = cv2.VideoCapture(1)
     #impImage = cv2.imread("new.jpg")
@@ -123,15 +119,27 @@ def show_webcam(mirror=False):
                                     (up_left[0], up_left[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (244, 244, 244), 2)
                         # cv2.circle(image, (100, int(rr / 600)), 6, (200, 40, 230), -1)
                         R, _ = cv2.Rodrigues(rvec[0])
-                        #floatVals[12] =  ((tvec[:, 2] * 100) - 10)
+                        floatVals[12] =  ((tvec[:, 2] * 100) - 10)[0]
                         cameraPose = -R.T * tvec[0]
                         #print("XY",cameraPose)
-                        pozicijaARtaga[0] = ((tvec[:, 2] * 100) - 10)
-                        print("Distance:", pozicijaARtaga[0])
+                        poz_dx = int(low_right[0]) - int(up_left[0])
+                        poz_dy = int(low_right[1]) - int(up_left[1])
+                        pozicijaARtaga = [((tvec[:, 2] * 100) - 10)[0],int(up_left[0])+int(poz_dx/2), int(up_left[1])+int(poz_dy/2)]
+           
 
-        cv2.imshow("Image", image)
+
+                        #print("Distance:", pozicijaARtaga[0])
+        else:
+            pozicijaARtaga = [0]
+
+        ret, Imagebuffer = cv2.imencode('.jpg',image)
+        Imageframe = Imagebuffer.tobytes()
+        yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + Imageframe + b'\r\n')
         cv2.waitKey(1)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 def readSerialData28():
     global floatVals, runApp
@@ -225,22 +233,22 @@ def readSerialData28():
 def meriRazdaljo():
     global podatki_senzorja
     while True:
-        lista=[]
-        for x in range(10):
-            r1 = random.randint(420, 435)
-            lista.append(r1)
+        #lista=[]
+        #for x in range(10):
+        #    r1 = random.randint(420, 435)
+        #    lista.append(r1)
         
-        podatki_senzorja, string = kodiranje(lista)
+        podatki_senzorja = [2000,2000]
         #print(string)
         time.sleep(1)
 
 if __name__ == '__main__':
     
-    #t1 = threading.Thread(target=readSerialData28, args=())
-    #t1.start()
+    t1 = threading.Thread(target=readSerialData28, args=())
+    t1.start()
 
-    t2 = threading.Thread(target=show_webcam, args=())
-    t2.start()
+    #t2 = threading.Thread(target=show_webcam, args=())
+    #2.start()
 
     if MERI_RAZDALJO == True:
         t4 = threading.Thread(target=meriRazdaljo, args=())
